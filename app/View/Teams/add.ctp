@@ -25,6 +25,9 @@
 <?php					echo $this->Html->div('row',$this->Form->input('removed',array('value'=>'N','type'=>'hidden','div'=>'col-xs-12','class'=>'form-control input-sm')),array('escape'=>false));
 					 echo $this->Html->div('row',$this->Form->input('nm_team',array('div'=>'col-xs-12','data-toggle'=>'tooltip','data-original-title'=>__('nm_team'),'title'=>__('nm_team'),'class'=>'form-control input-sm')),array('escape'=>false));
 					 echo $this->Html->div('row',$this->Form->input('ds_team',array('div'=>'col-xs-12','data-toggle'=>'tooltip','data-original-title'=>__('ds_team'),'title'=>__('ds_team'),'class'=>'form-control input-sm')),array('escape'=>false));
+							?><div data-original-title='<?=__('room_id')?>' data-toggle="tooltip">
+			<?php echo $this->Html->div('row',$this->Form->input('room_id',array('div'=>'col-xs-12','class'=>'form-control input-sm selectpicker','data-style'=>'btn-primary','data-live-search'=>'true','style'=>'width:100%','empty' => __('room_id'))),array('escape'=>false)); ?>
+		</div><?php
 					echo $this->Html->div('row',$this->Form->input('Activity',array('div'=>'col-xs-12','class'=>'form-control input-sm')),array('escape'=>false));
 					echo $this->Html->div('row',$this->Form->input('Matriculation',array('div'=>'col-xs-12','class'=>'form-control input-sm')),array('escape'=>false));
 				?>

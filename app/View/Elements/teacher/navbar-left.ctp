@@ -43,7 +43,7 @@
                     <i class="fa fa-child"></i> <span><?php echo __("Students") ?></span>
                 </a>
             </li>
-            <li>
+<!--            <li>
                 <a href="<?php
                 echo $this->Html->url(array(
                     'controller' => 'Teachers',
@@ -52,8 +52,8 @@
                    ?>">
                     <i class="fa fa-child"></i> <span><?php echo __("Teachers") ?></span>
                 </a>
-            </li>
-            <li>
+            </li>-->
+<!--            <li>
                 <a href="<?php
                 echo $this->Html->url(array(
                     'controller' => 'Subjects',
@@ -62,8 +62,8 @@
                    ?>">
                     <i class="fa fa-child"></i> <span><?php echo __("Subjects") ?></span>
                 </a>
-            </li>
-            <li>
+            </li>-->
+<!--            <li>
                 <a href="<?php
                 echo $this->Html->url(array(
                     'controller' => 'Rooms',
@@ -72,13 +72,13 @@
                    ?>">
                     <i class="fa  fa-group"></i> <span><?php echo __("Rooms") ?></span>
                 </a>
-            </li>
+            </li>-->
             
             <li>
                 <a href="<?php
                 echo $this->Html->url(array(
                     'controller' => 'Matriculations',
-                    'action' => 'index'
+                    'action' => 'teacher_index'
                 ));
                    ?>">
                     <i class="fa  fa-group"></i> <span><?php echo __("Matriculations") ?></span>
@@ -87,13 +87,14 @@
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
-                       'controller' => 'Points',
-                       'action' => 'index'
+                       'controller' => 'Teams',
+                       'action' => 'teacher_index'
                    ));
                    ?>">
-                    <i class="fa fa-glass"></i> <span><?php echo __("Points") ?></span>
+                    <i class="fa fa-ticket"></i> <span><?php echo __("Teams") ?></span>
                 </a>
             </li>
+            
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
@@ -107,27 +108,24 @@
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
-                       'controller' => 'Teams',
-                       'action' => 'index'
+                       'controller' => 'Points',
+                       'action' => 'teacher_index'
                    ));
                    ?>">
-                    <i class="fa fa-ticket"></i> <span><?php echo __("Teams") ?></span>
+                    <i class="fa fa-glass"></i> <span><?php echo __("Points") ?></span>
                 </a>
             </li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-cog"></i> 
-                    <span><?php echo __('Configs') ?></span>
-                    <i class="fa fa-angle-left pull-right"></i>
+            <li>
+                <a href="<?php
+                   echo $this->Html->url(array(
+                       'controller' => 'Rewards',
+                       'action' => 'teacher_index'
+                   ));
+                   ?>">
+                    <i class="fa fa-glass"></i> <span><?php echo __("Rewards") ?></span>
                 </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'index')); ?>"><i class="fa fa-user"></i> <?php echo __('Users') ?></a></li>
-                    <li><a href="<?php echo $this->Html->url(array('controller' => 'Groups', 'action' => 'index')); ?>"><i class="fa fa-users"></i> <?php echo __('Groups') ?></a></li>
-                    <li><a href="<?php echo $this->Html->url(array('plugin' => 'admin', 'controller' => 'permissions', 'action' => 'index')); ?>"><i class="fa fa-unlock-alt"></i> <?php echo __('Access Control') ?></a></li>
-                    <li><a href="<?php echo $this->Html->url(array('controller' => 'Logs', 'action' => 'index')); ?>"><i class="fa f fa-newspaper-o"></i> <?php echo __('Logs') ?></a></li>
-
-                </ul>
             </li>
+            
         </ul>    
     </section>
     <!-- /.sidebar -->

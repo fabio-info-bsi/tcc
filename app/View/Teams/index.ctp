@@ -24,6 +24,7 @@
                     	<th class="actions col-xs-1"><?php echo $this->Paginator->sort('active',__('active'),array('data-toggle'=>'tooltip','data-original-title'=>__('active'),'title'=>__('active'))); ?></th>
                             <th><?php echo $this->Paginator->sort('nm_team',__('nm_team'),array('data-toggle'=>'tooltip','data-original-title'=>__('nm_team'),'title'=>__('nm_team'))); ?></th>
                             <th><?php echo $this->Paginator->sort('ds_team',__('ds_team'),array('data-toggle'=>'tooltip','data-original-title'=>__('ds_team'),'title'=>__('ds_team'))); ?></th>
+                            <th><?php echo $this->Paginator->sort('room_id',__('room_id'),array('data-toggle'=>'tooltip','data-original-title'=>__('room_id'),'title'=>__('room_id'))); ?></th>
                             <th class="actions col-xs-1"><?php echo __('Actions'); ?></th>
                 	   </tr>
                 	</thead>
@@ -35,7 +36,8 @@
                             <td class="actions col-xs-1"><div data-original-title='<?=__('active')?>' data-toggle="tooltip"><?php echo $this->Form->input('active', array('label' => '','default' => '','style'=>'width:100%','empty' => __('Status'),'class'=>'form-control input-sm selectpicker','data-style'=>'btn-primary','options' => $options));?></div></td>
                             					 <td><?php echo $this->Html->div('row',$this->Form->input('nm_team',array('div'=>'col-xs-12','style'=>'width:100%','label'=>'','data-toggle'=>'tooltip','data-original-title'=>__('nm_team'),'title'=>__('nm_team'),'class'=>'form-control input-sm')),array('escape'=>false));?></td>
 					 <td><?php echo $this->Html->div('row',$this->Form->input('ds_team',array('div'=>'col-xs-12','style'=>'width:100%','label'=>'','data-toggle'=>'tooltip','data-original-title'=>__('ds_team'),'title'=>__('ds_team'),'class'=>'form-control input-sm')),array('escape'=>false));?></td>
-<td><?php echo $this->Form->submit(__('Search'),array('class' => 'btn btn-primary','data-toggle'=>'tooltip','data-original-title'=>__('Search'),'title'=>__('Search'))) ?></td>
+                                            <td><div data-original-title='<?=__('room_id')?>' data-toggle="tooltip"><?php echo $this->Form->input('room_id', array('label' => '','default' => '','type'=>'select','class'=>'form-control input-sm selectpicker','data-style'=>'btn-primary','data-live-search'=>'true','style'=>'width:100%','empty' => __('room_id')));?></div></td>
+                                            <td><?php echo $this->Form->submit(__('Search'),array('class' => 'btn btn-primary','data-toggle'=>'tooltip','data-original-title'=>__('Search'),'title'=>__('Search'))) ?></td>
                             <?php echo $this->Form->end();?>
                         </tr>
                 		<?php foreach ($teams as $team): ?>
@@ -47,6 +49,9 @@
                            } ?></td>
 						<td><?php echo h($team['Team']['nm_team']); ?>&nbsp;</td>
 						<td><?php echo h($team['Team']['ds_team']); ?>&nbsp;</td>
+							<td>
+			<?php echo $this->Html->link($team['Room']['id'], array('controller' => 'rooms', 'action' => 'view', $team['Room']['id'])); ?>
+		</td>
 							<td class="actions"  title='Actions' data-original-title='Actions' data-toggle="tooltip">
 								<div class="pull-right">
 									<div class="btn-group">

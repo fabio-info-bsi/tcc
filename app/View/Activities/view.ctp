@@ -31,17 +31,41 @@
         <div class="tab-content">
           <div id="tab_1-1" class="tab-pane active">
                 <div style="margin: 20px">
+		<?php if($activity['Activity']['created']){?>
+		<dt><?php echo __('Created'); ?></dt>
+		<dd><?php echo h($activity['Activity']['created']); ?></dd>
+		<?php }?>
+		<?php if($activity['Activity']['modified']){?>
+		<dt><?php echo __('Modified'); ?></dt>
+		<dd><?php echo h($activity['Activity']['modified']); ?></dd>
+		<?php }?>
+		<?php if($activity['Activity']['nm_activity']){?>
+		<dt><?php echo __('Nm Activity'); ?></dt>
+		<dd><?php echo h($activity['Activity']['nm_activity']); ?></dd>
+		<?php }?>
 		<?php if($activity['Activity']['ds_activity']){?>
 		<dt><?php echo __('Ds Activity'); ?></dt>
 		<dd><?php echo h($activity['Activity']['ds_activity']); ?></dd>
 		<?php }?>
-		<?php if($activity['Activity']['vl_activity']){?>
-		<dt><?php echo __('Vl Activity'); ?></dt>
-		<dd><?php echo h($activity['Activity']['vl_activity']); ?></dd>
+		<?php if($activity['Activity']['vl_activity_sucess']){?>
+		<dt><?php echo __('Vl Activity Sucess'); ?></dt>
+		<dd><?php echo h($activity['Activity']['vl_activity_sucess']); ?></dd>
+		<?php }?>
+		<?php if($activity['Activity']['vl_activity_attempt']){?>
+		<dt><?php echo __('Vl Activity Attempt'); ?></dt>
+		<dd><?php echo h($activity['Activity']['vl_activity_attempt']); ?></dd>
+		<?php }?>
+		<?php if($activity['Activity']['vl_activity_failed']){?>
+		<dt><?php echo __('Vl Activity Failed'); ?></dt>
+		<dd><?php echo h($activity['Activity']['vl_activity_failed']); ?></dd>
 		<?php }?>
 		<?php if($activity['Activity']['room_id']){?>
 		<dt><?php echo __('Room'); ?></dt>
 		<dd><?php echo $this->Html->link($activity['Room']['id'], array('controller' => 'rooms', 'action' => 'view', $activity['Room']['id'])); ?></dd>
+		<?php }?>
+		<?php if($activity['Activity']['reward_id']){?>
+		<dt><?php echo __('Reward'); ?></dt>
+		<dd><?php echo $this->Html->link($activity['Reward']['id'], array('controller' => 'rewards', 'action' => 'view', $activity['Reward']['id'])); ?></dd>
 		<?php }?>
                 </div>
             </div>
@@ -60,14 +84,24 @@
                                         <thead>
                                             <tr>
                                            
-                                                    <th><?php echo __('nm_team'); ?></th>
+                                                    <th class="actions col-xs-1"><?php echo __('active'); ?></th>
+                                                        <th><?php echo __('nm_team'); ?></th>
+                                                        <th><?php echo __('ds_team'); ?></th>
+                                                        <th><?php echo __('room_id'); ?></th>
                                                         <th class="actions col-xs-1"><?php echo __('Actions'); ?></th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                         	<?php foreach ($activity['Team'] as $team): ?>
 									<tr>
+										<td><?php if($team['active'] == 'S'){
+                                                                  echo '<span  class="btn-sm bg-green pull-right">'.__('Active').'</span>';
+                                                               }else{
+                                                                  echo '<span  class="btn-sm bg-red pull-right">'.__('Inactive').'</span>';
+                                                               } ?></td>
 										<td><?php echo $team['nm_team']; ?>&nbsp;</td>
+										<td><?php echo $team['ds_team']; ?>&nbsp;</td>
+										<td><?php echo $team['room_id']; ?>&nbsp;</td>
 										<td class="actions">
 											<div class="pull-right">
 												<div data-toggle='tooltip' data-original-title='<?=__('Actions')?>' title'=<?=__('Add')?>' class="btn-group">
@@ -111,7 +145,8 @@
                                         <thead>
                                             <tr>
                                            
-                                                    <th><?php echo __('student_id'); ?></th>
+                                                    <th class="actions col-xs-1"><?php echo __('active'); ?></th>
+                                                        <th><?php echo __('student_id'); ?></th>
                                                         <th><?php echo __('room_id'); ?></th>
                                                         <th class="actions col-xs-1"><?php echo __('Actions'); ?></th>
                                             </tr>
@@ -119,6 +154,11 @@
                                         <tbody>
                                         	<?php foreach ($activity['Matriculation'] as $matriculation): ?>
 									<tr>
+										<td><?php if($matriculation['active'] == 'S'){
+                                                                  echo '<span  class="btn-sm bg-green pull-right">'.__('Active').'</span>';
+                                                               }else{
+                                                                  echo '<span  class="btn-sm bg-red pull-right">'.__('Inactive').'</span>';
+                                                               } ?></td>
 										<td><?php echo $matriculation['student_id']; ?>&nbsp;</td>
 										<td><?php echo $matriculation['room_id']; ?>&nbsp;</td>
 										<td class="actions">

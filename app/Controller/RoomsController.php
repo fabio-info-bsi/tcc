@@ -53,8 +53,8 @@ class RoomsController extends AppController {
         $options = array('Room.removed' => 'N');
         $this->set('rooms', $this->Paginator->paginate($options));
 
-        $subjects = $this->Room->Subject->find('list', array('fields' => array('Subject.nm_subject'),'conditions' => array('Subject.removed' => 'N', 'Subject.active' => 'S'), 'order' => 'Subject.nm_subject'));
-        $teachers = $this->Room->Teacher->find('list', array('fields' => array('Teacher.nm_teacher'),'conditions' => array('Teacher.removed' => 'N', 'Teacher.active' => 'S'), 'order' => 'Teacher.nm_teacher'));
+        $subjects = $this->Room->Subject->find('list', array('fields' => array('Subject.nm_subject'), 'conditions' => array('Subject.removed' => 'N', 'Subject.active' => 'S'), 'order' => 'Subject.created'));
+        $teachers = $this->Room->Teacher->find('list', array('fields' => array('Teacher.nm_teacher'), 'conditions' => array('Teacher.removed' => 'N', 'Teacher.active' => 'S'), 'order' => 'Teacher.created'));
         $this->set(compact('subjects', 'teachers'));
     }
 
@@ -98,8 +98,8 @@ class RoomsController extends AppController {
                         '</div>');
             }
         }
-        $subjects = $this->Room->Subject->find('list', array('fields' => array('Subject.nm_subject'),'conditions' => array('Subject.removed' => 'N', 'Subject.active' => 'S'), 'order' => 'Subject.nm_subject'));
-        $teachers = $this->Room->Teacher->find('list', array('fields' => array('Teacher.nm_teacher'),'conditions' => array('Teacher.removed' => 'N', 'Teacher.active' => 'S'), 'order' => 'Teacher.nm_teacher'));
+        $subjects = $this->Room->Subject->find('list', array('fields' => array('Subject.nm_subject'), 'conditions' => array('Subject.removed' => 'N', 'Subject.active' => 'S'), 'order' => 'Subject.created'));
+        $teachers = $this->Room->Teacher->find('list', array('fields' => array('Teacher.nm_teacher'), 'conditions' => array('Teacher.removed' => 'N', 'Teacher.active' => 'S'), 'order' => 'Teacher.created'));
         $this->set(compact('subjects', 'teachers'));
     }
 
@@ -135,8 +135,8 @@ class RoomsController extends AppController {
             $options = array('conditions' => array('Room.' . $this->Room->primaryKey => $id));
             $this->request->data = $this->Room->find('first', $options);
         }
-        $subjects = $this->Room->Subject->find('list', array('fields' => array('Subject.nm_subject'),'conditions' => array('Subject.removed' => 'N', 'Subject.active' => 'S'), 'order' => 'Subject.nm_subject'));
-        $teachers = $this->Room->Teacher->find('list', array('fields' => array('Teacher.nm_teacher'),'conditions' => array('Teacher.removed' => 'N', 'Teacher.active' => 'S'), 'order' => 'Teacher.nm_teacher'));
+        $subjects = $this->Room->Subject->find('list', array('fields' => array('Subject.nm_subject'), 'conditions' => array('Subject.removed' => 'N', 'Subject.active' => 'S'), 'order' => 'Subject.created'));
+        $teachers = $this->Room->Teacher->find('list', array('fields' => array('Teacher.nm_teacher'), 'conditions' => array('Teacher.removed' => 'N', 'Teacher.active' => 'S'), 'order' => 'Teacher.created'));
         $this->set(compact('subjects', 'teachers'));
     }
 
@@ -170,6 +170,15 @@ class RoomsController extends AppController {
                     '</div>');
         }
         return $this->redirect(array('action' => 'index'));
+    }
+
+    public function update_select_room() {
+        if ($this->request->is('post')) {
+            $this->Session->write(
+                    'Auth.User.SelectRoom', array('id' => $this->request->data['room_id'])
+            );
+            return $this->redirect($this->request->referer());
+        }
     }
 
 }

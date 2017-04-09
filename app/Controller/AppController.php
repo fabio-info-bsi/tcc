@@ -43,6 +43,7 @@ class AppController extends Controller {
         parent::beforefilter();
         $this->AclPermissions->filter();
         $this->dinamicLayout();
+        $this->set('rooms', $this->Session->read('Auth.User.Rooms'));
     }
     
     protected function dinamicLayout() {

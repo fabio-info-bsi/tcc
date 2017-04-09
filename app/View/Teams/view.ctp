@@ -47,6 +47,10 @@
 		<dt><?php echo __('Ds Team'); ?></dt>
 		<dd><?php echo h($team['Team']['ds_team']); ?></dd>
 		<?php }?>
+		<?php if($team['Team']['room_id']){?>
+		<dt><?php echo __('Room'); ?></dt>
+		<dd><?php echo $this->Html->link($team['Room']['id'], array('controller' => 'rooms', 'action' => 'view', $team['Room']['id'])); ?></dd>
+		<?php }?>
                 </div>
             </div>
                         <div id="tab_2-2" class="tab-pane">

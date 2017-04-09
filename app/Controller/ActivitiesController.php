@@ -137,7 +137,7 @@ class ActivitiesController extends AppController {
             }
         }
         $rooms = $this->Activity->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.id'));
-        //$teams = $this->Activity->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.name'));
+        $reward = $this->Activity->Reward->find('list', array('conditions' => array('Reward.removed' => 'N', 'Reward.active' => 'S'), 'order' => 'Reward.created'));
         $matriculations = $this->Activity->Matriculation->find('list', array('conditions' => array('Matriculation.removed' => 'N', 'Matriculation.active' => 'S'),
             'joins' => array(
                 array(
@@ -146,12 +146,13 @@ class ActivitiesController extends AppController {
                     'type' => 'INNER',
                     'conditions' => 'Matriculation.student_id = Student.id')
             ),
+            
             'fields' => array(
                 'Matriculation.id',
                 'Student.nm_student',
             ),
             'order' => 'Matriculation.student_id'));
-        $this->set(compact('rooms', 'teams', 'matriculations'));
+        $this->set(compact('rooms', 'reward', 'matriculations'));
     }
 
     public function teacher_add() {
@@ -178,8 +179,19 @@ class ActivitiesController extends AppController {
         }
         //$rooms = $this->Activity->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.id'));
         //$teams = $this->Activity->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.name'));
+        $rewards = $this->Activity->Reward->find('list', array(
+            'conditions' => array(
+                'Reward.removed' => 'N',
+                'Reward.active' => 'S',
+                'Reward.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Reward.id',
+                'Reward.nm_brinde',
+            ),
+            'order' => 'Reward.created'));
         $matriculations = $this->Activity->Matriculation->find('list', array(
-            'conditions' => array('Matriculation.removed' => 'N', 
+            'conditions' => array('Matriculation.removed' => 'N',
                 'Matriculation.active' => 'S',
                 'Matriculation.room_id' => $this->Session->read('Auth.User.SelectRoom.id')),
             'joins' => array(
@@ -194,7 +206,7 @@ class ActivitiesController extends AppController {
                 'Student.nm_student',
             ),
             'order' => 'Matriculation.student_id'));
-        $this->set(compact('rooms', 'teams', 'matriculations'));
+        $this->set(compact('rooms', 'teams', 'rewards', 'matriculations'));
     }
 
     /**
@@ -234,6 +246,7 @@ class ActivitiesController extends AppController {
         $matriculations = $this->Activity->Matriculation->find('list', array('conditions' => array('Matriculation.removed' => 'N', 'Matriculation.active' => 'S'), 'order' => 'Matriculation.id'));
         $this->set(compact('rooms', 'teams', 'matriculations'));
     }
+
     public function teacher_edit($id = null) {
         if (!$this->Activity->exists($id)) {
             throw new NotFoundException(__('Invalid activity'));
@@ -260,10 +273,19 @@ class ActivitiesController extends AppController {
             $options = array('conditions' => array('Activity.' . $this->Activity->primaryKey => $id));
             $this->request->data = $this->Activity->find('first', $options);
         }
-        $rooms = $this->Activity->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.id'));
-        $teams = $this->Activity->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.id'));
+        $rewards = $this->Activity->Reward->find('list', array(
+            'conditions' => array(
+                'Reward.removed' => 'N',
+                'Reward.active' => 'S',
+                'Reward.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Reward.id',
+                'Reward.nm_brinde',
+            ),
+            'order' => 'Reward.created'));
         $matriculations = $this->Activity->Matriculation->find('list', array(
-            'conditions' => array('Matriculation.removed' => 'N', 
+            'conditions' => array('Matriculation.removed' => 'N',
                 'Matriculation.active' => 'S',
                 'Matriculation.room_id' => $this->Session->read('Auth.User.SelectRoom.id')),
             'joins' => array(
@@ -278,7 +300,7 @@ class ActivitiesController extends AppController {
                 'Student.nm_student',
             ),
             'order' => 'Matriculation.student_id'));
-        $this->set(compact('rooms', 'teams', 'matriculations'));
+        $this->set(compact('rooms', 'teams', 'rewards', 'matriculations'));
     }
 
     /**

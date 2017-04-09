@@ -89,15 +89,42 @@ class UsersController extends AdminAppController {
                 $this->loadModel("User");
                 $this->User->recursive = 2;
                 //Reescrevendo na session 
-                $this->Session->write('Auth.User.Rooms', $this->User->find('first', array(
+//                $this->Session->write('Auth.User.Rooms', $this->User->Teacher->find('first', array(
+//                            'conditions' => array(
+//                                'User.id' => $this->Session->read('Auth.User.id')
+//                            )
+//                                )
+//                        )['Teacher']['Room']
+//                );
+//                $this->Session->write(
+//                        'Auth.User.SelectRoom', $this->Session->read('Auth.User.Rooms.0')
+//                );
+
+                $this->Session->write('Auth.User.Rooms', $this->User->Teacher->Room->find('list', array(
                             'conditions' => array(
-                                'User.id' => $this->Session->read('Auth.User.id')
+                                'Room.teacher_id' => $this->Session->read('Auth.User.Teacher.id')
+                            ), 'fields' => array(
+                                'Room.id',
+                                'Subject.nm_subject',
+                            ),
+                            'joins' => array(
+                                array(
+                                    'table' => 'teachers',
+                                    'alias' => 'Teacher',
+                                    'type' => 'INNER',
+                                    'conditions' => 'Room.teacher_id = Teacher.id'
+                                ),
+                                array(
+                                    'table' => 'subjects',
+                                    'alias' => 'Subject',
+                                    'type' => 'INNER',
+                                    'conditions' => 'Room.subject_id = Subject.id')
                             )
                                 )
-                        )['Teacher']['Room']
+                        )
                 );
                 $this->Session->write(
-                        'Auth.User.SelectRoom', $this->Session->read('Auth.User.Rooms.0')
+                        'Auth.User.SelectRoom', array('id'=> key($this->Session->read('Auth.User.Rooms')),'nm_room'=> current($this->Session->read('Auth.User.Rooms')))
                 );
                 return $this->redirect($this->Auth->redirect('/'));
             } else {

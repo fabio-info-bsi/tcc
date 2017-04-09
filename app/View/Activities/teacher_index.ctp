@@ -24,9 +24,11 @@
                     <table  class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
-                                <th><?php echo $this->Paginator->sort('ds_activity', __('ds_activity'), array('data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'))); ?></th>
-                                <th><?php echo $this->Paginator->sort('vl_activity', __('vl_activity'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity'), 'title' => __('vl_activity'))); ?></th>
-                                <th><?php echo $this->Paginator->sort('room_id', __('room_id'), array('data-toggle' => 'tooltip', 'data-original-title' => __('room_id'), 'title' => __('room_id'))); ?></th>
+                                <th><?php echo $this->Paginator->sort('nm_activity', __('ds_activity'), array('data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'))); ?></th>
+                                <th><?php echo $this->Paginator->sort('vl_activity_sucess', __('vl_activity_sucess'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_sucess'), 'title' => __('vl_activity_sucess'))); ?></th>
+                                <th><?php echo $this->Paginator->sort('vl_activity_attempt', __('vl_activity_attempt'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_attempt'), 'title' => __('vl_activity_attempt'))); ?></th>
+                                <th><?php echo $this->Paginator->sort('vl_activity_failed', __('vl_activity_failed'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_failed'), 'title' => __('vl_activity_failed'))); ?></th>
+                                <th><?php echo __('Reward'); ?></th>
                                 <th class="actions col-xs-1"><?php echo __('Actions'); ?></th>
                             </tr>
                         </thead>
@@ -34,18 +36,22 @@
                             <tr>
                                 <?php $base_url = array('controller' => 'Activities', 'action' => 'index'); ?>
                                 <?php echo $this->Form->create("Filter", array('url' => $base_url, 'class' => 'filter')); ?>
-                                <td><?php echo $this->Html->div('row', $this->Form->input('ds_activity', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
-                                <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity'), 'title' => __('vl_activity'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
-                                <td><div data-original-title='<?= __('room_id') ?>' data-toggle="tooltip"><?php echo $this->Form->input('room_id', array('label' => '', 'default' => '', 'type' => 'select', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'style' => 'width:100%', 'empty' => __('room_id'))); ?></div></td>
+                                <td><?php echo $this->Html->div('row', $this->Form->input('nm_activity', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
+                                <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity_sucess', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_sucess'), 'title' => __('vl_activity_sucess'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
+                                <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity_attempt', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_attempt'), 'title' => __('vl_activity_attempt'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
+                                <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity_failed', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_failed'), 'title' => __('vl_activity_failed'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
+                                <td></td>
                                 <td><?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Search'), 'title' => __('Search'))) ?></td>
                                 <?php echo $this->Form->end(); ?>
                             </tr>
                             <?php foreach ($activities as $activity): ?>
-                                <tr>
-                                    <td><?php echo h($activity['Activity']['ds_activity']); ?>&nbsp;</td>
-                                    <td><?php echo h($activity['Activity']['vl_activity']); ?>&nbsp;</td>
+                            <tr>
+                                    <td><?php echo h($activity['Activity']['nm_activity']); ?>&nbsp;</td>
+                                    <td><?php echo h($activity['Activity']['vl_activity_sucess']); ?>&nbsp;</td>
+                                    <td><?php echo h($activity['Activity']['vl_activity_attempt']); ?>&nbsp;</td>
+                                    <td><?php echo h($activity['Activity']['vl_activity_failed']); ?>&nbsp;</td>
                                     <td>
-                                        <?php echo $this->Html->link($activity['Room']['id'], array('controller' => 'rooms', 'action' => 'view', $activity['Room']['id'])); ?>
+                                        <i class="fa <?php echo $activity['Reward']['nm_icon'];  ?>"></i>
                                     </td>
                                     <td class="actions"  title='Actions' data-original-title='Actions' data-toggle="tooltip">
                                         <div class="pull-right">

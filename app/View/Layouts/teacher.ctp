@@ -23,7 +23,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <?php echo $this->element('head'); ?>
     </head>
-    <body class="skin-purple sidebar-mini wysihtml5-supported sidebar-collapse" style="height: auto;">
+    <body class="skin-blue sidebar-mini wysihtml5-supported sidebar-collapse" style="height: auto;">
         <div class="wrapper" style="height: auto;">
             <?php echo $this->element('teacher/navbar-top'); ?>
             <?php echo $this->element('teacher/navbar-left'); ?>
