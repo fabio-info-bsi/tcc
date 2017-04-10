@@ -124,7 +124,7 @@ class UsersController extends AdminAppController {
                         )
                 );
                 $this->Session->write(
-                        'Auth.User.SelectRoom', array('id'=> key($this->Session->read('Auth.User.Rooms')),'nm_room'=> current($this->Session->read('Auth.User.Rooms')))
+                        'Auth.User.SelectRoom', array('id'=> key($this->Session->read('Auth.User.Rooms')))
                 );
                 return $this->redirect($this->Auth->redirect('/'));
             } else {

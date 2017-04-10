@@ -17,6 +17,8 @@
                 <section class="content-header">
                     <?php echo $this->Html->link($this->Html->tag('button', $this->Html->tag('i', '', array('class' => 'fa fa-refresh fa-fw')), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Refresh'), 'title' => __('Refresh'), 'escape' => false)), $this->Html->url(), array('escape' => false)); ?>
                     <?php echo $this->Html->link($this->Html->tag('button', $this->Html->tag('i', '', array('class' => 'fa fa-plus fa-fw')), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Add'), 'title' => __('Add'), 'escape' => false)), $this->Html->url(array('action' => 'teacher_add')), array('escape' => false)); ?>
+                    <?php echo $this->Html->link($this->Html->tag('button', $this->Html->tag('i', '', array('class' => 'fa fa-trophy')), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Add'), 'title' => __('Challenge'), 'escape' => false)), $this->Html->url(array('action' => 'teacher_add_challenge')), array('escape' => false)); ?>
+                    <?php echo $this->Html->link($this->Html->tag('button', $this->Html->tag('i', '', array('class' => 'fa fa-steam')), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Add'), 'title' => __('Challenge for team'), 'escape' => false)), $this->Html->url(array('action' => 'teacher_add_challenge_team')), array('escape' => false)); ?>
                 </section>
             </div>
             <div class="table-responsive">
@@ -24,10 +26,12 @@
                     <table  class="table table-striped table-bordered table-hover" id="dataTables-example">
                         <thead>
                             <tr>
+                                <th class="actions col-xs-1"><?php echo $this->Paginator->sort('active', __('active')); ?></th>
                                 <th><?php echo $this->Paginator->sort('nm_activity', __('ds_activity'), array('data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'))); ?></th>
                                 <th><?php echo $this->Paginator->sort('vl_activity_sucess', __('vl_activity_sucess'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_sucess'), 'title' => __('vl_activity_sucess'))); ?></th>
                                 <th><?php echo $this->Paginator->sort('vl_activity_attempt', __('vl_activity_attempt'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_attempt'), 'title' => __('vl_activity_attempt'))); ?></th>
                                 <th><?php echo $this->Paginator->sort('vl_activity_failed', __('vl_activity_failed'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_failed'), 'title' => __('vl_activity_failed'))); ?></th>
+                                <th><?php echo __('type_activity') ?></th>
                                 <th><?php echo __('Reward'); ?></th>
                                 <th class="actions col-xs-1"><?php echo __('Actions'); ?></th>
                             </tr>
@@ -36,22 +40,46 @@
                             <tr>
                                 <?php $base_url = array('controller' => 'Activities', 'action' => 'index'); ?>
                                 <?php echo $this->Form->create("Filter", array('url' => $base_url, 'class' => 'filter')); ?>
+                                <?php $options = array('S' => __('Active'), 'N' => __('Inactive')); ?>
+                                <td class="actions col-xs-1"><?php echo $this->Form->input('active', array('label' => '', 'default' => '', 'style' => 'width:100%', 'empty' => __('Status'), 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'options' => $options)); ?></td>
                                 <td><?php echo $this->Html->div('row', $this->Form->input('nm_activity', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
                                 <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity_sucess', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_sucess'), 'title' => __('vl_activity_sucess'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
                                 <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity_attempt', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_attempt'), 'title' => __('vl_activity_attempt'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
                                 <td><?php echo $this->Html->div('row', $this->Form->input('vl_activity_failed', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_failed'), 'title' => __('vl_activity_failed'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
                                 <td></td>
+                                <td></td>
                                 <td><?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Search'), 'title' => __('Search'))) ?></td>
                                 <?php echo $this->Form->end(); ?>
                             </tr>
                             <?php foreach ($activities as $activity): ?>
-                            <tr>
+                                <tr>
+                                    <td><?php
+                                        if ($activity['Activity']['active'] == 'S') {
+                                            echo '<span  class="btn-sm bg-green pull-right">' . __('Active') . '</span>';
+                                        } else {
+                                            echo '<span  class="btn-sm bg-red pull-right">' . __('Inactive') . '</span>';
+                                        }
+                                        ?>
+                                    </td>
                                     <td><?php echo h($activity['Activity']['nm_activity']); ?>&nbsp;</td>
                                     <td><?php echo h($activity['Activity']['vl_activity_sucess']); ?>&nbsp;</td>
                                     <td><?php echo h($activity['Activity']['vl_activity_attempt']); ?>&nbsp;</td>
                                     <td><?php echo h($activity['Activity']['vl_activity_failed']); ?>&nbsp;</td>
                                     <td>
-                                        <i class="fa <?php echo $activity['Reward']['nm_icon'];  ?>"></i>
+                                        <span  class="btn-sm bg-purple">
+                                            <?php
+                                            if ($activity['Activity']['type_activity'] == 'C') {
+                                                echo __('Challenge');
+                                            }else if ($activity['Activity']['type_activity'] == 'CT'){
+                                                echo __('Challenge for team');
+                                            }else{
+                                                echo __('Activity');
+                                            }
+                                            ?>                                            
+                                        </span>                                        
+                                    </td>
+                                    <td>
+                                        <i class="fa <?php echo $activity['Reward']['nm_icon']; ?>"></i>
                                     </td>
                                     <td class="actions"  title='Actions' data-original-title='Actions' data-toggle="tooltip">
                                         <div class="pull-right">
@@ -61,6 +89,7 @@
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu pull-right" role="menu">
+                                                    <li><?php echo $this->Html->link($this->Html->tag('i', __(' Evaluation'), array('class' => 'fa fa-edit fa-fw'), array('class' => 'btn btn-primary', 'escape' => false)), $this->Html->url(array('action' => 'teacher_evaluation', $activity['Activity']['id'])), array('escape' => false)); ?></li>
                                                     <li><?php echo $this->Html->link($this->Html->tag('i', __(' View'), array('class' => 'fa fa-eye fa-fw'), array('class' => 'btn btn-primary', 'escape' => false)), $this->Html->url(array('action' => 'view', $activity['Activity']['id'])), array('escape' => false)); ?></li>
                                                     <li><?php echo $this->Html->link($this->Html->tag('i', __(' Edit'), array('class' => 'fa fa-edit fa-fw'), array('class' => 'btn btn-primary', 'escape' => false)), $this->Html->url(array('action' => 'teacher_edit', $activity['Activity']['id'])), array('escape' => false)); ?></li>
                                                     <li><?php echo $this->Form->postLink($this->Html->tag('i', __(' Delete'), array('class' => 'fa fa-trash-o fa-fw')), array('action' => 'delete', $activity['Activity']['id']), array('escape' => false), __('Are you sure you want to delete the %s?', $activity['Activity']['id']), array('class' => 'btn btn-mini')); ?> </li>

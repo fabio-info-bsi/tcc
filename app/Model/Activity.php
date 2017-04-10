@@ -91,7 +91,7 @@ class Activity extends AppModel {
             'foreignKey' => 'activity_id',
             'associationForeignKey' => 'team_id',
             'unique' => 'keepExisting',
-            'conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'),
+            'conditions' => array(),//array('Team.removed' => 'N', 'Team.active' => 'S'),
             'fields' => '',
             'order' => '',
             'limit' => '',

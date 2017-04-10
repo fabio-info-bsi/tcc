@@ -26,6 +26,7 @@ echo $this->Html->script(array(
 //    "/AdminLTE-2.3.11/plugins/datepicker/bootstrap-datepicker",
 //    "/AdminLTE-2.3.11/plugins/datepicker/locales/bootstrap-datepicker.pt-BR.js",
 //    "/AdminLTE-2.3.11/plugins/iCheck/icheck.min",
+    "/AdminLTE-2.3.11/plugins/iCheck/icheck",
     "/AdminLTE-2.3.11/plugins/slimScroll/jquery.slimscroll.min",
     "/AdminLTE-2.3.11/plugins/chartjs/Chart.min",
     "/AdminLTE-2.3.11/dist/js/demo.js",

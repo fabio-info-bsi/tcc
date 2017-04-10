@@ -105,6 +105,17 @@
                     <i class="fa fa-glass"></i> <span><?php echo __("Activities") ?></span>
                 </a>
             </li>
+            
+            <li>
+                <a href="<?php
+                   echo $this->Html->url(array(
+                       'controller' => 'Activities',
+                       'action' => 'teacher_index'
+                   ));
+                   ?>">
+                    <i class="fa fa-glass"></i> <span><?php echo __("Challenge") ?></span>
+                </a>
+            </li>
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(

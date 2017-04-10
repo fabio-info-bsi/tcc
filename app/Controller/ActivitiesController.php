@@ -90,10 +90,10 @@ class ActivitiesController extends AppController {
         $options = array('Activity.removed' => 'N', "Activity.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('activities', $this->Paginator->paginate($options));
 
-        $rooms = $this->Activity->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.id'));
+
         $teams = $this->Activity->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.id'));
         $matriculations = $this->Activity->Matriculation->find('list', array('conditions' => array('Matriculation.removed' => 'N', 'Matriculation.active' => 'S'), 'order' => 'Matriculation.id'));
-        $this->set(compact('rooms', 'teams', 'matriculations'));
+        $this->set(compact('teams', 'matriculations'));
     }
 
     /**
@@ -146,7 +146,6 @@ class ActivitiesController extends AppController {
                     'type' => 'INNER',
                     'conditions' => 'Matriculation.student_id = Student.id')
             ),
-            
             'fields' => array(
                 'Matriculation.id',
                 'Student.nm_student',
@@ -157,7 +156,6 @@ class ActivitiesController extends AppController {
 
     public function teacher_add() {
         if ($this->request->is('post')) {
-            //debug($this->request->data)or die;
             $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
             $this->Activity->create();
             if ($this->Activity->save($this->request->data)) {
@@ -177,8 +175,123 @@ class ActivitiesController extends AppController {
                         '</div>');
             }
         }
-        //$rooms = $this->Activity->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.id'));
-        //$teams = $this->Activity->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.name'));
+        $rewards = $this->Activity->Reward->find('list', array(
+            'conditions' => array(
+                'Reward.removed' => 'N',
+                'Reward.active' => 'S',
+                'Reward.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Reward.id',
+                'Reward.nm_brinde',
+            ),
+            'order' => 'Reward.created'));
+        $matriculations = $this->Activity->Matriculation->find('list', array(
+            'conditions' => array('Matriculation.removed' => 'N',
+                'Matriculation.active' => 'S',
+                'Matriculation.room_id' => $this->Session->read('Auth.User.SelectRoom.id')),
+            'joins' => array(
+                array(
+                    'table' => 'students',
+                    'alias' => 'Student',
+                    'type' => 'INNER',
+                    'conditions' => 'Matriculation.student_id = Student.id')
+            ),
+            'fields' => array(
+                'Matriculation.id',
+                'Student.nm_student',
+            ),
+            'order' => 'Matriculation.student_id'));
+        $this->set(compact('rooms', 'teams', 'rewards', 'matriculations'));
+    }
+
+    public function teacher_add_challenge() {
+        if ($this->request->is('post')) {
+            $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
+            $this->request->data['Activity']['type_activity'] = 'C';
+            $this->Activity->create();
+            if ($this->Activity->save($this->request->data)) {
+                $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
+                                        <i class="fa fa-check"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('activity') . ' ' . __('has been saved.') .
+                        '</div>');
+                return $this->redirect(array('action' => 'teacher_index'));
+            } else {
+                $this->Session->setFlash('<br><div class="alert alert-danger alert-dismissable">
+                                        <i class="fa fa-ban"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('activity') . ' ' . __('could not be saved. Please, try again.') .
+                        '</div>');
+            }
+        }
+        $rewards = $this->Activity->Reward->find('list', array(
+            'conditions' => array(
+                'Reward.removed' => 'N',
+                'Reward.active' => 'S',
+                'Reward.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Reward.id',
+                'Reward.nm_brinde',
+            ),
+            'order' => 'Reward.created'));
+        $matriculations = $this->Activity->Matriculation->find('list', array(
+            'conditions' => array('Matriculation.removed' => 'N',
+                'Matriculation.active' => 'S',
+                'Matriculation.room_id' => $this->Session->read('Auth.User.SelectRoom.id')),
+            'joins' => array(
+                array(
+                    'table' => 'students',
+                    'alias' => 'Student',
+                    'type' => 'INNER',
+                    'conditions' => 'Matriculation.student_id = Student.id')
+            ),
+            'fields' => array(
+                'Matriculation.id',
+                'Student.nm_student',
+            ),
+            'order' => 'Matriculation.student_id'));
+        $this->set(compact('rooms', 'teams', 'rewards', 'matriculations'));
+    }
+
+    public function teacher_add_challenge_team() {
+        if ($this->request->is('post')) {
+            $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
+            $this->request->data['Activity']['type_activity'] = 'CT';
+            $this->Activity->create();
+            if ($this->Activity->save($this->request->data)) {
+                $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
+                                        <i class="fa fa-check"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('activity') . ' ' . __('has been saved.') .
+                        '</div>');
+                return $this->redirect(array('action' => 'teacher_index'));
+            } else {
+                $this->Session->setFlash('<br><div class="alert alert-danger alert-dismissable">
+                                        <i class="fa fa-ban"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('activity') . ' ' . __('could not be saved. Please, try again.') .
+                        '</div>');
+            }
+        }
+        $teams = $this->Activity->Team->find('list', array(
+            'conditions' => array(
+                'Team.removed' => 'N',
+                'Team.active' => 'S',
+                'Team.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'order' => 'Team.created',
+            'fields' => array(
+                'Team.id',
+                'Team.nm_team',
+            ),
+                )
+        );
         $rewards = $this->Activity->Reward->find('list', array(
             'conditions' => array(
                 'Reward.removed' => 'N',
@@ -284,6 +397,66 @@ class ActivitiesController extends AppController {
                 'Reward.nm_brinde',
             ),
             'order' => 'Reward.created'));
+        $matriculations = $this->Activity->Matriculation->find('list', array(
+            'conditions' => array('Matriculation.removed' => 'N',
+                'Matriculation.active' => 'S',
+                'Matriculation.room_id' => $this->Session->read('Auth.User.SelectRoom.id')),
+            'joins' => array(
+                array(
+                    'table' => 'students',
+                    'alias' => 'Student',
+                    'type' => 'INNER',
+                    'conditions' => 'Matriculation.student_id = Student.id')
+            ),
+            'fields' => array(
+                'Matriculation.id',
+                'Student.nm_student',
+            ),
+            'order' => 'Matriculation.student_id'));
+        $this->set(compact('rooms', 'teams', 'rewards', 'matriculations'));
+    }
+
+    public function teacher_evaluation($id = null) {
+        if (!$this->Activity->exists($id)) {
+            throw new NotFoundException(__('Invalid activity'));
+        }
+        if ($this->request->is(array('post', 'put'))) {
+            //debug($this->request->data)or die;
+            $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
+            if ($this->Activity->save($this->request->data)) {
+                $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
+                                        <i class="fa fa-check"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('activity') . ' ' . __('has been saved.') .
+                        '</div>');
+                return $this->redirect(array('action' => 'teacher_index'));
+            } else {
+                $this->Session->setFlash('<br><div class="alert alert-danger alert-dismissable">
+                                        <i class="fa fa-ban"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('activity') . ' ' . __('could not be saved. Please, try again.') .
+                        '</div>');
+            }
+        } else {
+            $options = array('conditions' => array('Activity.' . $this->Activity->primaryKey => $id));
+            $this->Activity->recursive = 2;
+            $this->Activity->unbindModel(array('belongsTo' => array('Room')));
+            $this->request->data = $this->Activity->find('first', array('conditions' => array('Activity.id' => $id)));
+        }
+        $rewards = $this->Activity->Reward->find('list', array(
+            'conditions' => array(
+                'Reward.removed' => 'N',
+                'Reward.active' => 'S',
+                'Reward.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Reward.id',
+                'Reward.nm_brinde',
+            ),
+            'order' => 'Reward.created')
+        );
         $matriculations = $this->Activity->Matriculation->find('list', array(
             'conditions' => array('Matriculation.removed' => 'N',
                 'Matriculation.active' => 'S',
