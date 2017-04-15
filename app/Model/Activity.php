@@ -8,6 +8,7 @@ App::uses('AppModel', 'Model');
  * @property Room $Room
  * @property Team $Team
  * @property Reward $Reward
+ * @property Point $Point
  * @property Matriculation $Matriculation
  */
 class Activity extends AppModel {
@@ -57,6 +58,22 @@ class Activity extends AppModel {
 
     //The Associations below have been created with all possible keys, those that are not needed can be removed
 
+    public $hasMany = array(
+        'Point' => array(
+            'className' => 'Point',
+            'foreignKey' => 'activity_id',
+            'dependent' => false,
+            'conditions' => array('Point.removed' => 'N', 'Point.active' => 'S'),
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => true,
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
+    );
+    
     /**
      * belongsTo associations
      *

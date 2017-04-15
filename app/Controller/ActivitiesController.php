@@ -421,9 +421,23 @@ class ActivitiesController extends AppController {
             throw new NotFoundException(__('Invalid activity'));
         }
         if ($this->request->is(array('post', 'put'))) {
-            //debug($this->request->data)or die;
+            //Verifica se exstem pontos computados por essa atividade
+            $idPoints = $this->Activity->Point->find('list', array('conditions' => array('activity_id'=> $id), 'fields' => array('Point.id')));
+            
+            //if()
+            
+            //Set Points
+            for ($index = 0; $index < count($this->request->data['Matriculation']); $index++) {
+                $idMatriculatioActivity = $this->request->data['Matriculation'][$index]['MatriculationsActivity']['matriculation_id'];
+                $idActivity = $this->request->data['Activity']['id'];
+                $pontForMatriculation = array('id'=> array_shift($idPoints),'vl_point' =>5.1, 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $idActivity);
+                
+                $this->request->data['Point'][$index] = $pontForMatriculation;
+                $pontForMatriculation = null;
+            }
             $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
-            if ($this->Activity->save($this->request->data)) {
+            debug($this->request->data)or die;
+            if ($this->Activity->saveAll($this->request->data)) {
                 $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
                                         <i class="fa fa-check"></i>
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -444,6 +458,7 @@ class ActivitiesController extends AppController {
             $this->Activity->recursive = 2;
             $this->Activity->unbindModel(array('belongsTo' => array('Room')));
             $this->request->data = $this->Activity->find('first', array('conditions' => array('Activity.id' => $id)));
+            //debug($this->request->data)or die;
         }
         $rewards = $this->Activity->Reward->find('list', array(
             'conditions' => array(

@@ -92,13 +92,31 @@ class PointsController extends AppController {
             }
         }
 
-        $this->Point->recursive = 0;
+        //$this->Point->recursive = 0;
         $this->paginate = array(
             'limit' => 10,
-            'conditions' => $conditions
+            'conditions' => $conditions,
+            'joins' => array(
+                array(
+                    'table' => 'students',
+                    'alias' => 'Student',
+                    'type' => 'INNER',
+                    'conditions' => 'Matriculation.student_id = Student.id')
+            )
         );
         $options = array('Point.removed' => 'N', "Matriculation.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('points', $this->Paginator->paginate($options));
+        
+        $activities = $this->Point->Activity->find('list', array(
+            'conditions'=> array(
+                "Activity.room_id" => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Activity.id',
+                'Activity.nm_activity',
+            )
+            )
+                );
 
         $matriculations = $this->Point->Matriculation->find('list', array(
             'conditions' => array(
@@ -118,7 +136,7 @@ class PointsController extends AppController {
                 'Student.nm_student',
             ),
             'order' => 'Matriculation.student_id'));
-        $this->set(compact('matriculations'));
+        $this->set(compact('matriculations', 'activities'));
     }
 
     /**

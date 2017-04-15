@@ -25,6 +25,7 @@
                         <tr>
                             <th><?php echo $this->Paginator->sort('vl_point', __('vl_point'), array('data-toggle' => 'tooltip', 'data-original-title' => __('vl_point'), 'title' => __('vl_point'))); ?></th>
                             <th><?php echo $this->Paginator->sort('matriculation_id', __('matriculation_id'), array('data-toggle' => 'tooltip', 'data-original-title' => __('matriculation_id'), 'title' => __('matriculation_id'))); ?></th>
+                            <th><?php echo $this->Paginator->sort('activity_id', __('activity_id'), array('data-toggle' => 'tooltip', 'data-original-title' => __('activity_id'), 'title' => __('activity_id'))); ?></th>
                             <th class="actions col-xs-1"><?php echo __('Actions'); ?></th>
                         </tr>
                     </thead>
@@ -34,15 +35,17 @@
                             <?php echo $this->Form->create("Filter", array('url' => $base_url, 'class' => 'filter')); ?>
                             <td><?php echo $this->Html->div('row', $this->Form->input('vl_point', array('div' => 'col-xs-12', 'style' => 'width:100%', 'label' => '', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_point'), 'title' => __('vl_point'), 'class' => 'form-control input-sm')), array('escape' => false)); ?></td>
                             <td><div data-original-title='<?= __('matriculation_id') ?>' data-toggle="tooltip"><?php echo $this->Form->input('matriculation_id', array('label' => '', 'default' => '', 'type' => 'select', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'style' => 'width:100%', 'empty' => __('matriculation_id'))); ?></div></td>
+                            <td><div data-original-title='<?= __('activity_id') ?>' data-toggle="tooltip"><?php echo $this->Form->input('activity_id', array('label' => '', 'default' => '', 'type' => 'select', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'style' => 'width:100%', 'empty' => __('activity_id'))); ?></div></td>
                             <td><?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-primary', 'data-toggle' => 'tooltip', 'data-original-title' => __('Search'), 'title' => __('Search'))) ?></td>
                             <?php echo $this->Form->end(); ?>
                         </tr>
                         <?php foreach ($points as $point): ?>
-                            <tr>
+                        <tr>
                                 <td><?php echo h($point['Point']['vl_point']); ?>&nbsp;</td>
                                 <td>
                                     <?php echo $this->Html->link($point['Matriculation']['id'], array('controller' => 'matriculations', 'action' => 'view', $point['Matriculation']['id'])); ?>
                                 </td>
+                                <td><?php echo h($point['Activity']['nm_activity']); ?>&nbsp;</td>
                                 <td class="actions"  title='Actions' data-original-title='Actions' data-toggle="tooltip">
                                     <div class="pull-right">
                                         <div class="btn-group">
