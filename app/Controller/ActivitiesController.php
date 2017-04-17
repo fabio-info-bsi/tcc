@@ -175,6 +175,19 @@ class ActivitiesController extends AppController {
                         '</div>');
             }
         }
+        $teams = $this->Activity->Team->find('list', array(
+            'conditions' => array(
+                'Team.removed' => 'N',
+                'Team.active' => 'S',
+                'Team.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'order' => 'Team.created',
+            'fields' => array(
+                'Team.id',
+                'Team.nm_team',
+            ),
+                )
+        );
         $rewards = $this->Activity->Reward->find('list', array(
             'conditions' => array(
                 'Reward.removed' => 'N',
@@ -386,6 +399,18 @@ class ActivitiesController extends AppController {
             $options = array('conditions' => array('Activity.' . $this->Activity->primaryKey => $id));
             $this->request->data = $this->Activity->find('first', $options);
         }
+        $teams = $this->Activity->Team->find('list', array(
+            'conditions' => array(
+                'Team.removed' => 'N',
+                'Team.active' => 'S',
+                'Team.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Team.id',
+                'Team.nm_team',
+            ),
+            'order' => 'Team.created')
+        );
         $rewards = $this->Activity->Reward->find('list', array(
             'conditions' => array(
                 'Reward.removed' => 'N',
@@ -421,22 +446,141 @@ class ActivitiesController extends AppController {
             throw new NotFoundException(__('Invalid activity'));
         }
         if ($this->request->is(array('post', 'put'))) {
+            $pontForMatriculation = null;
+
             //Verifica se exstem pontos computados por essa atividade
-            $idPoints = $this->Activity->Point->find('list', array('conditions' => array('activity_id'=> $id), 'fields' => array('Point.id')));
-            
-            //if()
-            
-            //Set Points
-            for ($index = 0; $index < count($this->request->data['Matriculation']); $index++) {
-                $idMatriculatioActivity = $this->request->data['Matriculation'][$index]['MatriculationsActivity']['matriculation_id'];
-                $idActivity = $this->request->data['Activity']['id'];
-                $pontForMatriculation = array('id'=> array_shift($idPoints),'vl_point' =>5.1, 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $idActivity);
-                
-                $this->request->data['Point'][$index] = $pontForMatriculation;
-                $pontForMatriculation = null;
+            $idPoints = $this->Activity->Point->find('list', array('conditions' => array('activity_id' => $id), 'fields' => array('Point.id')));
+
+            $idMatriculatioReward = $this->Activity->Matriculation->find('list', array(
+                'conditions' => array(
+                    'MatriculationsReward.activity_id' => $id,
+                    'Matriculation.id' => 7
+                ),
+                'joins' => array(
+                    array(
+                        'table' => 'matriculations_rewards',
+                        'alias' => 'MatriculationsReward',
+                        'type' => 'INNER',
+                        'conditions' => 'MatriculationsReward.matriculation_id = Matriculation.id')
+                ),
+                'fields' => array('MatriculationsReward.id')
+                    )
+            );
+            //debug($this->request->data)or die;
+
+            if ('ct' == strtolower($this->request->data['Activity']['type_activity']) || 'at' == strtolower($this->request->data['Activity']['type_activity'])) {
+                $this->Activity->Team->unbindModel(array('hasAndBelongsToMany' => array('Activity')));
+                for ($i = 0; $i < count($this->request->data['Team']); $i++) {
+                    $idMatriculationsActivityForTeam = $this->Activity->Team->find('first', array('conditions' => array('Team.id' => $this->request->data['Team'][$i]['id'])));
+
+                    for ($j = 0; $j < count($idMatriculationsActivityForTeam['Matriculation']); $j++) {
+                        //Team Winner
+                        if ('w' == strtolower($this->request->data['Team'][$i]['ActivitiesTeam']['sts_activity_team'])) {
+                            //If there is recompence in the activity
+                            $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'], 'activity_id' => $this->request->data['Activity']['id']);
+                            if ('' != $this->request->data['Activity']['reward_id']) {
+                                //Caso exista
+                                $idMatriculatioReward = $this->Activity->Matriculation->find('list', array(
+                                    'conditions' => array(
+                                        'MatriculationsReward.activity_id' => $id,
+                                        'Matriculation.id' => 7
+                                    ),
+                                    'joins' => array(
+                                        array(
+                                            'table' => 'matriculations_rewards',
+                                            'alias' => 'MatriculationsReward',
+                                            'type' => 'INNER',
+                                            'conditions' => 'MatriculationsReward.matriculation_id = Matriculation.id')
+                                    ),
+                                    'fields' => array('MatriculationsReward.id')
+                                        )
+                                );
+                                $rewardsOfActivityToMatriculatios[] = array(
+                                    'Matriculation' => array('id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id']),
+                                    'Reward' => array('MatriculationsReward' => array(
+                                            'id' => array_shift($idMatriculatioReward),
+                                            'reward_id' => $this->request->data['Activity']['reward_id'],
+                                            'activity_id' => $id
+                                        )
+                                    )
+                                );
+                            }
+                        } else
+                        //Team Attempt(No sucess)
+                        if ('a' == strtolower($this->request->data['Team'][$i]['ActivitiesTeam']['sts_activity_team'])) {
+                            $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_attempt'], 'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'], 'activity_id' => $this->request->data['Activity']['id']);
+                        }
+                        //Team Failed
+                        else {
+                            $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_failed'], 'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'], 'activity_id' => $this->request->data['Activity']['id']);
+                        }
+                        $this->request->data['Point'][] = $pontForMatriculation;
+                    }
+                    //debug($matriculationsTeam)or die;
+                }
+            } else {
+                //Set Points
+                for ($l = 0; $l < count($this->request->data['Matriculation']); $l++) {
+                    $idMatriculatioActivity = $this->request->data['Matriculation'][$l]['MatriculationsActivity']['matriculation_id'];
+                    //Activity performed successfully
+                    if ('s' == strtolower($this->request->data['Matriculation'][$l]['MatriculationsActivity']['sts_activity'])) {
+                        $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $this->request->data['Activity']['id']);
+                        //If there is recompence in the activity                            
+                        if ('' != $this->request->data['Activity']['reward_id']) {
+                            //Caso exista
+                            $idMatriculatioReward = $this->Activity->Matriculation->find('list', array(
+                                'conditions' => array(
+                                    'MatriculationsReward.activity_id' => $id,
+                                    'Matriculation.id' => 7
+                                ),
+                                'joins' => array(
+                                    array(
+                                        'table' => 'matriculations_rewards',
+                                        'alias' => 'MatriculationsReward',
+                                        'type' => 'INNER',
+                                        'conditions' => 'MatriculationsReward.matriculation_id = Matriculation.id')
+                                ),
+                                'fields' => array('MatriculationsReward.id')
+                                    )
+                            );
+                            $rewardsOfActivityToMatriculatios[] = array(
+                                'Matriculation' => array('id' => $idMatriculatioActivity),
+//                                'Reward' => array('Reward' => array(
+//                                        0 => $this->request->data['Activity']['reward_id']
+//                                    )
+//                                )
+                                'Reward' => array('MatriculationsReward' => array(
+                                        'id' => array_shift($idMatriculatioReward),
+                                        'reward_id' => $this->request->data['Activity']['reward_id'],
+                                        'activity_id' => $id
+                                    )
+                                )
+                            );
+                        }
+                    }
+                    //Attempt
+                    else if ('a' == strtolower($this->request->data['Matriculation'][$l]['MatriculationsActivity']['sts_activity'])) {
+                        $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_attempt'], 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $this->request->data['Activity']['id']);
+                    }
+                    //Failed
+                    else {
+                        $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_failed'], 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $this->request->data['Activity']['id']);
+                    }
+                    $this->request->data['Point'][] = $pontForMatriculation;
+
+
+                    $pontForMatriculation = null;
+                }
             }
+
+
+
             $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
-            debug($this->request->data)or die;
+            if (!empty($rewardsOfActivityToMatriculatios)) {
+                $this->Activity->Matriculation->saveAll($rewardsOfActivityToMatriculatios);
+            }
+            //debug($rewardsOfActivityToMatriculatios);
+            //debug($this->request->data)or die;
             if ($this->Activity->saveAll($this->request->data)) {
                 $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
                                         <i class="fa fa-check"></i>
@@ -471,6 +615,18 @@ class ActivitiesController extends AppController {
                 'Reward.nm_brinde',
             ),
             'order' => 'Reward.created')
+        );
+        $teams = $this->Activity->Team->find('list', array(
+            'conditions' => array(
+                'Team.removed' => 'N',
+                'Team.active' => 'S',
+                'Team.room_id' => $this->Session->read('Auth.User.SelectRoom.id')
+            ),
+            'fields' => array(
+                'Team.id',
+                'Team.nm_team',
+            ),
+            'order' => 'Team.created')
         );
         $matriculations = $this->Activity->Matriculation->find('list', array(
             'conditions' => array('Matriculation.removed' => 'N',

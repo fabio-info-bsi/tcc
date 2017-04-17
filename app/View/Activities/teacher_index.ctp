@@ -72,6 +72,8 @@
                                                 echo __('Challenge');
                                             }else if ($activity['Activity']['type_activity'] == 'CT'){
                                                 echo __('Challenge for team');
+                                            }else if ($activity['Activity']['type_activity'] == 'AT'){
+                                                echo __('Activity for team');
                                             }else{
                                                 echo __('Activity');
                                             }

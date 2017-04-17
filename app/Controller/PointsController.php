@@ -102,7 +102,8 @@ class PointsController extends AppController {
                     'alias' => 'Student',
                     'type' => 'INNER',
                     'conditions' => 'Matriculation.student_id = Student.id')
-            )
+            ),
+            'order' => array('Point.created'=>'desc')
         );
         $options = array('Point.removed' => 'N', "Matriculation.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('points', $this->Paginator->paginate($options));

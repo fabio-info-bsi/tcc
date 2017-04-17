@@ -124,6 +124,7 @@ class MatriculationsController extends AppController {
     public function add() {
         if ($this->request->is('post')) {
             $this->Matriculation->create();
+            debug($this->request->data)or die;
             if ($this->Matriculation->save($this->request->data)) {
                 $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
                                         <i class="fa fa-check"></i>

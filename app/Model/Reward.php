@@ -95,7 +95,7 @@ class Reward extends AppModel {
             'foreignKey' => 'reward_id',
             'associationForeignKey' => 'matriculation_id',
             'unique' => 'keepExisting',
-            'conditions' => array('Matriculation.removed' => 'N', 'Matriculation.active' => 'S'),
+            'conditions' => array(),//array('Matriculation.removed' => 'N', 'Matriculation.active' => 'S'),
             'fields' => '',
             'order' => '',
             'limit' => '',

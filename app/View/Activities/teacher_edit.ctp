@@ -23,9 +23,10 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                     <a href="<?php echo $this->Html->url(); ?>" ><button class="btn btn-primary" title='<?= __('Refresh') ?>' data-original-title='<?= __('Refresh') ?>' data-toggle="tooltip" type="button"><i class="fa fa-refresh fa-fw"></i></button></a>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-md-7 col-xs-12">
+                    <div class="col-sm-12 col-md-12 col-xs-12">
                         <div style="margin: 20px">
                             <?php
+                                //debug($this->request->data)or die;
                             echo $this->Html->div('row', $this->Form->input('nm_activity', array('div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('nm_activity'), 'title' => __('nm_activity'), 'class' => 'form-control input-sm')), array('escape' => false));
                             echo $this->Html->div('row', $this->Form->input('id', array('div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('id'), 'title' => __('id'), 'class' => 'form-control input-sm')), array('escape' => false));
                             echo $this->Html->div('row', $this->Form->input('ds_activity', array('id' => 'ds_activity', 'div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'), 'class' => 'form-control input-sm')), array('escape' => false));
@@ -43,8 +44,14 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                             <div data-original-title='<?= __('room_id') ?>' data-toggle="tooltip">
                                 <?php //echo $this->Html->div('row', $this->Form->input('room_id', array('div' => 'col-xs-12', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'style' => 'width:100%', 'empty' => __('room_id'))), array('escape' => false)); ?>
                             </div><?php
-                            //echo $this->Html->div('row', $this->Form->input('Team', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
-                            echo $this->Html->div('row', $this->Form->input('Matriculation', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
+                            
+                            if (!empty($this->request->data['Team'])){
+                                echo $this->Html->div('row', $this->Form->input('Team', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
+                            }
+                            if (!empty($this->request->data['Matriculation'])){
+                                echo $this->Html->div('row', $this->Form->input('Matriculation', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
+                            }
+                            
                             ?>
                         </div>
                     </div>

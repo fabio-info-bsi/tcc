@@ -29,7 +29,7 @@
                                 <?php echo $this->Html->div('row', $this->Form->input('room_id', array('div' => 'col-xs-12', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'style' => 'width:100%', 'empty' => __('room_id'))), array('escape' => false)); ?>
                             </div><?php
                             //echo $this->Html->div('row', $this->Form->input('Activity', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
-                            //echo $this->Html->div('row', $this->Form->input('Reward', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
+                            echo $this->Html->div('row', $this->Form->input('Reward', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
                             //echo $this->Html->div('row', $this->Form->input('Team', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('escape' => false));
                             ?>
                         </div>
