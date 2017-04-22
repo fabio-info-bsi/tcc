@@ -46,7 +46,7 @@
                                 <td><?php echo h($reward['Reward']['nm_brinde']); ?>&nbsp;</td>
                                 <td><?php echo h($reward['Reward']['ds_brinde']); ?>&nbsp;</td>
                                 <td><?php echo h($reward['Reward']['vl_pontos_brinde']); ?>&nbsp;</td>
-                                <td>
+                                <td style="text-align: center">
                                     <i class="fa <?php echo $reward['Reward']['nm_icon'];  ?>"></i>
                                 </td>
                                 <td class="actions"  title='Actions' data-original-title='Actions' data-toggle="tooltip">

@@ -448,6 +448,10 @@ class ActivitiesController extends AppController {
         if ($this->request->is(array('post', 'put'))) {
             $pontForMatriculation = null;
 
+            //Delete all rewards this activiy
+            $this->loadModel('MatriculationsReward');
+            $this->MatriculationsReward->deleteAll(array('activity_id' => $id));
+
             //Verifica se exstem pontos computados por essa atividade
             $idPoints = $this->Activity->Point->find('list', array('conditions' => array('activity_id' => $id), 'fields' => array('Point.id')));
 
@@ -479,30 +483,11 @@ class ActivitiesController extends AppController {
                             //If there is recompence in the activity
                             $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'], 'activity_id' => $this->request->data['Activity']['id']);
                             if ('' != $this->request->data['Activity']['reward_id']) {
-                                //Caso exista
-                                $idMatriculatioReward = $this->Activity->Matriculation->find('list', array(
-                                    'conditions' => array(
-                                        'MatriculationsReward.activity_id' => $id,
-                                        'Matriculation.id' => 7
-                                    ),
-                                    'joins' => array(
-                                        array(
-                                            'table' => 'matriculations_rewards',
-                                            'alias' => 'MatriculationsReward',
-                                            'type' => 'INNER',
-                                            'conditions' => 'MatriculationsReward.matriculation_id = Matriculation.id')
-                                    ),
-                                    'fields' => array('MatriculationsReward.id')
-                                        )
-                                );
+                                //If there is
                                 $rewardsOfActivityToMatriculatios[] = array(
-                                    'Matriculation' => array('id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id']),
-                                    'Reward' => array('MatriculationsReward' => array(
-                                            'id' => array_shift($idMatriculatioReward),
-                                            'reward_id' => $this->request->data['Activity']['reward_id'],
-                                            'activity_id' => $id
-                                        )
-                                    )
+                                    'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'],
+                                    'reward_id' => $this->request->data['Activity']['reward_id'],
+                                    'activity_id' => $id
                                 );
                             }
                         } else
@@ -527,34 +512,11 @@ class ActivitiesController extends AppController {
                         $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $this->request->data['Activity']['id']);
                         //If there is recompence in the activity                            
                         if ('' != $this->request->data['Activity']['reward_id']) {
-                            //Caso exista
-                            $idMatriculatioReward = $this->Activity->Matriculation->find('list', array(
-                                'conditions' => array(
-                                    'MatriculationsReward.activity_id' => $id,
-                                    'Matriculation.id' => 7
-                                ),
-                                'joins' => array(
-                                    array(
-                                        'table' => 'matriculations_rewards',
-                                        'alias' => 'MatriculationsReward',
-                                        'type' => 'INNER',
-                                        'conditions' => 'MatriculationsReward.matriculation_id = Matriculation.id')
-                                ),
-                                'fields' => array('MatriculationsReward.id')
-                                    )
-                            );
+                            //If there is
                             $rewardsOfActivityToMatriculatios[] = array(
-                                'Matriculation' => array('id' => $idMatriculatioActivity),
-//                                'Reward' => array('Reward' => array(
-//                                        0 => $this->request->data['Activity']['reward_id']
-//                                    )
-//                                )
-                                'Reward' => array('MatriculationsReward' => array(
-                                        'id' => array_shift($idMatriculatioReward),
-                                        'reward_id' => $this->request->data['Activity']['reward_id'],
-                                        'activity_id' => $id
-                                    )
-                                )
+                                'matriculation_id' => $idMatriculatioActivity,
+                                'reward_id' => $this->request->data['Activity']['reward_id'],
+                                'activity_id' => $id
                             );
                         }
                     }
@@ -577,9 +539,9 @@ class ActivitiesController extends AppController {
 
             $this->request->data['Activity']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
             if (!empty($rewardsOfActivityToMatriculatios)) {
-                $this->Activity->Matriculation->saveAll($rewardsOfActivityToMatriculatios);
+                $this->MatriculationsReward->saveAll($rewardsOfActivityToMatriculatios);
             }
-            //debug($rewardsOfActivityToMatriculatios);
+            //debug($rewardsOfActivityToMatriculatios) or die;
             //debug($this->request->data)or die;
             if ($this->Activity->saveAll($this->request->data)) {
                 $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
@@ -643,7 +605,8 @@ class ActivitiesController extends AppController {
                 'Matriculation.id',
                 'Student.nm_student',
             ),
-            'order' => 'Matriculation.student_id'));
+            'order' => 'Matriculation.student_id')
+        );
         $this->set(compact('rooms', 'teams', 'rewards', 'matriculations'));
     }
 

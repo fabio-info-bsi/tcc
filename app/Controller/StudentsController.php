@@ -55,6 +55,48 @@ class StudentsController extends AppController {
         $this->set('students', $this->Paginator->paginate($options));
     }
 
+    
+    public function teacher_index() {
+        $conditions = array();
+
+        if (($this->request->is('post') || $this->request->is('put')) && isset($this->data['Filter'])) {
+            $filter_url['controller'] = $this->request->params['controller'];
+            $filter_url['action'] = $this->request->params['action'];
+            $filter_url['page'] = 1;
+
+            foreach ($this->data['Filter'] as $name => $value) {
+                if ($value) {
+                    $filter_url[$name] = urlencode(urlencode($value));
+                }
+            }
+            return $this->redirect($filter_url);
+        } else {
+            foreach ($this->params['named'] as $param_name => $value) {
+
+                if (!in_array($param_name, array('page', 'sort', 'direction', 'limit'))) {
+                    $conditions['Student.' . $param_name . ' LIKE'] = '%' . urldecode(urldecode($value)) . '%';
+                }
+            }
+        }
+        
+        
+        
+        $this->Student->recursive = 0;
+        $this->paginate = array(
+            'limit' => 10,
+            'conditions' => $conditions,
+            'joins' => array(
+                array(
+                    'table' => 'matriculations',
+                    'alias' => 'Matriculation',
+                    'type' => 'INNER',
+                    'conditions' => 'Matriculation.student_id = Student.id')
+            )
+        );
+        $options = array('Student.removed' => 'N', 'Matriculation.room_id' => $this->Session->read('Auth.User.SelectRoom.id'));
+        $this->set('students', $this->Paginator->paginate($options));
+    }
+    
     /**
      * view method
      * Powered by Frame2Days

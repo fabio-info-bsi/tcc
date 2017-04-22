@@ -37,7 +37,7 @@
                 <a href="<?php
                 echo $this->Html->url(array(
                     'controller' => 'Students',
-                    'action' => 'index'
+                    'action' => 'teacher_index'
                 ));
                    ?>">
                     <i class="fa fa-child"></i> <span><?php echo __("Students") ?></span>
@@ -102,11 +102,11 @@
                        'action' => 'teacher_index'
                    ));
                    ?>">
-                    <i class="fa fa-glass"></i> <span><?php echo __("Activities") ?></span>
+                    <i class="fa fa-gavel"></i> <span><?php echo __("Activities") ?></span>
                 </a>
             </li>
             
-            <li>
+<!--            <li>
                 <a href="<?php
                    echo $this->Html->url(array(
                        'controller' => 'Activities',
@@ -115,7 +115,7 @@
                    ?>">
                     <i class="fa fa-glass"></i> <span><?php echo __("Challenge") ?></span>
                 </a>
-            </li>
+            </li>-->
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
@@ -123,9 +123,20 @@
                        'action' => 'teacher_index'
                    ));
                    ?>">
-                    <i class="fa fa-glass"></i> <span><?php echo __("Points") ?></span>
+                    <i class="fa fa-bar-chart"></i> <span><?php echo __("Points") ?></span>
                 </a>
             </li>
+            <li>
+                <a href="<?php
+                   echo $this->Html->url(array(
+                       'controller' => 'MatriculationsRewards',
+                       'action' => 'teacher_index'
+                   ));
+                   ?>">
+                    <i class="fa fa-diamond"></i> <span><?php echo __("To award") ?></span>
+                </a>
+            </li>
+            
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
@@ -133,7 +144,7 @@
                        'action' => 'teacher_index'
                    ));
                    ?>">
-                    <i class="fa fa-glass"></i> <span><?php echo __("Rewards") ?></span>
+                    <i class="fa fa-gift"></i> <span><?php echo __("Rewards") ?></span>
                 </a>
             </li>
             

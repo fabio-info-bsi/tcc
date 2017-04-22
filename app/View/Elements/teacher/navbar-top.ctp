@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo"><b>IF</b>S <i class="fa  fa-ticket"></i> </a>
+    <a href="/" class="logo"><b>IF</b>S<i class="fa fa-gamepad"></i> </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
