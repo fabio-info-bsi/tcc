@@ -88,45 +88,61 @@ class UsersController extends AdminAppController {
             if ($this->Auth->login()) {
                 $this->loadModel("User");
                 $this->User->recursive = 2;
-                //Reescrevendo na session 
-//                $this->Session->write('Auth.User.Rooms', $this->User->Teacher->find('first', array(
-//                            'conditions' => array(
-//                                'User.id' => $this->Session->read('Auth.User.id')
-//                            )
-//                                )
-//                        )['Teacher']['Room']
-//                );
-//                $this->Session->write(
-//                        'Auth.User.SelectRoom', $this->Session->read('Auth.User.Rooms.0')
-//                );
 
-                $this->Session->write('Auth.User.Rooms', $this->User->Teacher->Room->find('list', array(
-                            'conditions' => array(
-                                'Room.teacher_id' => $this->Session->read('Auth.User.Teacher.id')
-                            ), 'fields' => array(
-                                'Room.id',
-                                'Subject.nm_subject',
-                            ),
-                            'joins' => array(
-                                array(
-                                    'table' => 'teachers',
-                                    'alias' => 'Teacher',
-                                    'type' => 'INNER',
-                                    'conditions' => 'Room.teacher_id = Teacher.id'
-                                ),
-                                array(
-                                    'table' => 'subjects',
-                                    'alias' => 'Subject',
-                                    'type' => 'INNER',
-                                    'conditions' => 'Room.subject_id = Subject.id')
-                            )
+                switch ($this->Session->read('Auth.User.group_id')) {
+                    case 1:
+                        $this->redirect(array('plugin' => NULL, 'admin' => FALSE, 'controller' => '', 'action' => '/'));
+                        break;
+                    case 2 :
+                        //Reescrevendo na session 
+                        $this->Session->write('Auth.User.Rooms', $this->User->Teacher->Room->find('list', array(
+                                    'conditions' => array(
+                                        'Room.teacher_id' => $this->Session->read('Auth.User.Teacher.id')
+                                    ), 'fields' => array(
+                                        'Room.id',
+                                        'Subject.nm_subject',
+                                    ),
+                                    'joins' => array(
+                                        array(
+                                            'table' => 'teachers',
+                                            'alias' => 'Teacher',
+                                            'type' => 'INNER',
+                                            'conditions' => 'Room.teacher_id = Teacher.id'
+                                        ),
+                                        array(
+                                            'table' => 'subjects',
+                                            'alias' => 'Subject',
+                                            'type' => 'INNER',
+                                            'conditions' => 'Room.subject_id = Subject.id')
+                                    )
+                                        )
                                 )
-                        )
-                );
-                $this->Session->write(
-                        'Auth.User.SelectRoom', array('id'=> key($this->Session->read('Auth.User.Rooms')))
-                );
-                return $this->redirect($this->Auth->redirect('/'));
+                        );
+                        $this->Session->write(
+                                'Auth.User.SelectRoom', array('id' => key($this->Session->read('Auth.User.Rooms')))
+                        );
+                        $this->redirect(array('plugin' => NULL, 'admin' => FALSE, 'controller' => '', 'action' => '/'));
+                        break;
+                    case 3 :
+                        $this->Session->write('Auth.User.Matriculations', $this->User->Student->Matriculation->find('list', array(
+                                    'conditions' => array(
+                                        'Matriculation.student_id' => $this->Session->read('Auth.User.Student.id')
+                                    ), 'fields' => array(
+                                        'Matriculation.id',
+                                        //'Subject.nm_subject',
+                                    )
+                                        )
+                                )
+                        );
+                        $this->Session->write(
+                                'Auth.User.SelectMatriculation', array('id' => key($this->Session->read('Auth.User.Matriculations')))
+                        );
+                        $this->redirect(array('plugin' => NULL, 'admin' => FALSE, 'controller' => 'Pages', 'action' => 'student_home'));
+                        break;
+                }
+
+
+                //return $this->redirect($this->Auth->redirect('/'));
             } else {
                 return $this->redirect($this->Auth->redirect());
             }

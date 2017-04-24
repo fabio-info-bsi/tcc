@@ -55,6 +55,9 @@ class AppController extends Controller {
                 case 2:
                     $this->layout = 'teacher';
                     break;
+                case 3:
+                    $this->layout = 'student';
+                    break;
                 
             }
         }
