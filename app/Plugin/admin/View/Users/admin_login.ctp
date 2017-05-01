@@ -2,7 +2,8 @@
 	<div class="col-md-4 col-md-offset-4">
 		<div class="well bg-white">
 		<center>
-                    <h1><b>CI</b>/Events <i class="fa  fa-ticket"></i></h1>
+                    
+                    <h1><b>IF</b>LIP <i class="fa  fa-gamepad"></i></h1>
 		</center>
 			<?php echo $this->Form->create('User', array('role' => 'form', 'class' => 'form-signin')); ?>
 			  

@@ -129,13 +129,16 @@ class UsersController extends AdminAppController {
                                         'Matriculation.student_id' => $this->Session->read('Auth.User.Student.id')
                                     ), 'fields' => array(
                                         'Matriculation.id',
-                                        //'Subject.nm_subject',
+                                        'Matriculation.room_id'
                                     )
                                         )
                                 )
                         );
                         $this->Session->write(
-                                'Auth.User.SelectMatriculation', array('id' => key($this->Session->read('Auth.User.Matriculations')))
+                                'Auth.User.SelectMatriculation', array(
+                                    'id' => key($this->Session->read('Auth.User.Matriculations')),
+                                    'room_id' => array_shift($this->Session->read('Auth.User.Matriculations'))
+                                    )
                         );
                         $this->redirect(array('plugin' => NULL, 'admin' => FALSE, 'controller' => 'Pages', 'action' => 'student_home'));
                         break;

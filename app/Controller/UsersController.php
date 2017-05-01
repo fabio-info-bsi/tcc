@@ -169,4 +169,10 @@ class UsersController extends AppController {
         return $this->redirect(array('action' => 'index'));
     }
 
+    public function logout() {
+        if ($this->Auth->logout()) {
+            return $this->redirect($this->Auth->redirect());
+        }
+    }
+
 }

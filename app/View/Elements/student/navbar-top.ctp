@@ -1,6 +1,14 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo"><b>IF</b>S<i class="fa fa-gamepad"></i> </a>
+    
+    <!-- Logo -->
+    <a href="/Pages/student_home" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>IF</b><i class="fa fa-gamepad"></i></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>IF</b>LIP<i class="fa fa-gamepad"></i></span>
+      
+    </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -47,6 +55,7 @@
 
                                 <a href="<?php
                                 echo $this->Html->url(array(
+                                    'plugin' => false,
                                     "controller" => "users",
                                     "action" => "edit",
                                     $this->Session->read('Auth.User.id')))
@@ -55,9 +64,9 @@
                             <div class="pull-right">
                                 <a href="<?php
                                 echo $this->Html->url(array(
+                                    'plugin' => false,
                                     "controller" => "users",
                                     "action" => "logout",
-                                    "plugin" => "admin/admin/"
                                 ))
                                 ?>" class="btn btn-default btn-flat"><?php echo __('Sign out'); ?></a>
                             </div>

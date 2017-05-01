@@ -76,11 +76,43 @@ class PagesController extends AppController {
             }
             throw new NotFoundException();
         }
-
+        //$this->Auth->logout();
         //debug($this->Session->read('Auth.User'));
     }
 
     public function student_home() {
+        $this->loadModel('Matriculation');
+        $pointsForAllActivities = $this->Matriculation->find('all', array(
+            'conditions' => array(
+                'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
+            //'Activity.type_activity' => 'A'
+            ),
+            'group' => array(
+                //'Matriculation.id'
+                'Activity.type_activity'
+            ),
+            'fields' => array(
+                //'Student.nm_student',
+                'Activity.type_activity',
+                'sum(Point.vl_point) as total_points'
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'points',
+                    'alias' => 'Point',
+                    'type' => 'INNER',
+                    'conditions' => 'Point.matriculation_id = Matriculation.id'
+                ),
+                array(
+                    'table' => 'activities',
+                    'alias' => 'Activity',
+                    'type' => 'INNER',
+                    'conditions' => 'Point.activity_id = Activity.id'
+                ),
+            ),
+            'recursive' => 0
+        ));
+        //debug($pointsForAllActivities)or die;
 
         $this->loadModel('Activity');
         $this->Activity->unbindModel(array('belongsTo' => array('Room', 'Reward'), 'hasMany' => array('Point')));
@@ -115,15 +147,20 @@ class PagesController extends AppController {
             ),
                 )
         );
-        if(0 != $countTotalActivities){
-            $percentageActivities = ($countActivitiesSucess/$countTotalActivities)*100;
-        }else{
+        if (0 != $countTotalActivities) {
+            $percentageActivities = ($countActivitiesSucess / $countTotalActivities) * 100;
+        } else {
             $percentageActivities = 0;
         }
-        
-        $activityDetails['Activities'] = array('CountTotal'=> $countTotalActivities, 'CountActivitySucess'=> $countActivitiesSucess, 'Percentage'=> $percentageActivities);
-        
-        
+
+        $activityDetails['Activities'] = array(
+            'CountTotal' => $countTotalActivities,
+            'CountActivitySucess' => $countActivitiesSucess,
+            'Percentage' => $percentageActivities,
+            'Points' => $pointsForAllActivities[0][0]['total_points']
+        );
+
+
         //ActivityChallenge
         //============================================================//
         $countTotalActivitiesChallenge = $this->Activity->find('count', array(
@@ -155,13 +192,18 @@ class PagesController extends AppController {
             ),
                 )
         );
-        if(0 != $countTotalActivitiesChallenge){
-            $percentageActivitiesChallenge = ($countActivitiesChallengeSucess/$countTotalActivitiesChallenge)*100;
-        }else{
+        if (0 != $countTotalActivitiesChallenge) {
+            $percentageActivitiesChallenge = ($countActivitiesChallengeSucess / $countTotalActivitiesChallenge) * 100;
+        } else {
             $percentageActivitiesChallenge = 0;
         }
-        $activityDetails['ActivitiesChallenge'] = array('CountTotal'=> $countTotalActivitiesChallenge, 'CountActivitySucess'=> $countActivitiesChallengeSucess, 'Percentage'=> $percentageActivitiesChallenge);
-        
+        $activityDetails['ActivitiesChallenge'] = array(
+            'CountTotal' => $countTotalActivitiesChallenge,
+            'CountActivitySucess' => $countActivitiesChallengeSucess,
+            'Percentage' => $percentageActivitiesChallenge,
+            'Points' => $pointsForAllActivities[2][0]['total_points']
+        );
+
         //Activity For Team
         //============================================================//
         $countTotalActivitiesForTeam = $this->Activity->find('count', array(
@@ -188,7 +230,7 @@ class PagesController extends AppController {
             ),
                 )
         );
-        
+
         $countTotalActivitiesForTeamWinner = $this->Activity->find('count', array(
             'conditions' => array(
                 'Activity.type_activity' => 'AT',
@@ -214,16 +256,19 @@ class PagesController extends AppController {
             ),
                 )
         );
-        if(0 != $countTotalActivitiesForTeam){
-            $percentageActivitiesForTeam = ($countTotalActivitiesForTeamWinner/$countTotalActivitiesForTeam)*100;
-        }else{
+        if (0 != $countTotalActivitiesForTeam) {
+            $percentageActivitiesForTeam = ($countTotalActivitiesForTeamWinner / $countTotalActivitiesForTeam) * 100;
+        } else {
             $percentageActivitiesForTeam = 0;
         }
-        $activityDetails['ActivitiesForTeam'] = array('CountTotal'=> $countTotalActivitiesForTeam, 'CountActivitySucess'=> $countTotalActivitiesForTeamWinner, 'Percentage'=> $percentageActivitiesForTeam);
-        
+        $activityDetails['ActivitiesForTeam'] = array(
+            'CountTotal' => $countTotalActivitiesForTeam,
+            'CountActivitySucess' => $countTotalActivitiesForTeamWinner,
+            'Percentage' => $percentageActivitiesForTeam,
+            'Points' => $pointsForAllActivities[1][0]['total_points']
+        );
+
         //Challenge For Team
-        //=======================================================//
-        //Activity For Team
         //============================================================//
         $countTotalChallengeForTeam = $this->Activity->find('count', array(
             'conditions' => array(
@@ -249,7 +294,7 @@ class PagesController extends AppController {
             ),
                 )
         );
-        
+
         $countTotalChallengeForTeamWinner = $this->Activity->find('count', array(
             'conditions' => array(
                 'Activity.type_activity' => 'CT',
@@ -275,13 +320,45 @@ class PagesController extends AppController {
             ),
                 )
         );
-        if(0 != $countTotalChallengeForTeam){
-            $percentageChallengeForTeam = ($countTotalChallengeForTeamWinner/$countTotalChallengeForTeam)*100;
-        }else{
+        if (0 != $countTotalChallengeForTeam) {
+            $percentageChallengeForTeam = ($countTotalChallengeForTeamWinner / $countTotalChallengeForTeam) * 100;
+        } else {
             $percentageChallengeForTeam = 0;
         }
-        $activityDetails['ChallengeForTeam'] = array('CountTotal'=> $countTotalChallengeForTeam, 'CountActivitySucess'=> $countTotalChallengeForTeamWinner, 'Percentage'=> $percentageChallengeForTeam);
-        $this->set(compact('activityDetails', 'matriculations'));
+        $activityDetails['ChallengeForTeam'] = array(
+            'CountTotal' => $countTotalChallengeForTeam,
+            'CountActivitySucess' => $countTotalChallengeForTeamWinner,
+            'Percentage' => $percentageChallengeForTeam,
+            'Points' => $pointsForAllActivities[3][0]['total_points']
+        );
+        
+        //================== RANCKING =========================// 
+
+        $rankingPoints = $this->Matriculation->find('all', array(
+            'conditions' => array(
+                'Matriculation.room_id' => $this->Session->read('Auth.User.SelectMatriculation.room_id'),
+            ),
+            'group' => array(
+                'Matriculation.id'
+            ),
+            'fields' => array(
+                'Student.nm_student',
+                'sum(Point.vl_point) as total_points'
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'points',
+                    'alias' => 'Point',
+                    'type' => 'INNER',
+                    'conditions' => 'Point.matriculation_id = Matriculation.id')
+            ),
+            'order' => array('total_points'=>'desc'),
+            'recursive' => 0
+        ));
+
+        //debug(($students))or die;
+
+        $this->set(compact('activityDetails', 'rankingPoints'));
     }
 
 }

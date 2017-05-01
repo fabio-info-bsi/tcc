@@ -24,8 +24,9 @@
             <li class="treeview">
                 <a href="<?php
                    echo $this->Html->url(array(
-                       'controller' => 'pages',
-                       'action' => 'display'
+                       'plugin' => false,
+                       'controller' => 'Pages',
+                       'action' => 'student_home'
                    ));
                    ?>">
                     <i class="fa fa-dashboard"></i> <span><?php echo __("Dashboard") ?></span>
@@ -36,6 +37,7 @@
             <li>
                 <a href="<?php
                 echo $this->Html->url(array(
+                    'plugin' => false,
                     'controller' => 'Students',
                     'action' => 'teacher_index'
                 ));

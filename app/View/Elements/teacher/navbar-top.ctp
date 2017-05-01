@@ -1,6 +1,6 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo"><b>IF</b>S<i class="fa fa-gamepad"></i> </a>
+    <a href="/" class="logo"><b>IF</b>LIP<i class="fa fa-gamepad"></i> </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -66,7 +66,7 @@
                                 echo $this->Html->url(array(
                                     "controller" => "users",
                                     "action" => "logout",
-                                    "plugin" => "admin/admin"
+                                    //"plugin" => "admin/admin"
                                 ))
                                 ?>" class="btn btn-default btn-flat"><?php echo __('Sign out'); ?></a>
                             </div>
