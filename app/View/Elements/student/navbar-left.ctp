@@ -34,7 +34,7 @@
 
             </li>
             
-            <li>
+<!--            <li>
                 <a href="<?php
                 echo $this->Html->url(array(
                     'plugin' => false,
@@ -44,7 +44,7 @@
                    ?>">
                     <i class="fa fa-child"></i> <span><?php echo __("Students") ?></span>
                 </a>
-            </li>
+            </li>-->
 <!--            <li>
                 <a href="<?php
                 echo $this->Html->url(array(
@@ -76,7 +76,7 @@
                 </a>
             </li>-->
             
-            <li>
+<!--            <li>
                 <a href="<?php
                 echo $this->Html->url(array(
                     'controller' => 'Matriculations',
@@ -85,7 +85,7 @@
                    ?>">
                     <i class="fa  fa-group"></i> <span><?php echo __("Matriculations") ?></span>
                 </a>
-            </li>
+            </li>-->
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
@@ -100,8 +100,9 @@
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
+                       'plugin' => false,
                        'controller' => 'Activities',
-                       'action' => 'teacher_index'
+                       'action' => 'student_time_line'
                    ));
                    ?>">
                     <i class="fa fa-gavel"></i> <span><?php echo __("Activities") ?></span>
@@ -128,7 +129,7 @@
                     <i class="fa fa-bar-chart"></i> <span><?php echo __("Points") ?></span>
                 </a>
             </li>
-            <li>
+<!--            <li>
                 <a href="<?php
                    echo $this->Html->url(array(
                        'controller' => 'MatriculationsRewards',
@@ -137,7 +138,7 @@
                    ?>">
                     <i class="fa fa-diamond"></i> <span><?php echo __("To award") ?></span>
                 </a>
-            </li>
+            </li>-->
             
             <li>
                 <a href="<?php

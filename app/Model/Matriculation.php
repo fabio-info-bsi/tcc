@@ -100,7 +100,7 @@ class Matriculation extends AppModel {
 			'unique' => 'keepExisting',
 			'conditions' => array('Activity.removed' => 'N','Activity.active' => 'S'),
 			'fields' => '',
-			'order' => '',
+			'order' => 'Activity.created DESC',
 			'limit' => '',
 			'offset' => '',
 			'finderQuery' => '',

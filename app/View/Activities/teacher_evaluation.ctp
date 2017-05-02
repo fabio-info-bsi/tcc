@@ -138,8 +138,8 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                                                                 echo $this->Form->input('Matriculation.' . $index . '.MatriculationsActivity.id', array('type' => 'hidden', 'div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('id'), 'title' => __('id'), 'class' => 'form-control input-sm'));
                                                                 echo $this->Form->input('Matriculation.' . $index . '.MatriculationsActivity.activity_id', array('type' => 'hidden', 'div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('id'), 'title' => __('id'), 'class' => 'form-control input-sm'));
                                                                 echo $this->Form->input('Matriculation.' . $index . '.MatriculationsActivity.matriculation_id', array('type' => 'hidden', 'div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('id'), 'title' => __('id'), 'class' => 'form-control input-sm'));
-                                                                $options = array('N' => ' failed ', 'A' => ' Attempt ', 'S' => ' Sucess ');
-                                                                $attributes = array('legend' => false);
+                                                                $options = array('F' => ' failed ', 'A' => ' Attempt ', 'S' => ' Sucess ');
+                                                                $attributes = array('legend' => false, 'required'=>true);
                                                                 echo $this->Form->radio('Matriculation.' . $index . '.MatriculationsActivity.sts_activity', $options, $attributes);
                                                                 //echo $this->Form->input('Matriculation.' . $index . '.MatriculationsActivity.sts_activity', array('options' => $options,'type' => 'radio','div' => 'col-xs-4', 'class' => 'radio'), array('escape' => false));
                                                                 ?>

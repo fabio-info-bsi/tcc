@@ -18,6 +18,7 @@
 //                                    "/AdminLTE-2.3.11/plugins/auto-complete/token-input",
 //                                    "/AdminLTE-2.3.11/plugins/auto-complete/token-input-facebook",
         "/AdminLTE-2.3.11/plugins/iCheck/square/blue",
+        "/AdminLTE-2.3.11/plugins/ionicons-2.0.1/css/ionicons.min",
         "/AdminLTE-2.3.11/plugins/jvectormap/jquery-jvectormap-1.2.2",
         "/AdminLTE-2.3.11/dist/css/AdminLTE.min",
         "/AdminLTE-2.3.11/dist/css/skins/_all-skins.min.css"

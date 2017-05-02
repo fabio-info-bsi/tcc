@@ -157,9 +157,9 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalActivities,
             'CountActivitySucess' => $countActivitiesSucess,
             'Percentage' => $percentageActivities,
-            'Points' => $pointsForAllActivities[0][0]['total_points']
+            'Points' => (isset($pointsForAllActivities[0][0]['total_points'])) ? $pointsForAllActivities[0][0]['total_points'] : "" 
         );
-
+        
 
         //ActivityChallenge
         //============================================================//
@@ -201,7 +201,7 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalActivitiesChallenge,
             'CountActivitySucess' => $countActivitiesChallengeSucess,
             'Percentage' => $percentageActivitiesChallenge,
-            'Points' => $pointsForAllActivities[2][0]['total_points']
+            'Points' => (isset($pointsForAllActivities[2][0]['total_points'])) ? $pointsForAllActivities[2][0]['total_points'] : "" 
         );
 
         //Activity For Team
@@ -265,7 +265,7 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalActivitiesForTeam,
             'CountActivitySucess' => $countTotalActivitiesForTeamWinner,
             'Percentage' => $percentageActivitiesForTeam,
-            'Points' => $pointsForAllActivities[1][0]['total_points']
+            'Points' => (isset($pointsForAllActivities[1][0]['total_points'])) ? $pointsForAllActivities[1][0]['total_points'] : "" 
         );
 
         //Challenge For Team
@@ -329,7 +329,7 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalChallengeForTeam,
             'CountActivitySucess' => $countTotalChallengeForTeamWinner,
             'Percentage' => $percentageChallengeForTeam,
-            'Points' => $pointsForAllActivities[3][0]['total_points']
+            'Points' => (isset($pointsForAllActivities[3][0]['total_points'])) ? $pointsForAllActivities[3][0]['total_points'] : "" 
         );
         
         //================== RANCKING =========================// 

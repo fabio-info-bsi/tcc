@@ -1,13 +1,13 @@
 <header class="main-header">
     <!-- Logo -->
-    
+
     <!-- Logo -->
     <a href="/Pages/student_home" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>IF</b><i class="fa fa-gamepad"></i></span>
-      <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>IF</b>LIP<i class="fa fa-gamepad"></i></span>
-      
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>IF</b><i class="fa fa-gamepad"></i></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>IF</b>LIP<i class="fa fa-gamepad"></i></span>
+
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
@@ -15,10 +15,29 @@
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
         </a>
-        
+
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+
+
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-star-empty"></i>
+                        <span class="label label-primary">4</span>
+                    </a>
+                    
+                </li>
+                
+                <li class="dropdown notifications-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="ion-pricetags"></i>
+                        <span class="label label-warning">4</span>
+                    </a>
+                    
+                </li>
+
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <?php

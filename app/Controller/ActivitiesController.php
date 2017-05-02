@@ -85,7 +85,8 @@ class ActivitiesController extends AppController {
         $this->Activity->recursive = 0;
         $this->paginate = array(
             'limit' => 10,
-            'conditions' => $conditions
+            'conditions' => $conditions,
+            'order' => array('Activity.created' => 'desc'),
         );
         $options = array('Activity.removed' => 'N', "Activity.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('activities', $this->Paginator->paginate($options));
@@ -447,7 +448,7 @@ class ActivitiesController extends AppController {
         }
         if ($this->request->is(array('post', 'put'))) {
             $pontForMatriculation = null;
-
+            //debug($this->request->data)or die;
             //Delete all rewards this activiy
             $this->loadModel('MatriculationsReward');
             $this->MatriculationsReward->deleteAll(array('activity_id' => $id));
@@ -470,7 +471,7 @@ class ActivitiesController extends AppController {
                 'fields' => array('MatriculationsReward.id')
                     )
             );
-            //debug($this->request->data)or die;
+            
 
             if ('ct' == strtolower($this->request->data['Activity']['type_activity']) || 'at' == strtolower($this->request->data['Activity']['type_activity'])) {
                 $this->Activity->Team->unbindModel(array('hasAndBelongsToMany' => array('Activity')));
@@ -640,6 +641,53 @@ class ActivitiesController extends AppController {
                     '</div>');
         }
         return $this->redirect(array('action' => 'index'));
+    }
+
+    public function student_time_line() {
+//        $timeLine = $this->Activity->find('all', array(
+//            'conditions' => array(
+//                'Activity.removed' => 'N',
+//                //'Activity.activite' => 'S',
+//                'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
+//            ),
+//            'joins' => array(
+//                array(
+//                    'table' => 'matriculations_activities',
+//                    'alias' => 'MatriculationsActivity',
+//                    'type' => 'INNER',
+//                    'conditions' => 'MatriculationsActivity.activity_id = Activity.id')
+//            ),
+//            'group' => array(
+//                //'Matriculation.id'
+//                'Activity.created'
+//            ),
+//            'order' => array('Activity.created' => 'desc'),
+//                )
+//        );
+        
+        $timeLine = $this->Activity->Matriculation->find('first',array(
+            'conditions' => array(
+                'Activity.removed' => 'N',
+                //'Activity.activite' => 'S',
+                'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id')
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'matriculations_activities',
+                    'alias' => 'MatriculationsActivity',
+                    'type' => 'INNER',
+                    'conditions' => 'MatriculationsActivity.matriculation_id = Matriculation.id'),
+                array(
+                    'table' => 'activities',
+                    'alias' => 'Activity',
+                    'type' => 'INNER',
+                    'conditions' => 'MatriculationsActivity.activity_id = Activity.id'),
+            )
+                )
+        );
+        //debug($timeLine)or die;
+
+        $this->set(compact('timeLine'));
     }
 
 }
