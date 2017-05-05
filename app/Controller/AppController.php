@@ -43,7 +43,7 @@ class AppController extends Controller {
         parent::beforefilter();
         $this->AclPermissions->filter();
         $this->dinamicLayout();
-        $this->set('rooms', $this->Session->read('Auth.User.Rooms'));
+        
     }
     
     protected function dinamicLayout() {
@@ -54,9 +54,11 @@ class AppController extends Controller {
                     break;
                 case 2:
                     $this->layout = 'teacher';
+                    $this->set('rooms', $this->Session->read('Auth.User.Rooms'));
                     break;
                 case 3:
                     $this->layout = 'student';
+                    $this->set('matriculations', $this->Session->read('Auth.User.Matriculations'));
                     break;
                 
             }

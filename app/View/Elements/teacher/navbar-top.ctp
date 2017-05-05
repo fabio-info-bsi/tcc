@@ -1,6 +1,13 @@
 <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo"><b>IF</b>LIP<i class="fa fa-gamepad"></i> </a>
+    <!-- Logo -->
+    <a href="/Pages/student_home" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>IF</b><i class="fa fa-gamepad"></i></span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>IF</b>LIP<i class="fa fa-gamepad"></i></span>
+
+    </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->

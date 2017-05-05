@@ -361,7 +361,34 @@ class PointsController extends AppController {
                     . __('point') . ' ' . __('could not be deleted. Please, try again.') .
                     '</div>');
         }
-        return $this->redirect(array('action' => 'index'));
+        return $this->redirect($this->request->referer());
+    }
+    
+    public function total_points_xp() {
+        
+        $points = $this->Point->find('first', array(
+            'conditions' => array(
+                'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id')
+            ),
+            'fields' => array(
+                'sum(Point.vl_point) as total_points'
+            ),
+            'recursive' => 0
+        ));
+        return (isset($points[0]['total_points'])) ? $points[0]['total_points'] : 0;
+    }
+    
+    public function total_points_redeemable() {
+        $points = $this->Point->find('first', array(
+            'conditions' => array(
+                'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id')
+            ),
+            'fields' => array(
+                'sum(Point.vl_point_redeemable) as total_points_redeemable'
+            ),
+            'recursive' => 0
+        ));
+        return (isset($points[0]['total_points_redeemable'])) ? $points[0]['total_points_redeemable'] : 0;
     }
 
 }

@@ -18,11 +18,11 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
     <!-- Info boxes -->
 
     <?php
-    //debug($this->Session->read("Auth.User")) 
+    //debug($this->Session->read("Auth.User"))
     //debug($activityDetails)
     //debug($rankingPoints)
+    //echo count($this->requestAction(array('controller' => 'Points', 'action' => 'total_points_xp')));
     ?>
-
     <div class="row">
         <div class="col-md-12">
             <div class="box">
@@ -32,7 +32,7 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                     <div class="box-tools pull-right">
                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                         </button>
-                        
+
                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                     </div>
                 </div>
@@ -161,29 +161,13 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
             labels: [
 <?php
 for ($i = 0; $i < count($rankingPoints); $i++) {
-    echo "'" . $rankingPoints[$i]['Student']['nm_student'] . "',";
+    echo "'" . strstr($rankingPoints[$i]['Student']['nm_student'], ' ', true) . "',";
 }
 ?>
             ],
             datasets: [
                 {
-                    label: "Electronics",
-                    fillColor: "rgba(210, 214, 222, 1)",
-                    strokeColor: "rgba(210, 214, 222, 1)",
-                    pointColor: "rgba(210, 214, 222, 1)",
-                    pointStrokeColor: "#c1c7d1",
-                    pointHighlightFill: "#fff",
-                    pointHighlightStroke: "rgba(220,220,220,1)",
-                    data: [
-<?php
-for ($i = 0; $i < count($rankingPoints); $i++) {
-    echo "'" . $rankingPoints[$i][0]['total_points'] . "',";
-}
-?>
-                    ]
-                },
-                {
-                    label: "Digital Goods",
+                    label: "(XP)",
                     fillColor: "rgba(60,141,188,0.9)",
                     strokeColor: "rgba(60,141,188,0.8)",
                     pointColor: "#3b8bba",
@@ -197,7 +181,24 @@ for ($i = 0; $i < count($rankingPoints); $i++) {
 }
 ?>
                     ]
+                },
+                {
+                    label: "Pontos",
+                    fillColor: "rgba(210, 214, 222, 1)",
+                    strokeColor: "rgba(210, 214, 222, 1)",
+                    pointColor: "rgba(210, 214, 222, 1)",
+                    pointStrokeColor: "#c1c7d1",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [
+<?php
+for ($i = 0; $i < count($rankingPoints); $i++) {
+    echo "'" . $rankingPoints[$i][0]['total_points'] . "',";
+}
+?>
+                    ]
                 }
+
             ]
         };
 

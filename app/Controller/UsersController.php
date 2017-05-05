@@ -136,6 +136,34 @@ class UsersController extends AppController {
         $groups = $this->User->Group->find('list', array('conditions' => array('Group.removed' => 'N', 'Group.active' => 'S'), 'order' => 'Group.name'));
         $this->set(compact('groups'));
     }
+    
+    public function session_edit() {
+        if (!$this->User->exists($this->Session->read('Auth.User.id'))) {
+            throw new NotFoundException(__('Invalid user'));
+        }
+        if ($this->request->is(array('post', 'put'))) {
+            if ($this->User->save($this->request->data)) {
+                $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
+                                        <i class="fa fa-check"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('user') . ' ' . __('has been saved.') .
+                        '</div>');
+                return $this->redirect($this->request->referer());
+            } else {
+                $this->Session->setFlash('<br><div class="alert alert-danger alert-dismissable">
+                                        <i class="fa fa-ban"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                        . __('user') . ' ' . __('could not be saved. Please, try again.') .
+                        '</div>');
+            }
+        } else {
+            $options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Session->read('Auth.User.id')));
+            $this->request->data = $this->User->find('first', $options);
+        }
+        
+    }
 
     /**
      * delete method

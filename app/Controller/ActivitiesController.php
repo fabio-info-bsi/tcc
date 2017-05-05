@@ -482,7 +482,7 @@ class ActivitiesController extends AppController {
                         //Team Winner
                         if ('w' == strtolower($this->request->data['Team'][$i]['ActivitiesTeam']['sts_activity_team'])) {
                             //If there is recompence in the activity
-                            $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'], 'activity_id' => $this->request->data['Activity']['id']);
+                            $pontForMatriculation = array('id' => array_shift($idPoints),'vl_point_redeemable'=> $this->request->data['Activity']['vl_point_redeemable'],'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculationsActivityForTeam['Matriculation'][$j]['id'], 'activity_id' => $this->request->data['Activity']['id']);
                             if ('' != $this->request->data['Activity']['reward_id']) {
                                 //If there is
                                 $rewardsOfActivityToMatriculatios[] = array(
@@ -510,7 +510,7 @@ class ActivitiesController extends AppController {
                     $idMatriculatioActivity = $this->request->data['Matriculation'][$l]['MatriculationsActivity']['matriculation_id'];
                     //Activity performed successfully
                     if ('s' == strtolower($this->request->data['Matriculation'][$l]['MatriculationsActivity']['sts_activity'])) {
-                        $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $this->request->data['Activity']['id']);
+                        $pontForMatriculation = array('id' => array_shift($idPoints), 'vl_point_redeemable'=> $this->request->data['Activity']['vl_point_redeemable'],'vl_point' => $this->request->data['Activity']['vl_activity_sucess'], 'matriculation_id' => $idMatriculatioActivity, 'activity_id' => $this->request->data['Activity']['id']);
                         //If there is recompence in the activity                            
                         if ('' != $this->request->data['Activity']['reward_id']) {
                             //If there is
@@ -626,6 +626,7 @@ class ActivitiesController extends AppController {
         $data = array('id' => $id, 'removed' => 'S');
         $this->request->allowMethod('post', 'delete');
         if ($this->Activity->save($data)) {
+            $this->Activity->Point->deleteAll(array('activity_id' => $id));
             $this->Session->setFlash('<br><div class="alert alert-success alert-dismissable">
                                         <i class="fa fa-check"></i>
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -640,30 +641,10 @@ class ActivitiesController extends AppController {
                     . __('activity') . ' ' . __('could not be deleted. Please, try again.') .
                     '</div>');
         }
-        return $this->redirect(array('action' => 'index'));
+        return $this->redirect($this->request->referer());
     }
 
     public function student_time_line() {
-//        $timeLine = $this->Activity->find('all', array(
-//            'conditions' => array(
-//                'Activity.removed' => 'N',
-//                //'Activity.activite' => 'S',
-//                'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
-//            ),
-//            'joins' => array(
-//                array(
-//                    'table' => 'matriculations_activities',
-//                    'alias' => 'MatriculationsActivity',
-//                    'type' => 'INNER',
-//                    'conditions' => 'MatriculationsActivity.activity_id = Activity.id')
-//            ),
-//            'group' => array(
-//                //'Matriculation.id'
-//                'Activity.created'
-//            ),
-//            'order' => array('Activity.created' => 'desc'),
-//                )
-//        );
         
         $timeLine = $this->Activity->Matriculation->find('first',array(
             'conditions' => array(

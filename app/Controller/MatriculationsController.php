@@ -53,15 +53,14 @@ class MatriculationsController extends AppController {
         $options = array('Matriculation.removed' => 'N');
         $this->set('matriculations', $this->Paginator->paginate($options));
 
-        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'),'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
+        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'), 'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
         $rooms = $this->Matriculation->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.ds_room'));
         $activities = $this->Matriculation->Activity->find('list', array('conditions' => array('Activity.removed' => 'N', 'Activity.active' => 'S'), 'order' => 'Activity.nm_activity'));
         $rewards = $this->Matriculation->Reward->find('list', array('conditions' => array('Reward.removed' => 'N', 'Reward.active' => 'S'), 'order' => 'Reward.nm_brinde'));
         $teams = $this->Matriculation->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.nm_team'));
         $this->set(compact('students', 'rooms', 'activities', 'rewards', 'teams'));
     }
-    
-    
+
     public function teacher_index() {
         $conditions = array();
 
@@ -93,7 +92,7 @@ class MatriculationsController extends AppController {
         $options = array('Matriculation.removed' => 'N', "Matriculation.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('matriculations', $this->Paginator->paginate($options));
 
-        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'),'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
+        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'), 'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
         //$rooms = $this->Matriculation->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.ds_room'));
         //$activities = $this->Matriculation->Activity->find('list', array('conditions' => array('Activity.removed' => 'N', 'Activity.active' => 'S'), 'order' => 'Activity.nm_activity'));
         //$rewards = $this->Matriculation->Reward->find('list', array('conditions' => array('Reward.removed' => 'N', 'Reward.active' => 'S'), 'order' => 'Reward.nm_brinde'));
@@ -142,14 +141,14 @@ class MatriculationsController extends AppController {
                         '</div>');
             }
         }
-        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'),'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
+        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'), 'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
         $rooms = $this->Matriculation->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.ds_room'));
         $activities = $this->Matriculation->Activity->find('list', array('conditions' => array('Activity.removed' => 'N', 'Activity.active' => 'S'), 'order' => 'Activity.nm_activity'));
         $rewards = $this->Matriculation->Reward->find('list', array('conditions' => array('Reward.removed' => 'N', 'Reward.active' => 'S'), 'order' => 'Reward.nm_brinde'));
         $teams = $this->Matriculation->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.nm_team'));
         $this->set(compact('students', 'rooms', 'activities', 'rewards', 'teams'));
     }
-    
+
     public function teacher_add() {
         if ($this->request->is('post')) {
             $this->request->data['Matriculation']['room_id'] = $this->Session->read('Auth.User.SelectRoom.id');
@@ -170,7 +169,7 @@ class MatriculationsController extends AppController {
                         '</div>');
             }
         }
-        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'),'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
+        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'), 'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
         $rooms = $this->Matriculation->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.ds_room'));
         $activities = $this->Matriculation->Activity->find('list', array('conditions' => array('Activity.removed' => 'N', 'Activity.active' => 'S'), 'order' => 'Activity.nm_activity'));
         $rewards = $this->Matriculation->Reward->find('list', array('conditions' => array('Reward.removed' => 'N', 'Reward.active' => 'S'), 'order' => 'Reward.nm_brinde'));
@@ -218,7 +217,7 @@ class MatriculationsController extends AppController {
         $teams = $this->Matriculation->Team->find('list', array('conditions' => array('Team.removed' => 'N', 'Team.active' => 'S'), 'order' => 'Team.nm_team'));
         $this->set(compact('students', 'rooms', 'activities', 'rewards', 'teams'));
     }
-    
+
     public function teacher_edit($id = null) {
         if (!$this->Matriculation->exists($id)) {
             throw new NotFoundException(__('Invalid matriculation'));
@@ -282,6 +281,26 @@ class MatriculationsController extends AppController {
                     '</div>');
         }
         return $this->redirect(array('action' => 'index'));
+    }
+
+    public function update_select_matriculation() {
+        if ($this->request->is('post')) {
+            $room = $this->Matriculation->find('first', array('conditions' => array('Matriculation.id' => $this->request->data['matriculation_id']), 'fields' => array('Matriculation.room_id')));
+            
+            if (!empty($room)) {
+                $this->Session->write(
+                        'Auth.User.SelectMatriculation', array('id' => $room['Matriculation']['id'], 'room_id'=> $room['Matriculation']['room_id'])
+                );
+            }else{
+                $this->Session->setFlash('<br><div class="alert alert-danger alert-dismissable">
+                                        <i class="fa fa-ban"></i>
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                        <b>' . __("Alert!") . ' </b>'
+                    . __('matriculation') . ' ' . __('Matriculation not existe. Please, try again.') .
+                    '</div>');
+            }
+            return $this->redirect($this->request->referer());
+        }
     }
 
 }

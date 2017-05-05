@@ -26,13 +26,31 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                     <div class="col-sm-12 col-md-12 col-xs-12">
                         <div style="margin: 20px">
                             <?php
-                            $options = array('A' => __('Activity'),'AT' => __('Activity for Team'));
-                            echo $this->Html->div('row',$this->Form->input('type_activity',array('id' => 'type_activity', 'div'=>'col-xs-12','type'=>'select','class'=>'form-control input-sm selectpicker','data-style'=>'btn-primary','data-live-search'=>'true','options' => $options,'default'=>'S')),array('escape'=>false));
+                            $options = array('A' => __('Activity'), 'AT' => __('Activity for Team'));
+                            echo $this->Html->div('row', $this->Form->input('type_activity', array('id' => 'type_activity', 'div' => 'col-xs-12', 'type' => 'select', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'options' => $options, 'default' => 'S')), array('escape' => false));
                             echo $this->Html->div('row', $this->Form->input('nm_activity', array('div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('nm_activity'), 'title' => __('nm_activity'), 'class' => 'form-control input-sm')), array('escape' => false));
                             echo $this->Html->div('row', $this->Form->input('ds_activity', array('id' => 'ds_activity', 'div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('ds_activity'), 'title' => __('ds_activity'), 'class' => 'form-control input-sm')), array('escape' => false));
                             ?>
                             <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="form-group">
+                                        <label><?php echo __('vl_point_redeemable') ?></label>
+
+                                        <div class="input-group">
+                                            <div class="input-group-addon">
+                                                <i class="ion-pricetags"></i>
+                                            </div>
+                                            <?php
+                                            echo $this->Form->input('vl_point_redeemable', array('label'=> false,'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_sucess'), 'title' => __('vl_activity_sucess'), 'class' => 'form-control input-sm'));
+                                            ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <?php
+                                
                                 echo $this->Html->div('', $this->Form->input('vl_activity_sucess', array('div' => 'col-xs-4', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_sucess'), 'title' => __('vl_activity_sucess'), 'class' => 'form-control input-sm')), array('escape' => false));
                                 echo $this->Html->div('', $this->Form->input('vl_activity_attempt', array('div' => 'col-xs-4', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_attempt'), 'title' => __('vl_activity_attempt'), 'class' => 'form-control input-sm')), array('escape' => false));
                                 echo $this->Html->div('', $this->Form->input('vl_activity_failed', array('div' => 'col-xs-4', 'data-toggle' => 'tooltip', 'data-original-title' => __('vl_activity_failed'), 'title' => __('vl_activity_failed'), 'class' => 'form-control input-sm')), array('escape' => false));
@@ -44,8 +62,8 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                             <div data-original-title='<?= __('room_id') ?>' data-toggle="tooltip">
                                 <?php //echo $this->Html->div('row', $this->Form->input('room_id', array('div' => 'col-xs-12', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-primary', 'data-live-search' => 'true', 'style' => 'width:100%', 'empty' => __('room_id'))), array('escape' => false));  ?>
                             </div><?php
-                            echo $this->Html->div('row', $this->Form->input('Team', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('id'=>'listTeams', 'style'=>'display:none;'),array('escape' => false));
-                            echo $this->Html->div('row', $this->Form->input('Matriculation', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('id'=> 'listMatriculations'), array('escape' => false));
+                            echo $this->Html->div('row', $this->Form->input('Team', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('id' => 'listTeams', 'style' => 'display:none;'), array('escape' => false));
+                            echo $this->Html->div('row', $this->Form->input('Matriculation', array('div' => 'col-xs-12', 'class' => 'form-control input-sm')), array('id' => 'listMatriculations'), array('escape' => false));
                             ?>
                         </div>
                     </div>

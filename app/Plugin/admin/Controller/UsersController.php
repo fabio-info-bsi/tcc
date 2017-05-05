@@ -129,16 +129,35 @@ class UsersController extends AdminAppController {
                                         'Matriculation.student_id' => $this->Session->read('Auth.User.Student.id')
                                     ), 'fields' => array(
                                         'Matriculation.id',
+                                        'Subject.nm_subject',
                                         'Matriculation.room_id'
-                                    )
+                                    ),
+                                    'joins' => array(
+                                        array(
+                                            'table' => 'rooms',
+                                            'alias' => 'Room',
+                                            'type' => 'INNER',
+                                            'conditions' => 'Matriculation.room_id = Room.id'),
+                                        array(
+                                            'table' => 'subjects',
+                                            'alias' => 'Subject',
+                                            'type' => 'INNER',
+                                            'conditions' => 'Room.subject_id = Subject.id'),
+                                    ),
                                         )
                                 )
                         );
-                        $this->Session->write(
-                                'Auth.User.SelectMatriculation', array(
-                                    'id' => key($this->Session->read('Auth.User.Matriculations')),
-                                    'room_id' => array_shift($this->Session->read('Auth.User.Matriculations'))
-                                    )
+//                        $this->Session->write(
+//                                'Auth.User.SelectMatriculation', array(
+//                            'id' => key($this->Session->read('Auth.User.Matriculations')),
+//                            'room_id' => array_shift($this->Session->read('Auth.User.Matriculations'))
+//                                )
+//                        );
+                        $this->Session->write('Auth.User.SelectMatriculation', array(
+                            'id' => key(current($this->Session->read('Auth.User.Matriculations'))),
+                            //'nm_subject' => array_shift(current($this->Session->read('Auth.User.Matriculations'))),
+                            'room_id' => key($this->Session->read('Auth.User.Matriculations'))
+                                )
                         );
                         $this->redirect(array('plugin' => NULL, 'admin' => FALSE, 'controller' => 'Pages', 'action' => 'student_home'));
                         break;

@@ -84,6 +84,7 @@ class PagesController extends AppController {
         $this->loadModel('Matriculation');
         $pointsForAllActivities = $this->Matriculation->find('all', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
             //'Activity.type_activity' => 'A'
             ),
@@ -120,6 +121,7 @@ class PagesController extends AppController {
         //============================================================//
         $countTotalActivities = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'A',
                 'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
             ),
@@ -134,6 +136,7 @@ class PagesController extends AppController {
         );
         $countActivitiesSucess = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'A',
                 'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
                 'MatriculationsActivity.sts_activity' => 'S'
@@ -157,14 +160,15 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalActivities,
             'CountActivitySucess' => $countActivitiesSucess,
             'Percentage' => $percentageActivities,
-            'Points' => (isset($pointsForAllActivities[0][0]['total_points'])) ? $pointsForAllActivities[0][0]['total_points'] : "" 
+            'Points' => (isset($pointsForAllActivities[0][0]['total_points'])) ? $pointsForAllActivities[0][0]['total_points'] : ""
         );
-        
+
 
         //ActivityChallenge
         //============================================================//
         $countTotalActivitiesChallenge = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'C',
                 'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
             ),
@@ -179,6 +183,7 @@ class PagesController extends AppController {
         );
         $countActivitiesChallengeSucess = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'C',
                 'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
                 'MatriculationsActivity.sts_activity' => 'S'
@@ -201,13 +206,14 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalActivitiesChallenge,
             'CountActivitySucess' => $countActivitiesChallengeSucess,
             'Percentage' => $percentageActivitiesChallenge,
-            'Points' => (isset($pointsForAllActivities[2][0]['total_points'])) ? $pointsForAllActivities[2][0]['total_points'] : "" 
+            'Points' => (isset($pointsForAllActivities[2][0]['total_points'])) ? $pointsForAllActivities[2][0]['total_points'] : ""
         );
 
         //Activity For Team
         //============================================================//
         $countTotalActivitiesForTeam = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'AT',
                 'MatriculationsTeam.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
             ),
@@ -233,6 +239,7 @@ class PagesController extends AppController {
 
         $countTotalActivitiesForTeamWinner = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'AT',
                 'MatriculationsTeam.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
                 'ActivitiesTeam.sts_activity_team' => 'W'
@@ -265,13 +272,14 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalActivitiesForTeam,
             'CountActivitySucess' => $countTotalActivitiesForTeamWinner,
             'Percentage' => $percentageActivitiesForTeam,
-            'Points' => (isset($pointsForAllActivities[1][0]['total_points'])) ? $pointsForAllActivities[1][0]['total_points'] : "" 
+            'Points' => (isset($pointsForAllActivities[1][0]['total_points'])) ? $pointsForAllActivities[1][0]['total_points'] : ""
         );
 
         //Challenge For Team
         //============================================================//
         $countTotalChallengeForTeam = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'CT',
                 'MatriculationsTeam.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
             ),
@@ -297,6 +305,7 @@ class PagesController extends AppController {
 
         $countTotalChallengeForTeamWinner = $this->Activity->find('count', array(
             'conditions' => array(
+                'Activity.removed' => 'N',
                 'Activity.type_activity' => 'CT',
                 'MatriculationsTeam.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
                 'ActivitiesTeam.sts_activity_team' => 'W'
@@ -329,9 +338,9 @@ class PagesController extends AppController {
             'CountTotal' => $countTotalChallengeForTeam,
             'CountActivitySucess' => $countTotalChallengeForTeamWinner,
             'Percentage' => $percentageChallengeForTeam,
-            'Points' => (isset($pointsForAllActivities[3][0]['total_points'])) ? $pointsForAllActivities[3][0]['total_points'] : "" 
+            'Points' => (isset($pointsForAllActivities[3][0]['total_points'])) ? $pointsForAllActivities[3][0]['total_points'] : ""
         );
-        
+
         //================== RANCKING =========================// 
 
         $rankingPoints = $this->Matriculation->find('all', array(
@@ -349,15 +358,14 @@ class PagesController extends AppController {
                 array(
                     'table' => 'points',
                     'alias' => 'Point',
-                    'type' => 'INNER',
-                    'conditions' => 'Point.matriculation_id = Matriculation.id')
+                    'type' => 'LEFT',
+                    'conditions' => 'Point.matriculation_id = Matriculation.id'),
             ),
-            'order' => array('total_points'=>'desc'),
+            'order' => array('total_points' => 'desc'),
             'recursive' => 0
-        ));
-
-        //debug(($students))or die;
-
+        ));  
+        
+        //$this->set(compact('rooms'));
         $this->set(compact('activityDetails', 'rankingPoints'));
     }
 
