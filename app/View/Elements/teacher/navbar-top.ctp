@@ -1,7 +1,7 @@
 <header class="main-header">
     <!-- Logo -->
     <!-- Logo -->
-    <a href="/Pages/student_home" class="logo">
+    <a href="/" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>IF</b><i class="fa fa-gamepad"></i></span>
         <!-- logo for regular state and mobile devices -->
@@ -64,8 +64,7 @@
                                 <a href="<?php
                                 echo $this->Html->url(array(
                                     "controller" => "users",
-                                    "action" => "edit",
-                                    $this->Session->read('Auth.User.id')))
+                                    "action" => "session_edit"))
                                 ?>" class="btn btn-default btn-flat"><?php echo __('Profile'); ?></a>
                             </div>
                             <div class="pull-right">

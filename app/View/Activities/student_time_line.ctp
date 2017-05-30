@@ -10,7 +10,7 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
     <?php
     $this->Html->addCrumb(__(' Home'), '/', ['i', 'class' => 'fa fa-dashboard']);
     $this->Html->addCrumb(__('Activities'), '/Activities');
-    $this->Html->addCrumb(__('Add Activity'));
+    $this->Html->addCrumb(__('Timeline'));
     echo $this->Html->getCrumbList(['class' => 'breadcrumb', 'lastClass' => 'active']);
     ?>
 </section>

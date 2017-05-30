@@ -19,10 +19,18 @@
             .novo{
                 position: absolute; height: 116px; top: 20%; width: 90%; left: 14%;
             }
+            .special {
+                font-weight: bold !important;
+                color: #fff !important;
+                background: #bc0000 !important;
+                text-transform: uppercase;
+            }
+            
+
         </style>
-        <?php echo $this->Form->create(false, array('url'=> array('controller'=> 'Matriculations', 'action'=> 'update_select_matriculation'))); ?>
+        <?php echo $this->Form->create(false, array('url' => array('controller' => 'Matriculations', 'action' => 'update_select_matriculation'))); ?>
         <div class="navbar-custom">
-            <?php echo $this->Html->div('novo', $this->Form->input('matriculation_id', array('value'=>$this->Session->read('Auth.User.SelectMatriculation.id'), 'label' => FALSE,'onChange'=>'javascript:this.form.submit()', 'div' => 'col-lg-8 col-xs-5', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-success', 'style' => 'width:10%',)), array('escape' => false)); ?>
+            <?php echo $this->Html->div('novo', $this->Form->input('matriculation_id', array('value' => $this->Session->read('Auth.User.SelectMatriculation.id'), 'label' => FALSE, 'onChange' => 'javascript:this.form.submit()', 'div' => 'col-lg-8 col-xs-5', 'class' => 'form-control input-sm selectpicker', 'data-style' => 'btn-success', 'style' => 'width:50%',)), array('escape' => false)); ?>
         </div>
         <?php echo $this->Form->end(); ?>
         <!-- Navbar Right Menu -->
@@ -38,9 +46,9 @@
                             <?php echo $this->requestAction(array('controller' => 'Points', 'action' => 'total_points_xp')); ?>
                         </span>
                     </a>
-                    
+
                 </li>
-                
+
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="ion-pricetags"></i>
@@ -48,7 +56,7 @@
                             <?php echo $this->requestAction(array('controller' => 'Points', 'action' => 'total_points_redeemable')); ?>
                         </span>
                     </a>
-                    
+
                 </li>
 
                 <li class="dropdown user user-menu">

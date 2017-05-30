@@ -45,8 +45,7 @@
                                 <a href="<?php
                                 echo $this->Html->url(array(
                                     "controller" => "users",
-                                    "action" => "edit",
-                                    $this->Session->read('Auth.User.id')))
+                                    "action" => "session_edit",))
                                 ?>" class="btn btn-default btn-flat"><?php echo __('Profile'); ?></a>
                             </div>
                             <div class="pull-right">

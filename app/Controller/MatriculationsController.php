@@ -286,21 +286,53 @@ class MatriculationsController extends AppController {
     public function update_select_matriculation() {
         if ($this->request->is('post')) {
             $room = $this->Matriculation->find('first', array('conditions' => array('Matriculation.id' => $this->request->data['matriculation_id']), 'fields' => array('Matriculation.room_id')));
-            
+
             if (!empty($room)) {
                 $this->Session->write(
-                        'Auth.User.SelectMatriculation', array('id' => $room['Matriculation']['id'], 'room_id'=> $room['Matriculation']['room_id'])
+                        'Auth.User.SelectMatriculation', array('id' => $room['Matriculation']['id'], 'room_id' => $room['Matriculation']['room_id'])
                 );
-            }else{
+            } else {
                 $this->Session->setFlash('<br><div class="alert alert-danger alert-dismissable">
                                         <i class="fa fa-ban"></i>
                                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                                         <b>' . __("Alert!") . ' </b>'
-                    . __('matriculation') . ' ' . __('Matriculation not existe. Please, try again.') .
-                    '</div>');
+                        . __('matriculation') . ' ' . __('Matriculation not existe. Please, try again.') .
+                        '</div>');
             }
             return $this->redirect($this->request->referer());
         }
+    }
+
+    function student_ranking() {
+        $rankingPoints = $this->Matriculation->find('all', array(
+            'conditions' => array(
+                'Matriculation.room_id' => $this->Session->read('Auth.User.SelectMatriculation.room_id'),
+            ),
+            'group' => array(
+                'Matriculation.id'
+            ),
+            'fields' => array(
+                'User.*',
+                'Student.nm_student',
+                'sum(Point.vl_point) as total_points',
+                'sum(Point.vl_point_redeemable) as total_points_redeemable'
+            ),
+            'joins' => array(
+                array(
+                    'table' => 'points',
+                    'alias' => 'Point',
+                    'type' => 'LEFT',
+                    'conditions' => 'Point.matriculation_id = Matriculation.id'),
+                array(
+                    'table' => 'users',
+                    'alias' => 'User',
+                    'type' => 'LEFT',
+                    'conditions' => 'Student.user_id = User.id'),
+            ),
+            'order' => array('total_points' => 'desc'),
+            'recursive' => 0
+        ));
+        $this->set(compact('rankingPoints'));
     }
 
 }

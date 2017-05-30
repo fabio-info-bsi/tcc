@@ -2,7 +2,7 @@
     <div class="pull-right hidden-xs">
         <b>Versão</b> 1.0
     </div>
-    <strong>Copyright &copy; <?= date('Y') ?> <a href="#">2days</a>.</strong> Todos os Direitos Reservados.
+    <strong>Copyright &copy; <?= date('Y') ?> <a href="#">Fabio-info</a>.</strong> Todos os Direitos Reservados.
 
     <?php //echo $this->element('sql_dump'); ?>
 </footer>

@@ -89,11 +89,11 @@
             <li>
                 <a href="<?php
                    echo $this->Html->url(array(
-                       'controller' => 'Teams',
-                       'action' => 'teacher_index'
+                       'controller' => 'Matriculations',
+                       'action' => 'student_ranking'
                    ));
                    ?>">
-                    <i class="fa fa-ticket"></i> <span><?php echo __("Teams") ?></span>
+                    <i class="fa fa-ticket"></i> <span><?php echo __("Ranking") ?></span>
                 </a>
             </li>
             
@@ -123,10 +123,10 @@
                 <a href="<?php
                    echo $this->Html->url(array(
                        'controller' => 'Points',
-                       'action' => 'teacher_index'
+                       'action' => 'student_extract_points'
                    ));
                    ?>">
-                    <i class="fa fa-bar-chart"></i> <span><?php echo __("Points") ?></span>
+                    <i class="fa fa-bar-chart"></i> <span><?php echo __("Extract Points") ?></span>
                 </a>
             </li>
 <!--            <li>
@@ -140,7 +140,7 @@
                 </a>
             </li>-->
             
-            <li>
+<!--            <li>
                 <a href="<?php
                    echo $this->Html->url(array(
                        'controller' => 'Rewards',
@@ -149,7 +149,7 @@
                    ?>">
                     <i class="fa fa-gift"></i> <span><?php echo __("Rewards") ?></span>
                 </a>
-            </li>
+            </li>-->
             
         </ul>    
     </section>

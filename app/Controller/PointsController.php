@@ -68,7 +68,55 @@ class PointsController extends AppController {
             'order' => 'Matriculation.student_id'));
         $this->set(compact('matriculations'));
     }
-    
+
+    public function student_extract_points() {
+        $conditions = array();
+
+        if (($this->request->is('post') || $this->request->is('put')) && isset($this->data['Filter'])) {
+            $filter_url['controller'] = $this->request->params['controller'];
+            $filter_url['action'] = $this->request->params['action'];
+            $filter_url['page'] = 1;
+
+            foreach ($this->data['Filter'] as $name => $value) {
+                if ($value) {
+                    $filter_url[$name] = urlencode(urlencode($value));
+                }
+            }
+            return $this->redirect($filter_url);
+        } else {
+            foreach ($this->params['named'] as $param_name => $value) {
+
+                if (!in_array($param_name, array('page', 'sort', 'direction', 'limit'))) {
+                    $conditions['Point.' . $param_name . ' LIKE'] = '%' . urldecode(urldecode($value)) . '%';
+                }
+            }
+        }
+
+        //$this->Point->recursive = 0;
+        $this->paginate = array(
+            'limit' => 10,
+            'conditions' => $conditions,
+            'order' => array('Point.created' => 'desc')
+        );
+        $options = array('Point.removed' => 'N', "Point.matriculation_id" => $this->Session->read('Auth.User.SelectMatriculation.id'));
+        $this->set('points', $this->Paginator->paginate($options));
+
+        $activities = $this->Point->Activity->find('list', array(
+            'conditions' => array(
+                'Activity.removed'=> 'N',
+                "Activity.room_id" => $this->Session->read('Auth.User.SelectMatriculation.room_id')
+            ),
+            'fields' => array(
+                'Activity.id',
+                'Activity.nm_activity',
+            )
+                )
+        );
+
+
+        $this->set(compact('activities'));
+    }
+
     public function teacher_index() {
         $conditions = array();
 
@@ -103,21 +151,21 @@ class PointsController extends AppController {
                     'type' => 'INNER',
                     'conditions' => 'Matriculation.student_id = Student.id')
             ),
-            'order' => array('Point.created'=>'desc')
+            'order' => array('Point.created' => 'desc')
         );
         $options = array('Point.removed' => 'N', "Matriculation.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('points', $this->Paginator->paginate($options));
-        
+
         $activities = $this->Point->Activity->find('list', array(
-            'conditions'=> array(
+            'conditions' => array(
                 "Activity.room_id" => $this->Session->read('Auth.User.SelectRoom.id')
             ),
             'fields' => array(
                 'Activity.id',
                 'Activity.nm_activity',
             )
-            )
-                );
+                )
+        );
 
         $matriculations = $this->Point->Matriculation->find('list', array(
             'conditions' => array(
@@ -196,7 +244,6 @@ class PointsController extends AppController {
         $this->set(compact('matriculations'));
     }
 
-    
     public function teacher_add() {
         if ($this->request->is('post')) {
             $this->Point->create();
@@ -237,7 +284,7 @@ class PointsController extends AppController {
             'order' => 'Matriculation.student_id'));
         $this->set(compact('matriculations'));
     }
-    
+
     /**
      * edit method
      * Powered by Frame2Days
@@ -331,7 +378,7 @@ class PointsController extends AppController {
             'order' => 'Matriculation.student_id'));
         $this->set(compact('matriculations'));
     }
-    
+
     /**
      * delete method
      * Powered by Frame2Days
@@ -363,9 +410,9 @@ class PointsController extends AppController {
         }
         return $this->redirect($this->request->referer());
     }
-    
+
     public function total_points_xp() {
-        
+
         $points = $this->Point->find('first', array(
             'conditions' => array(
                 'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id')
@@ -377,7 +424,7 @@ class PointsController extends AppController {
         ));
         return (isset($points[0]['total_points'])) ? $points[0]['total_points'] : 0;
     }
-    
+
     public function total_points_redeemable() {
         $points = $this->Point->find('first', array(
             'conditions' => array(

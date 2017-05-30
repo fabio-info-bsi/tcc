@@ -1,0 +1,2291 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/ActivitiesController.php:109;348;379;447;624
+msgid "Invalid activity"
+msgstr "Atividade inválida"
+
+#: Controller/ActivitiesController.php:127;135;166;174;231;239;283;291;355;363;387;395;551;559;633;640
+#: Controller/GroupsController.php:83;91;114;122;150;157
+#: Controller/MatriculationsController.php:131;139;159;167;197;205;230;238;272;279;298
+#: Controller/MatriculationsRewardsController.php:166;174;192;200;265;273;296;304;374;381
+#: Controller/PointsController.php:218;226;254;262;304;312;345;353;400;407
+#: Controller/RewardsController.php:124;132;149;157;200;208;231;239;287;294
+#: Controller/RoomsController.php:88;96;122;130;161;168
+#: Controller/StudentsController.php:128;136;162;170;198;205
+#: Controller/SubjectsController.php:83;91;114;122;150;157
+#: Controller/TeachersController.php:85;93;118;126;154;161
+#: Controller/TeamsController.php:143;151;169;177;229;237;261;269;326;333
+#: Controller/UsersController.php:87;95;120;128;149;157;186;193
+#: View/Elements/Flash/error.ctp:13
+#: View/Elements/Flash/success.ctp:13
+msgid "Alert!"
+msgstr "Alerta"
+
+#: Controller/ActivitiesController.php:128;136;167;175;232;240;284;292;356;364;388;396;552;560;634;641
+msgid "activity"
+msgstr "Atividade"
+
+#: Controller/ActivitiesController.php:128;167;232;284;356;388;552
+#: Controller/GroupsController.php:84;115
+#: Controller/MatriculationsController.php:132;160;198;231
+#: Controller/MatriculationsRewardsController.php:167;193;266;297
+#: Controller/PointsController.php:219;255;305;346
+#: Controller/RewardsController.php:125;150;201;232
+#: Controller/RoomsController.php:89;123
+#: Controller/StudentsController.php:129;163
+#: Controller/SubjectsController.php:84;115
+#: Controller/TeachersController.php:86;119
+#: Controller/TeamsController.php:144;170;230;262
+#: Controller/UsersController.php:88;121;150
+msgid "has been saved."
+msgstr "Foi salvo"
+
+#: Controller/ActivitiesController.php:136;175;240;292;364;396;560
+#: Controller/GroupsController.php:92;123
+#: Controller/MatriculationsController.php:140;168;206;239
+#: Controller/MatriculationsRewardsController.php:175;201;274;305
+#: Controller/PointsController.php:227;263;313;354
+#: Controller/RewardsController.php:133;158;209;240
+#: Controller/RoomsController.php:97;131
+#: Controller/StudentsController.php:137;171
+#: Controller/SubjectsController.php:92;123
+#: Controller/TeachersController.php:94;127
+#: Controller/TeamsController.php:152;178;238;270
+#: Controller/UsersController.php:96;129;158
+msgid "could not be saved. Please, try again."
+msgstr "Não foi possícel salvar. Por favor, tente novamente."
+
+#: Controller/ActivitiesController.php:634
+#: Controller/GroupsController.php:151
+#: Controller/MatriculationsController.php:273
+#: Controller/MatriculationsRewardsController.php:375
+#: Controller/PointsController.php:401
+#: Controller/RewardsController.php:288
+#: Controller/RoomsController.php:162
+#: Controller/StudentsController.php:199
+#: Controller/SubjectsController.php:151
+#: Controller/TeachersController.php:155
+#: Controller/TeamsController.php:327
+#: Controller/UsersController.php:187
+msgid "has been deleted."
+msgstr "Deletado"
+
+#: Controller/ActivitiesController.php:641
+#: Controller/GroupsController.php:158
+#: Controller/MatriculationsController.php:280
+#: Controller/MatriculationsRewardsController.php:382
+#: Controller/PointsController.php:408
+#: Controller/RewardsController.php:295
+#: Controller/RoomsController.php:169
+#: Controller/StudentsController.php:206
+#: Controller/SubjectsController.php:158
+#: Controller/TeachersController.php:162
+#: Controller/TeamsController.php:334
+#: Controller/UsersController.php:194
+msgid "could not be deleted. Please, try again."
+msgstr "Não foi possícel deletar. Por favor, tente novamente."
+
+#: Controller/GroupsController.php:65;107;142
+msgid "Invalid group"
+msgstr "Grupo inválido"
+
+#: Controller/GroupsController.php:84;92;115;123;151;158
+msgid "group"
+msgstr "Grupo"
+
+#: Controller/MatriculationsController.php:112;189;223;264
+msgid "Invalid matriculation"
+msgstr "Matrícula inválida"
+
+#: Controller/MatriculationsController.php:132;140;160;168;198;206;231;239;273;280;299
+msgid "matriculation"
+msgstr "Matrícula"
+
+#: Controller/MatriculationsController.php:299
+msgid "Matriculation not existe. Please, try again."
+msgstr "Matrícula não existe. Por favor, tente novamente."
+
+#: Controller/MatriculationsRewardsController.php:148;258;289;366
+msgid "Invalid matriculations reward"
+msgstr ""
+
+#: Controller/MatriculationsRewardsController.php:167;175;193;201;266;274;297;305;375;382
+msgid "matriculations reward"
+msgstr ""
+
+#: Controller/PointsController.php:200;297;338;392
+msgid "Invalid point"
+msgstr "Ponto inválido"
+
+#: Controller/PointsController.php:219;227;255;263;305;313;346;354;401;408
+msgid "point"
+msgstr "Ponto"
+
+#: Controller/RewardsController.php:106;193;223;279
+msgid "Invalid reward"
+msgstr "Recompensa inválida"
+
+#: Controller/RewardsController.php:125;133;150;158;201;209;232;240;288;295
+msgid "reward"
+msgstr "Recompensa"
+
+#: Controller/RoomsController.php:70;115;153
+msgid "Invalid room"
+msgstr ""
+
+#: Controller/RoomsController.php:89;97;123;131;162;169
+msgid "room"
+msgstr "Classe"
+
+#: Controller/StudentsController.php:109;153;190
+msgid "Invalid student"
+msgstr "aluno inválido"
+
+#: Controller/StudentsController.php:129;137;163;171;199;206
+msgid "student"
+msgstr "aluno"
+
+#: Controller/SubjectsController.php:65;107;142
+msgid "Invalid subject"
+msgstr "Disciplina inválida"
+
+#: Controller/SubjectsController.php:84;92;115;123;151;158
+msgid "subject"
+msgstr "Disciplina"
+
+#: Controller/TeachersController.php:66;110;146
+msgid "Invalid teacher"
+msgstr "Professor inválido"
+
+#: Controller/TeachersController.php:86;94;119;127;155;162
+msgid "teacher"
+msgstr "Professor"
+
+#: Controller/TeamsController.php:125;222;253;318
+msgid "Invalid team"
+msgstr "Equipe inválida"
+
+#: Controller/TeamsController.php:144;152;170;178;230;238;262;270;327;334
+msgid "team"
+msgstr "Equipe"
+
+#: Controller/UsersController.php:69;113;142;178
+msgid "Invalid user"
+msgstr ""
+
+#: Controller/UsersController.php:88;96;121;129;150;158;187;194
+msgid "user"
+msgstr "Usuário"
+
+#: Plugin/Upload/Console/Command/ThumbnailShell.php:34
+msgid "Which model would you like to regenerate thumbnails for?"
+msgstr ""
+
+#: Plugin/Upload/Console/Command/ThumbnailShell.php:39
+msgid "<error>"
+msgstr ""
+
+#: Plugin/Upload/Model/Behavior/UploadBehavior.php:1089
+msgid "No filename after parsing. Function %s returned an invalid filename"
+msgstr ""
+
+#: Plugin/admin/View/Permissions/admin_index.ctp:5
+#: View/Activities/index.ctp:4
+#: View/Activities/teacher_index.ctp:4
+#: View/Groups/index.ctp:4
+#: View/Matriculations/index.ctp:4
+#: View/Matriculations/teacher_index.ctp:4
+#: View/MatriculationsRewards/index.ctp:4
+#: View/MatriculationsRewards/teacher_index.ctp:4
+#: View/Points/index.ctp:4
+#: View/Points/teacher_index.ctp:4
+#: View/Rewards/index.ctp:4
+#: View/Rewards/teacher_index.ctp:4
+#: View/Rooms/index.ctp:4
+#: View/Students/index.ctp:4
+#: View/Students/teacher_index.ctp:4
+#: View/Subjects/index.ctp:4
+#: View/Teachers/index.ctp:4
+#: View/Teams/index.ctp:4
+#: View/Teams/teacher_index.ctp:4
+#: View/Users/index.ctp:4
+msgid "All Registered"
+msgstr "Todos os registros"
+
+#: Plugin/admin/View/Permissions/admin_index.ctp:11
+msgid "Sincronize"
+msgstr ""
+
+#: Plugin/admin/View/Users/admin_login.ctp:26
+msgid "Enter your username and password to access the system."
+msgstr "Digite seu nome de usuário e senha para acessar o sistema."
+
+#: View/Activities/add.ctp:5;9
+#: View/Activities/edit.ctp:5;9
+#: View/Activities/index.ctp:3;7
+#: View/Activities/student_time_line.ctp:7;8;12
+#: View/Activities/teacher_add.ctp:6;11
+#: View/Activities/teacher_add_challenge.ctp:6;11
+#: View/Activities/teacher_add_challenge_team.ctp:6;11
+#: View/Activities/teacher_edit.ctp:6;11
+#: View/Activities/teacher_evaluation.ctp:6;11
+#: View/Activities/teacher_index.ctp:3;8
+#: View/Activities/view.ctp:3;7
+#: View/Elements/navbar-left.ctp:104
+#: View/Elements/student/navbar-left.ctp:108
+#: View/Elements/teacher/navbar-left.ctp:105
+#: View/Matriculations/view.ctp:29
+#: View/Pages/student_home.ctp:62
+#: View/Rooms/view.ctp:27
+#: View/Teams/view.ctp:27
+msgid "Activities"
+msgstr "Atividades"
+
+#: View/Activities/add.ctp:6
+#: View/Activities/index.ctp:16
+#: View/Activities/teacher_add.ctp:7
+#: View/Activities/teacher_add_challenge.ctp:7
+#: View/Activities/teacher_add_challenge_team.ctp:7
+#: View/Activities/teacher_index.ctp:19;20;21
+#: View/Activities/view.ctp:80;107;141;166
+#: View/Groups/add.ctp:4
+#: View/Groups/index.ctp:16
+#: View/Groups/view.ctp:59;84
+#: View/Matriculations/add.ctp:4
+#: View/Matriculations/index.ctp:19
+#: View/Matriculations/teacher_add.ctp:4
+#: View/Matriculations/teacher_index.ctp:19
+#: View/Matriculations/view.ctp:55;72;106;127;161;182;216;233
+#: View/MatriculationsRewards/add.ctp:4
+#: View/MatriculationsRewards/index.ctp:16
+#: View/MatriculationsRewards/teacher_add.ctp:4
+#: View/MatriculationsRewards/teacher_index.ctp:18
+#: View/Points/add.ctp:4
+#: View/Points/index.ctp:16
+#: View/Points/teacher_add.ctp:4
+#: View/Points/teacher_index.ctp:18
+#: View/Rewards/add.ctp:6
+#: View/Rewards/index.ctp:16
+#: View/Rewards/teacher_add.ctp:7
+#: View/Rewards/teacher_index.ctp:18
+#: View/Rewards/view.ctp:55;74
+#: View/Rooms/add.ctp:4
+#: View/Rooms/index.ctp:18
+#: View/Rooms/view.ctp:65;92;126;149;183;210
+#: View/Students/add.ctp:4
+#: View/Students/index.ctp:19
+#: View/Students/teacher_index.ctp:19
+#: View/Students/view.ctp:47;64
+#: View/Subjects/add.ctp:4
+#: View/Subjects/index.ctp:16
+#: View/Subjects/view.ctp:47;64
+#: View/Teachers/add.ctp:4
+#: View/Teachers/index.ctp:19
+#: View/Teachers/view.ctp:47;64
+#: View/Teams/add.ctp:4
+#: View/Teams/index.ctp:16
+#: View/Teams/teacher_add.ctp:4
+#: View/Teams/teacher_index.ctp:18
+#: View/Teams/view.ctp:64;93;127;152
+#: View/Users/add.ctp:4
+#: View/Users/index.ctp:16
+#: View/Users/view.ctp:77;100;134;157;191;214
+#: Plugin/admin/View/Users/admin_index.ctp:4
+msgid "Add"
+msgstr ""
+
+#: View/Activities/add.ctp:6
+#: View/Activities/edit.ctp:6
+#: View/Activities/teacher_add.ctp:7;29
+#: View/Activities/teacher_add_challenge.ctp:7
+#: View/Activities/teacher_add_challenge_team.ctp:7
+#: View/Activities/teacher_edit.ctp:7
+#: View/Activities/teacher_evaluation.ctp:7
+#: View/Activities/teacher_index.ctp:78
+#: View/Activities/view.ctp:4;26
+#: View/MatriculationsRewards/view.ctp:41
+msgid "Activity"
+msgstr "Atividade"
+
+#: View/Activities/add.ctp:8
+#: View/Activities/edit.ctp:8
+#: View/Activities/index.ctp:6
+#: View/Activities/student_time_line.ctp:11
+#: View/Activities/teacher_add.ctp:10
+#: View/Activities/teacher_add_challenge.ctp:10
+#: View/Activities/teacher_add_challenge_team.ctp:10
+#: View/Activities/teacher_edit.ctp:10
+#: View/Activities/teacher_evaluation.ctp:10
+#: View/Activities/teacher_index.ctp:7
+#: View/Activities/view.ctp:6
+#: View/Errors/missing_controller.ctp:7
+#: View/Groups/add.ctp:6
+#: View/Groups/edit.ctp:6
+#: View/Groups/index.ctp:6
+#: View/Groups/view.ctp:6
+#: View/Matriculations/add.ctp:7
+#: View/Matriculations/edit.ctp:7
+#: View/Matriculations/index.ctp:7
+#: View/Matriculations/student_ranking.ctp:7
+#: View/Matriculations/teacher_add.ctp:7
+#: View/Matriculations/teacher_edit.ctp:7
+#: View/Matriculations/teacher_index.ctp:7
+#: View/Matriculations/view.ctp:6
+#: View/MatriculationsRewards/add.ctp:6
+#: View/MatriculationsRewards/edit.ctp:6
+#: View/MatriculationsRewards/index.ctp:6
+#: View/MatriculationsRewards/teacher_add.ctp:7
+#: View/MatriculationsRewards/teacher_edit.ctp:7
+#: View/MatriculationsRewards/teacher_index.ctp:7
+#: View/MatriculationsRewards/view.ctp:6
+#: View/Points/add.ctp:6
+#: View/Points/edit.ctp:6
+#: View/Points/index.ctp:6
+#: View/Points/student_extract_points.ctp:7
+#: View/Points/teacher_add.ctp:7
+#: View/Points/teacher_edit.ctp:7
+#: View/Points/teacher_index.ctp:7
+#: View/Points/view.ctp:6
+#: View/Rewards/add.ctp:8
+#: View/Rewards/edit.ctp:8
+#: View/Rewards/index.ctp:6
+#: View/Rewards/teacher_add.ctp:10
+#: View/Rewards/teacher_edit.ctp:10
+#: View/Rewards/teacher_index.ctp:7
+#: View/Rewards/view.ctp:6
+#: View/Rooms/add.ctp:7
+#: View/Rooms/edit.ctp:6
+#: View/Rooms/index.ctp:7
+#: View/Rooms/view.ctp:6
+#: View/Students/add.ctp:7
+#: View/Students/edit.ctp:7
+#: View/Students/index.ctp:7
+#: View/Students/teacher_index.ctp:7
+#: View/Students/view.ctp:6
+#: View/Subjects/add.ctp:6
+#: View/Subjects/edit.ctp:6
+#: View/Subjects/index.ctp:6
+#: View/Subjects/view.ctp:6
+#: View/Teachers/add.ctp:7
+#: View/Teachers/edit.ctp:7
+#: View/Teachers/index.ctp:7
+#: View/Teachers/view.ctp:6
+#: View/Teams/add.ctp:6
+#: View/Teams/edit.ctp:6
+#: View/Teams/index.ctp:6
+#: View/Teams/teacher_add.ctp:7
+#: View/Teams/teacher_edit.ctp:7
+#: View/Teams/teacher_index.ctp:7
+#: View/Teams/view.ctp:6
+#: View/Users/add.ctp:6
+#: View/Users/edit.ctp:20
+#: View/Users/index.ctp:6
+#: View/Users/session_edit.ctp:20
+#: View/Users/view.ctp:6
+msgid " Home"
+msgstr ""
+
+#: View/Activities/add.ctp:10
+#: View/Activities/teacher_add.ctp:12
+#: View/Activities/teacher_add_challenge.ctp:12
+#: View/Activities/teacher_add_challenge_team.ctp:12
+msgid "Add Activity"
+msgstr "Add Atividade"
+
+#: View/Activities/add.ctp:18
+#: View/Activities/edit.ctp:18
+#: View/Activities/teacher_add.ctp:22
+#: View/Activities/teacher_add_challenge.ctp:22
+#: View/Activities/teacher_add_challenge_team.ctp:22
+#: View/Activities/teacher_edit.ctp:22
+#: View/Activities/teacher_evaluation.ctp:22
+#: View/Activities/view.ctp:14
+#: View/Groups/add.ctp:16
+#: View/Groups/edit.ctp:16
+#: View/Groups/view.ctp:14
+#: View/Matriculations/add.ctp:19
+#: View/Matriculations/edit.ctp:19
+#: View/Matriculations/teacher_add.ctp:19
+#: View/Matriculations/teacher_edit.ctp:19
+#: View/Matriculations/view.ctp:15
+#: View/MatriculationsRewards/add.ctp:16
+#: View/MatriculationsRewards/edit.ctp:16
+#: View/MatriculationsRewards/teacher_add.ctp:18
+#: View/MatriculationsRewards/teacher_edit.ctp:18
+#: View/MatriculationsRewards/view.ctp:14
+#: View/Points/add.ctp:16
+#: View/Points/edit.ctp:16
+#: View/Points/teacher_add.ctp:18
+#: View/Points/teacher_edit.ctp:18
+#: View/Points/view.ctp:14
+#: View/Rewards/add.ctp:18
+#: View/Rewards/edit.ctp:18
+#: View/Rewards/teacher_add.ctp:21
+#: View/Rewards/teacher_edit.ctp:21
+#: View/Rewards/view.ctp:14
+#: View/Rooms/add.ctp:18
+#: View/Rooms/edit.ctp:16
+#: View/Rooms/view.ctp:14
+#: View/Students/add.ctp:19
+#: View/Students/edit.ctp:19
+#: View/Students/view.ctp:14
+#: View/Subjects/add.ctp:16
+#: View/Subjects/edit.ctp:16
+#: View/Subjects/view.ctp:14
+#: View/Teachers/add.ctp:19
+#: View/Teachers/edit.ctp:19
+#: View/Teachers/view.ctp:14
+#: View/Teams/add.ctp:16
+#: View/Teams/edit.ctp:16
+#: View/Teams/teacher_add.ctp:19
+#: View/Teams/teacher_edit.ctp:19
+#: View/Teams/view.ctp:14
+#: View/Users/add.ctp:16
+#: View/Users/view.ctp:14
+msgid "Back"
+msgstr "Voltar"
+
+#: View/Activities/add.ctp:19
+#: View/Activities/edit.ctp:19
+#: View/Activities/index.ctp:15
+#: View/Activities/teacher_add.ctp:23
+#: View/Activities/teacher_add_challenge.ctp:23
+#: View/Activities/teacher_add_challenge_team.ctp:23
+#: View/Activities/teacher_edit.ctp:23
+#: View/Activities/teacher_evaluation.ctp:23
+#: View/Activities/teacher_index.ctp:18
+#: View/Activities/view.ctp:15
+#: View/Groups/add.ctp:17
+#: View/Groups/edit.ctp:17
+#: View/Groups/index.ctp:15
+#: View/Groups/view.ctp:15
+#: View/Matriculations/add.ctp:20
+#: View/Matriculations/edit.ctp:20
+#: View/Matriculations/index.ctp:18
+#: View/Matriculations/teacher_add.ctp:20
+#: View/Matriculations/teacher_edit.ctp:20
+#: View/Matriculations/teacher_index.ctp:18
+#: View/Matriculations/view.ctp:16
+#: View/MatriculationsRewards/add.ctp:17
+#: View/MatriculationsRewards/edit.ctp:17
+#: View/MatriculationsRewards/index.ctp:15
+#: View/MatriculationsRewards/teacher_add.ctp:19
+#: View/MatriculationsRewards/teacher_edit.ctp:19
+#: View/MatriculationsRewards/teacher_index.ctp:17
+#: View/MatriculationsRewards/view.ctp:15
+#: View/Points/add.ctp:17
+#: View/Points/edit.ctp:17
+#: View/Points/index.ctp:15
+#: View/Points/student_extract_points.ctp:18
+#: View/Points/teacher_add.ctp:19
+#: View/Points/teacher_edit.ctp:19
+#: View/Points/teacher_index.ctp:17
+#: View/Points/view.ctp:15
+#: View/Rewards/add.ctp:19
+#: View/Rewards/edit.ctp:19
+#: View/Rewards/index.ctp:15
+#: View/Rewards/teacher_add.ctp:22
+#: View/Rewards/teacher_edit.ctp:22
+#: View/Rewards/teacher_index.ctp:17
+#: View/Rewards/view.ctp:15
+#: View/Rooms/add.ctp:19
+#: View/Rooms/edit.ctp:17
+#: View/Rooms/index.ctp:17
+#: View/Rooms/view.ctp:15
+#: View/Students/add.ctp:20
+#: View/Students/edit.ctp:20
+#: View/Students/index.ctp:18
+#: View/Students/teacher_index.ctp:18
+#: View/Students/view.ctp:15
+#: View/Subjects/add.ctp:17
+#: View/Subjects/edit.ctp:17
+#: View/Subjects/index.ctp:15
+#: View/Subjects/view.ctp:15
+#: View/Teachers/add.ctp:20
+#: View/Teachers/edit.ctp:20
+#: View/Teachers/index.ctp:18
+#: View/Teachers/view.ctp:15
+#: View/Teams/add.ctp:17
+#: View/Teams/edit.ctp:17
+#: View/Teams/index.ctp:15
+#: View/Teams/teacher_add.ctp:20
+#: View/Teams/teacher_edit.ctp:20
+#: View/Teams/teacher_index.ctp:17
+#: View/Teams/view.ctp:15
+#: View/Users/add.ctp:17
+#: View/Users/index.ctp:15
+#: View/Users/view.ctp:15
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: View/Activities/add.ctp:25
+#: View/Activities/edit.ctp:26
+#: View/Activities/index.ctp:39;54
+#: View/Activities/teacher_index.ctp:43;58
+#: View/Activities/view.ctp:98;158
+#: View/Groups/add.ctp:25
+#: View/Groups/edit.ctp:26
+#: View/Groups/index.ctp:36;46
+#: View/MatriculationsRewards/add.ctp:23
+#: View/MatriculationsRewards/edit.ctp:24
+#: View/MatriculationsRewards/index.ctp:35;46
+#: View/MatriculationsRewards/teacher_add.ctp:25
+#: View/MatriculationsRewards/teacher_edit.ctp:26
+#: View/MatriculationsRewards/teacher_index.ctp:37;50
+#: View/Rooms/add.ctp:25
+#: View/Rooms/edit.ctp:24
+#: View/Rooms/index.ctp:37;49
+#: View/Rooms/view.ctp:83;142;201
+#: View/Teams/add.ctp:23
+#: View/Teams/edit.ctp:24
+#: View/Teams/index.ctp:35;46
+#: View/Teams/teacher_add.ctp:26
+#: View/Teams/teacher_edit.ctp:27
+#: View/Teams/teacher_index.ctp:37;49
+#: View/Teams/view.ctp:83;144
+#: View/Users/view.ctp:150;207
+#: Plugin/admin/View/Users/admin_add.ctp:76
+#: Plugin/admin/View/Users/admin_edit.ctp:80
+msgid "Active"
+msgstr "Ativo"
+
+#: View/Activities/add.ctp:25
+#: View/Activities/edit.ctp:26
+#: View/Activities/index.ctp:39;56
+#: View/Activities/teacher_index.ctp:43;60
+#: View/Activities/view.ctp:100;160
+#: View/Groups/add.ctp:25
+#: View/Groups/edit.ctp:26
+#: View/Groups/index.ctp:36;48
+#: View/MatriculationsRewards/add.ctp:23
+#: View/MatriculationsRewards/edit.ctp:24
+#: View/MatriculationsRewards/index.ctp:35;48
+#: View/MatriculationsRewards/teacher_add.ctp:25
+#: View/MatriculationsRewards/teacher_edit.ctp:26
+#: View/MatriculationsRewards/teacher_index.ctp:37;52
+#: View/Rooms/add.ctp:25
+#: View/Rooms/edit.ctp:24
+#: View/Rooms/index.ctp:37;51
+#: View/Rooms/view.ctp:85;144;203
+#: View/Teams/add.ctp:23
+#: View/Teams/edit.ctp:24
+#: View/Teams/index.ctp:35;48
+#: View/Teams/teacher_add.ctp:26
+#: View/Teams/teacher_edit.ctp:27
+#: View/Teams/teacher_index.ctp:37;51
+#: View/Teams/view.ctp:85;146
+#: View/Users/view.ctp:152;209
+msgid "Inactive"
+msgstr "Inativo"
+
+#: View/Activities/add.ctp:26
+#: View/Activities/edit.ctp:27
+#: View/Activities/index.ctp:24;40
+#: View/Activities/teacher_index.ctp:29
+#: View/Activities/view.ctp:87;148
+#: View/Groups/add.ctp:26
+#: View/Groups/edit.ctp:27
+#: View/Groups/index.ctp:26;37
+#: View/MatriculationsRewards/add.ctp:24
+#: View/MatriculationsRewards/edit.ctp:25
+#: View/MatriculationsRewards/index.ctp:24;36
+#: View/MatriculationsRewards/teacher_add.ctp:26
+#: View/MatriculationsRewards/teacher_edit.ctp:27
+#: View/MatriculationsRewards/teacher_index.ctp:26;38
+#: View/Rooms/add.ctp:26
+#: View/Rooms/edit.ctp:25
+#: View/Rooms/index.ctp:26;38
+#: View/Rooms/view.ctp:72;133;190
+#: View/Teams/add.ctp:24
+#: View/Teams/edit.ctp:25
+#: View/Teams/index.ctp:24;36
+#: View/Teams/teacher_add.ctp:27
+#: View/Teams/teacher_edit.ctp:28
+#: View/Teams/teacher_index.ctp:26;38
+#: View/Teams/view.ctp:71;134
+#: View/Users/view.ctp:141;198
+msgid "active"
+msgstr "ativo"
+
+#: View/Activities/add.ctp:28
+#: View/Activities/edit.ctp:29
+#: View/Activities/index.ctp:25;41
+#: View/Activities/teacher_add.ctp:31
+#: View/Activities/teacher_add_challenge.ctp:29
+#: View/Activities/teacher_add_challenge_team.ctp:29
+#: View/Activities/teacher_edit.ctp:30
+#: View/Activities/teacher_evaluation.ctp:31
+#: View/Rooms/view.ctp:73
+#: View/Teams/view.ctp:72
+msgid "nm_activity"
+msgstr "Nome da atividade"
+
+#: View/Activities/add.ctp:29
+#: View/Activities/edit.ctp:30
+#: View/Activities/index.ctp:26;42
+#: View/Activities/teacher_add.ctp:32
+#: View/Activities/teacher_add_challenge.ctp:30
+#: View/Activities/teacher_add_challenge_team.ctp:30
+#: View/Activities/teacher_edit.ctp:32
+#: View/Activities/teacher_evaluation.ctp:32
+#: View/Activities/teacher_index.ctp:30;45
+#: View/Matriculations/view.ctp:113
+#: View/Rooms/view.ctp:74
+#: View/Teams/view.ctp:73
+msgid "ds_activity"
+msgstr "Descrição da atividade"
+
+#: View/Activities/add.ctp:30
+#: View/Activities/edit.ctp:31
+#: View/Activities/index.ctp:27;43
+#: View/Activities/teacher_add.ctp:44;54
+#: View/Activities/teacher_add_challenge.ctp:51
+#: View/Activities/teacher_add_challenge_team.ctp:51
+#: View/Activities/teacher_edit.ctp:44;52
+#: View/Activities/teacher_evaluation.ctp:44;53
+#: View/Activities/teacher_index.ctp:31;46
+msgid "vl_activity_sucess"
+msgstr "Valor de XP em caso de sucesso"
+
+#: View/Activities/add.ctp:31
+#: View/Activities/edit.ctp:32
+#: View/Activities/index.ctp:28;44
+#: View/Activities/teacher_add.ctp:55
+#: View/Activities/teacher_add_challenge.ctp:52
+#: View/Activities/teacher_add_challenge_team.ctp:52
+#: View/Activities/teacher_edit.ctp:53
+#: View/Activities/teacher_evaluation.ctp:54
+#: View/Activities/teacher_index.ctp:32;47
+msgid "vl_activity_attempt"
+msgstr "Valor de XP em caso de tentativa"
+
+#: View/Activities/add.ctp:32
+#: View/Activities/edit.ctp:33
+#: View/Activities/index.ctp:29;45
+#: View/Activities/teacher_add.ctp:56
+#: View/Activities/teacher_add_challenge.ctp:53
+#: View/Activities/teacher_add_challenge_team.ctp:53
+#: View/Activities/teacher_edit.ctp:54
+#: View/Activities/teacher_evaluation.ctp:55
+#: View/Activities/teacher_index.ctp:33;48
+msgid "vl_activity_failed"
+msgstr "Valor de XP em caso de não realização"
+
+#: View/Activities/add.ctp:33;34
+#: View/Activities/edit.ctp:34;35
+#: View/Activities/index.ctp:30;46
+#: View/Activities/teacher_add.ctp:62
+#: View/Activities/teacher_add_challenge.ctp:59
+#: View/Activities/teacher_add_challenge_team.ctp:59
+#: View/Activities/teacher_edit.ctp:60
+#: View/Activities/teacher_evaluation.ctp:61
+#: View/Activities/view.ctp:90;150
+#: View/Matriculations/add.ctp:28;29
+#: View/Matriculations/edit.ctp:29;30
+#: View/Matriculations/index.ctp:28;37
+#: View/Matriculations/teacher_add.ctp:28
+#: View/Matriculations/teacher_edit.ctp:29;30
+#: View/Matriculations/view.ctp:115;170
+#: View/Rewards/add.ctp:27;28
+#: View/Rewards/edit.ctp:28;29
+#: View/Rewards/index.ctp:26;36
+#: View/Rewards/teacher_add.ctp:32
+#: View/Rewards/teacher_edit.ctp:33
+#: View/Rewards/view.ctp:63
+#: View/Students/view.ctp:54
+#: View/Teams/add.ctp:28;29
+#: View/Teams/edit.ctp:29;30
+#: View/Teams/index.ctp:27;39
+#: View/Teams/teacher_index.ctp:29;41
+#: View/Teams/view.ctp:75;136
+msgid "room_id"
+msgstr "Turmas"
+
+#: View/Activities/add.ctp:36;37
+#: View/Activities/edit.ctp:37;38
+#: View/Activities/index.ctp:31;47
+#: View/Activities/teacher_add.ctp:59;60
+#: View/Activities/teacher_add_challenge.ctp:56;57
+#: View/Activities/teacher_add_challenge_team.ctp:56;57
+#: View/Activities/teacher_edit.ctp:57;58
+#: View/Activities/teacher_evaluation.ctp:58;59
+#: View/MatriculationsRewards/add.ctp:29;30
+#: View/MatriculationsRewards/edit.ctp:30;31
+#: View/MatriculationsRewards/index.ctp:26;38
+#: View/MatriculationsRewards/teacher_add.ctp:31;32
+#: View/MatriculationsRewards/teacher_edit.ctp:31;32
+#: View/MatriculationsRewards/teacher_index.ctp:28;40
+msgid "reward_id"
+msgstr "Recompensas"
+
+#: View/Activities/add.ctp:48
+#: View/Activities/edit.ctp:49
+#: View/Activities/teacher_add.ctp:74
+#: View/Activities/teacher_add_challenge.ctp:71
+#: View/Activities/teacher_add_challenge_team.ctp:71
+#: View/Activities/teacher_edit.ctp:78
+#: View/Activities/teacher_evaluation.ctp:179
+#: View/Groups/add.ctp:35
+#: View/Groups/edit.ctp:36
+#: View/Matriculations/add.ctp:41
+#: View/Matriculations/edit.ctp:42
+#: View/Matriculations/teacher_add.ctp:41
+#: View/Matriculations/teacher_edit.ctp:42
+#: View/MatriculationsRewards/add.ctp:42
+#: View/MatriculationsRewards/edit.ctp:43
+#: View/MatriculationsRewards/teacher_add.ctp:43
+#: View/MatriculationsRewards/teacher_edit.ctp:43
+#: View/Points/add.ctp:34
+#: View/Points/edit.ctp:35
+#: View/Points/teacher_add.ctp:35
+#: View/Points/teacher_edit.ctp:36
+#: View/Rewards/add.ctp:38
+#: View/Rewards/edit.ctp:39
+#: View/Rewards/teacher_add.ctp:1221
+#: View/Rewards/teacher_edit.ctp:44
+#: View/Rooms/add.ctp:41
+#: View/Rooms/edit.ctp:41
+#: View/Students/add.ctp:39
+#: View/Students/edit.ctp:41
+#: View/Subjects/add.ctp:31
+#: View/Subjects/edit.ctp:32
+#: View/Teachers/add.ctp:39
+#: View/Teachers/edit.ctp:40
+#: View/Teams/add.ctp:40
+#: View/Teams/edit.ctp:41
+#: View/Teams/teacher_add.ctp:42
+#: View/Teams/teacher_edit.ctp:43
+#: View/Users/add.ctp:39
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: View/Activities/add.ctp:49
+#: View/Activities/edit.ctp:50
+#: View/Activities/teacher_add.ctp:75
+#: View/Activities/teacher_add_challenge.ctp:72
+#: View/Activities/teacher_add_challenge_team.ctp:72
+#: View/Activities/teacher_edit.ctp:79
+#: View/Activities/teacher_evaluation.ctp:180
+#: View/Groups/add.ctp:36
+#: View/Groups/edit.ctp:37
+#: View/Matriculations/add.ctp:42
+#: View/Matriculations/edit.ctp:43
+#: View/Matriculations/teacher_add.ctp:42
+#: View/Matriculations/teacher_edit.ctp:43
+#: View/MatriculationsRewards/add.ctp:43
+#: View/MatriculationsRewards/edit.ctp:44
+#: View/MatriculationsRewards/teacher_add.ctp:44
+#: View/MatriculationsRewards/teacher_edit.ctp:44
+#: View/Points/add.ctp:35
+#: View/Points/edit.ctp:36
+#: View/Points/teacher_add.ctp:36
+#: View/Points/teacher_edit.ctp:37
+#: View/Rewards/add.ctp:39
+#: View/Rewards/edit.ctp:40
+#: View/Rewards/teacher_add.ctp:1222
+#: View/Rewards/teacher_edit.ctp:45
+#: View/Rooms/add.ctp:42
+#: View/Rooms/edit.ctp:42
+#: View/Students/add.ctp:40
+#: View/Students/edit.ctp:42
+#: View/Subjects/add.ctp:32
+#: View/Subjects/edit.ctp:33
+#: View/Teachers/add.ctp:40
+#: View/Teachers/edit.ctp:41
+#: View/Teams/add.ctp:41
+#: View/Teams/edit.ctp:42
+#: View/Teams/teacher_add.ctp:43
+#: View/Teams/teacher_edit.ctp:44
+#: View/Users/add.ctp:40
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: View/Activities/edit.ctp:6
+#: View/Activities/teacher_edit.ctp:7
+#: View/Activities/teacher_evaluation.ctp:7
+#: View/Activities/view.ctp:16
+#: View/Groups/edit.ctp:4
+#: View/Groups/view.ctp:16
+#: View/Matriculations/edit.ctp:4
+#: View/Matriculations/teacher_edit.ctp:4
+#: View/Matriculations/view.ctp:17
+#: View/MatriculationsRewards/edit.ctp:4
+#: View/MatriculationsRewards/teacher_edit.ctp:4
+#: View/MatriculationsRewards/view.ctp:16
+#: View/Points/edit.ctp:4
+#: View/Points/teacher_edit.ctp:4
+#: View/Points/view.ctp:16
+#: View/Rewards/edit.ctp:6
+#: View/Rewards/teacher_edit.ctp:7
+#: View/Rewards/view.ctp:16
+#: View/Rooms/edit.ctp:4
+#: View/Rooms/view.ctp:16
+#: View/Students/edit.ctp:4
+#: View/Students/view.ctp:16
+#: View/Subjects/edit.ctp:4
+#: View/Subjects/view.ctp:16
+#: View/Teachers/edit.ctp:4
+#: View/Teachers/view.ctp:16
+#: View/Teams/edit.ctp:4
+#: View/Teams/teacher_edit.ctp:4
+#: View/Teams/view.ctp:16
+#: View/Users/view.ctp:16
+#: Plugin/admin/View/Groups/admin_index.ctp:22
+#: Plugin/admin/View/Users/admin_index.ctp:45
+msgid "Edit"
+msgstr "Editando"
+
+#: View/Activities/edit.ctp:10
+#: View/Activities/teacher_edit.ctp:12
+#: View/Activities/teacher_evaluation.ctp:12
+msgid "Edit Activity"
+msgstr "Editando Atividade"
+
+#: View/Activities/edit.ctp:25
+#: View/Activities/teacher_edit.ctp:31
+#: View/Activities/teacher_evaluation.ctp:29;30;98;99;101;102;103;151;152;153;155;156;157
+#: View/Groups/edit.ctp:23
+#: View/Matriculations/edit.ctp:26
+#: View/Matriculations/teacher_edit.ctp:26
+#: View/MatriculationsRewards/edit.ctp:23
+#: View/MatriculationsRewards/teacher_edit.ctp:25
+#: View/Points/edit.ctp:23
+#: View/Points/teacher_edit.ctp:25
+#: View/Rewards/edit.ctp:25
+#: View/Rewards/teacher_edit.ctp:28
+#: View/Rooms/edit.ctp:23
+#: View/Students/edit.ctp:27;28
+#: View/Subjects/edit.ctp:23
+#: View/Teachers/edit.ctp:26;27
+#: View/Teams/edit.ctp:23
+#: View/Teams/teacher_edit.ctp:26
+msgid "id"
+msgstr ""
+
+#: View/Activities/index.ctp:32
+#: View/Activities/teacher_index.ctp:36
+#: View/Activities/view.ctp:91;107;151;166
+#: View/Groups/index.ctp:27
+#: View/Groups/view.ctp:71;84
+#: View/Matriculations/index.ctp:29
+#: View/Matriculations/teacher_index.ctp:28
+#: View/Matriculations/view.ctp:63;72;116;127;171;182;224;233
+#: View/MatriculationsRewards/index.ctp:28
+#: View/MatriculationsRewards/teacher_index.ctp:30
+#: View/Points/index.ctp:26
+#: View/Points/teacher_index.ctp:30
+#: View/Rewards/index.ctp:27
+#: View/Rewards/teacher_index.ctp:30
+#: View/Rewards/view.ctp:64;74
+#: View/Rooms/index.ctp:30
+#: View/Rooms/view.ctp:76;92;135;149;194;210
+#: View/Students/index.ctp:28
+#: View/Students/teacher_index.ctp:28
+#: View/Students/view.ctp:55;64
+#: View/Subjects/index.ctp:25
+#: View/Subjects/view.ctp:55;64
+#: View/Teachers/index.ctp:28
+#: View/Teachers/view.ctp:55;64
+#: View/Teams/index.ctp:28
+#: View/Teams/teacher_index.ctp:30
+#: View/Teams/view.ctp:76;93;137;152
+#: View/Users/index.ctp:30
+#: View/Users/view.ctp:88;100;143;157;200;214
+#: Plugin/admin/View/Groups/admin_index.ctp:13
+#: Plugin/admin/View/Users/admin_index.ctp:36
+msgid "Actions"
+msgstr "Ações"
+
+#: View/Activities/index.ctp:40
+#: View/Activities/teacher_index.ctp:44
+#: View/Groups/index.ctp:37
+#: View/MatriculationsRewards/index.ctp:36
+#: View/MatriculationsRewards/teacher_index.ctp:38
+#: View/Rooms/index.ctp:38
+#: View/Teams/index.ctp:36
+#: View/Teams/teacher_index.ctp:38
+#: View/Users/view.ctp:56
+msgid "Status"
+msgstr ""
+
+#: View/Activities/index.ctp:48
+#: View/Activities/teacher_index.ctp:51
+#: View/Groups/index.ctp:38
+#: View/Matriculations/index.ctp:38
+#: View/Matriculations/teacher_index.ctp:36
+#: View/MatriculationsRewards/index.ctp:40
+#: View/MatriculationsRewards/teacher_index.ctp:42
+#: View/Points/index.ctp:35
+#: View/Points/teacher_index.ctp:41
+#: View/Rewards/index.ctp:37
+#: View/Rewards/teacher_index.ctp:41
+#: View/Rooms/index.ctp:42
+#: View/Students/index.ctp:36
+#: View/Students/teacher_index.ctp:36
+#: View/Subjects/index.ctp:33
+#: View/Teachers/index.ctp:36
+#: View/Teams/index.ctp:40
+#: View/Teams/teacher_index.ctp:42
+#: View/Users/index.ctp:43
+msgid "Search"
+msgstr "Pesquisar"
+
+#: View/Activities/index.ctp:77
+#: View/Activities/teacher_index.ctp:95
+#: View/Groups/index.ctp:58
+#: View/Matriculations/index.ctp:57
+#: View/Matriculations/teacher_index.ctp:52
+#: View/MatriculationsRewards/index.ctp:67
+#: View/MatriculationsRewards/teacher_index.ctp:72
+#: View/Points/index.ctp:52
+#: View/Points/teacher_index.ctp:60
+#: View/Rewards/index.ctp:55
+#: View/Rewards/teacher_index.ctp:60
+#: View/Rooms/index.ctp:69
+#: View/Students/index.ctp:50
+#: View/Students/teacher_index.ctp:50
+#: View/Subjects/index.ctp:47
+#: View/Teachers/index.ctp:50
+#: View/Teams/index.ctp:63
+#: View/Teams/teacher_index.ctp:65
+#: View/Users/index.ctp:64
+msgid " View"
+msgstr " Visualizar"
+
+#: View/Activities/index.ctp:78
+#: View/Activities/teacher_index.ctp:96
+#: View/Groups/index.ctp:59
+#: View/Matriculations/index.ctp:58
+#: View/Matriculations/teacher_index.ctp:53
+#: View/MatriculationsRewards/index.ctp:68
+#: View/MatriculationsRewards/teacher_index.ctp:73
+#: View/Points/index.ctp:53
+#: View/Points/teacher_index.ctp:61
+#: View/Rewards/index.ctp:56
+#: View/Rewards/teacher_index.ctp:61
+#: View/Rooms/index.ctp:70
+#: View/Students/index.ctp:51
+#: View/Students/teacher_index.ctp:51
+#: View/Subjects/index.ctp:48
+#: View/Teachers/index.ctp:51
+#: View/Teams/index.ctp:64
+#: View/Teams/teacher_index.ctp:66
+#: View/Users/index.ctp:65
+msgid " Edit"
+msgstr " Editar"
+
+#: View/Activities/index.ctp:79
+#: View/Activities/teacher_index.ctp:97
+#: View/Groups/index.ctp:60
+#: View/Matriculations/index.ctp:59
+#: View/Matriculations/teacher_index.ctp:54
+#: View/MatriculationsRewards/index.ctp:69
+#: View/MatriculationsRewards/teacher_index.ctp:74
+#: View/Points/index.ctp:54
+#: View/Points/teacher_index.ctp:62
+#: View/Rewards/index.ctp:57
+#: View/Rewards/teacher_index.ctp:62
+#: View/Rooms/index.ctp:71
+#: View/Students/index.ctp:52
+#: View/Students/teacher_index.ctp:52
+#: View/Subjects/index.ctp:49
+#: View/Teachers/index.ctp:52
+#: View/Teams/index.ctp:65
+#: View/Teams/teacher_index.ctp:67
+#: View/Users/index.ctp:66
+msgid " Delete"
+msgstr " Excluir"
+
+#: View/Activities/index.ctp:79
+#: View/Activities/teacher_index.ctp:97
+#: View/Activities/view.ctp:115;174
+#: View/Groups/index.ctp:60
+#: View/Groups/view.ctp:92
+#: View/Matriculations/index.ctp:59
+#: View/Matriculations/teacher_index.ctp:54
+#: View/Matriculations/view.ctp:80;135;190;241
+#: View/MatriculationsRewards/index.ctp:69
+#: View/MatriculationsRewards/teacher_index.ctp:74
+#: View/Points/index.ctp:54
+#: View/Points/teacher_index.ctp:62
+#: View/Rewards/index.ctp:57
+#: View/Rewards/teacher_index.ctp:62
+#: View/Rewards/view.ctp:82
+#: View/Rooms/index.ctp:71
+#: View/Rooms/view.ctp:100;157;218
+#: View/Students/index.ctp:52
+#: View/Students/teacher_index.ctp:52
+#: View/Students/view.ctp:72
+#: View/Subjects/index.ctp:49
+#: View/Subjects/view.ctp:72
+#: View/Teachers/index.ctp:52
+#: View/Teachers/view.ctp:72
+#: View/Teams/index.ctp:65
+#: View/Teams/teacher_index.ctp:67
+#: View/Teams/view.ctp:101;160
+#: View/Users/index.ctp:66
+#: View/Users/view.ctp:108;165;222
+msgid "Are you sure you want to delete the %s?"
+msgstr "Tem certeza que deseja excluir o %s ?"
+
+#: View/Activities/index.ctp:90
+#: View/Activities/teacher_index.ctp:108
+#: View/Groups/index.ctp:71
+#: View/Matriculations/index.ctp:70
+#: View/Matriculations/teacher_index.ctp:65
+#: View/MatriculationsRewards/index.ctp:80
+#: View/MatriculationsRewards/teacher_index.ctp:85
+#: View/Points/index.ctp:65
+#: View/Points/student_extract_points.ctp:51
+#: View/Points/teacher_index.ctp:73
+#: View/Rewards/index.ctp:68
+#: View/Rewards/teacher_index.ctp:73
+#: View/Rooms/index.ctp:82
+#: View/Students/index.ctp:63
+#: View/Students/teacher_index.ctp:63
+#: View/Subjects/index.ctp:60
+#: View/Teachers/index.ctp:63
+#: View/Teams/index.ctp:76
+#: View/Teams/teacher_index.ctp:78
+#: View/Users/index.ctp:77
+msgid "Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}"
+msgstr ""
+
+#: View/Activities/student_time_line.ctp:8
+msgid "Time Line"
+msgstr "Linha do tempo"
+
+#: View/Activities/student_time_line.ctp:13
+msgid "Timeline"
+msgstr "Linha do tempo"
+
+#: View/Activities/student_time_line.ctp:62
+msgid "Success"
+msgstr "Sucesso"
+
+#: View/Activities/student_time_line.ctp:66
+msgid "Attempt"
+msgstr "Tentativa"
+
+#: View/Activities/student_time_line.ctp:70
+msgid "Failed"
+msgstr "Não realizado"
+
+#: View/Activities/student_time_line.ctp:74
+msgid "Pending"
+msgstr "Pendente"
+
+#: View/Activities/teacher_add.ctp:29
+msgid "Activity for Team"
+msgstr "Atividade por equipe"
+
+#: View/Activities/teacher_add.ctp:37
+#: View/Activities/teacher_add_challenge.ctp:36;43
+#: View/Activities/teacher_add_challenge_team.ctp:36;43
+#: View/Activities/teacher_edit.ctp:37
+#: View/Activities/teacher_evaluation.ctp:37
+#: View/Points/student_extract_points.ctp:27
+#: View/Points/teacher_index.ctp:27
+msgid "vl_point_redeemable"
+msgstr "Valor de pontos resgatáveis"
+
+#: View/Activities/teacher_evaluation.ctp:75
+msgid "Team winner"
+msgstr "Equipe vencedora"
+
+#: View/Activities/teacher_evaluation.ctp:78
+#: View/Activities/view.ctp:88
+#: View/Matriculations/view.ctp:223
+#: View/Teams/add.ctp:26
+#: View/Teams/edit.ctp:27
+#: View/Teams/index.ctp:25;37
+#: View/Teams/teacher_add.ctp:30
+#: View/Teams/teacher_edit.ctp:31
+#: View/Teams/teacher_index.ctp:27;39
+msgid "nm_team"
+msgstr "Nome da equipe"
+
+#: View/Activities/teacher_evaluation.ctp:79
+msgid "Winner"
+msgstr "Vencedor"
+
+#: View/Activities/teacher_evaluation.ctp:131
+#: View/Matriculations/student_ranking.ctp:26
+#: View/Students/add.ctp:26
+#: View/Students/edit.ctp:29
+#: View/Students/index.ctp:27;35
+#: View/Students/teacher_index.ctp:27;35
+#: View/Teachers/edit.ctp:28
+#: View/Users/view.ctp:142
+msgid "nm_student"
+msgstr "Nome do aluno"
+
+#: View/Activities/teacher_evaluation.ctp:132
+msgid "Avalietion"
+msgstr "Avaliação"
+
+#: View/Activities/teacher_index.ctp:20;72
+#: View/Elements/student/navbar-left.ctp:119
+#: View/Elements/teacher/navbar-left.ctp:116
+#: View/Pages/student_home.ctp:71
+msgid "Challenge"
+msgstr "Desafio"
+
+#: View/Activities/teacher_index.ctp:21;74
+msgid "Challenge for team"
+msgstr "Desafio por equipe"
+
+#: View/Activities/teacher_index.ctp:34
+msgid "type_activity"
+msgstr "Tipo de atividade"
+
+#: View/Activities/teacher_index.ctp:35
+#: View/Activities/view.ctp:67
+#: View/MatriculationsRewards/view.ctp:37
+#: View/Rewards/add.ctp:6
+#: View/Rewards/edit.ctp:6
+#: View/Rewards/teacher_add.ctp:7
+#: View/Rewards/teacher_edit.ctp:7
+#: View/Rewards/view.ctp:4;26
+msgid "Reward"
+msgstr "Recompensa"
+
+#: View/Activities/teacher_index.ctp:76
+msgid "Activity for team"
+msgstr "Atividade por equipe"
+
+#: View/Activities/teacher_index.ctp:94
+msgid " Evaluation"
+msgstr " Avaliação"
+
+#: View/Activities/view.ctp:4
+#: View/Groups/view.ctp:4
+#: View/Matriculations/view.ctp:4
+#: View/MatriculationsRewards/view.ctp:4
+#: View/Points/view.ctp:4
+#: View/Rewards/view.ctp:4
+#: View/Rooms/view.ctp:4
+#: View/Students/view.ctp:4
+#: View/Subjects/view.ctp:4
+#: View/Teachers/view.ctp:4
+#: View/Teams/view.ctp:4
+#: View/Users/view.ctp:4
+msgid "View"
+msgstr "Visualizar"
+
+#: View/Activities/view.ctp:8
+msgid "View Activity"
+msgstr "Visualizar Atividade"
+
+#: View/Activities/view.ctp:17
+#: View/Groups/view.ctp:17
+#: View/Matriculations/view.ctp:18
+#: View/MatriculationsRewards/view.ctp:17
+#: View/Points/view.ctp:17
+#: View/Rewards/view.ctp:17
+#: View/Rooms/view.ctp:17
+#: View/Students/view.ctp:17
+#: View/Subjects/view.ctp:17
+#: View/Teachers/view.ctp:17
+#: View/Teams/view.ctp:17
+#: View/Users/view.ctp:17
+#: Plugin/admin/View/Groups/admin_index.ctp:29
+#: Plugin/admin/View/Users/admin_index.ctp:52
+msgid "Delete"
+msgstr "Excluir"
+
+#: View/Activities/view.ctp:20
+#: View/Groups/view.ctp:20
+#: View/Matriculations/view.ctp:21
+#: View/MatriculationsRewards/view.ctp:20
+#: View/Points/view.ctp:20
+#: View/Rewards/view.ctp:20
+#: View/Rooms/view.ctp:20
+#: View/Students/view.ctp:20
+#: View/Subjects/view.ctp:20
+#: View/Teachers/view.ctp:20
+#: View/Teams/view.ctp:20
+#: View/Users/view.ctp:20
+msgid "Are you sure you want to delete # %s?"
+msgstr ""
+
+#: View/Activities/view.ctp:27
+#: View/Elements/teacher/navbar-left.ctp:94
+#: View/Matriculations/view.ctp:31
+#: View/Teams/add.ctp:3;7
+#: View/Teams/edit.ctp:3;7
+#: View/Teams/index.ctp:3;7
+#: View/Teams/teacher_add.ctp:3;8
+#: View/Teams/teacher_edit.ctp:3;8
+#: View/Teams/teacher_index.ctp:3;8
+#: View/Teams/view.ctp:3;7
+msgid "Teams"
+msgstr "Equipes"
+
+#: View/Activities/view.ctp:28
+#: View/Elements/navbar-left.ctp:84
+#: View/Elements/student/navbar-left.ctp:86
+#: View/Elements/teacher/navbar-left.ctp:84
+#: View/Matriculations/add.ctp:3;8
+#: View/Matriculations/edit.ctp:3;8
+#: View/Matriculations/index.ctp:3;8
+#: View/Matriculations/student_ranking.ctp:3
+#: View/Matriculations/teacher_add.ctp:3;8
+#: View/Matriculations/teacher_edit.ctp:3;8
+#: View/Matriculations/teacher_index.ctp:3;8
+#: View/Matriculations/view.ctp:3;7
+#: View/Rewards/view.ctp:27
+#: View/Rooms/view.ctp:28
+#: View/Students/view.ctp:27
+#: View/Teams/view.ctp:28
+msgid "Matriculations"
+msgstr "Matriculas"
+
+#: View/Activities/view.ctp:29
+#: View/Groups/view.ctp:28
+#: View/Matriculations/view.ctp:32
+#: View/MatriculationsRewards/view.ctp:27
+#: View/Points/view.ctp:27
+#: View/Rewards/view.ctp:28
+#: View/Rooms/view.ctp:30
+#: View/Students/view.ctp:28
+#: View/Subjects/view.ctp:28
+#: View/Teachers/view.ctp:28
+#: View/Teams/view.ctp:29
+#: View/Users/view.ctp:30
+msgid "Data"
+msgstr ""
+
+#: View/Activities/view.ctp:35
+#: View/Groups/view.ctp:42
+#: View/Rooms/view.ctp:36
+#: View/Teams/view.ctp:35
+#: View/Users/view.ctp:48
+msgid "Created"
+msgstr "Criado"
+
+#: View/Activities/view.ctp:39
+#: View/Groups/view.ctp:46
+#: View/Rooms/view.ctp:40
+#: View/Teams/view.ctp:39
+#: View/Users/view.ctp:52
+msgid "Modified"
+msgstr "Modificado"
+
+#: View/Activities/view.ctp:43
+msgid "Nm Activity"
+msgstr "Nome da Atividade"
+
+#: View/Activities/view.ctp:47
+msgid "Ds Activity"
+msgstr "Descrição da Atividade"
+
+#: View/Activities/view.ctp:51
+msgid "Vl Activity Sucess"
+msgstr "Valor de XP em caso de sucesso"
+
+#: View/Activities/view.ctp:55
+msgid "Vl Activity Attempt"
+msgstr "Valor de XP em caso de tentativa"
+
+#: View/Activities/view.ctp:59
+msgid "Vl Activity Failed"
+msgstr "Valor de XP em caso de não realização"
+
+#: View/Activities/view.ctp:63
+#: View/Matriculations/view.ctp:42
+#: View/Rewards/view.ctp:42
+#: View/Rooms/add.ctp:4
+#: View/Rooms/edit.ctp:4
+#: View/Rooms/view.ctp:4;26
+#: View/Teams/view.ctp:51
+msgid "Room"
+msgstr "Classe"
+
+#: View/Activities/view.ctp:77
+#: View/Matriculations/view.ctp:213
+msgid "Related Teams"
+msgstr "Equipes relacionadas"
+
+#: View/Activities/view.ctp:89
+#: View/Teams/add.ctp:27
+#: View/Teams/edit.ctp:28
+#: View/Teams/index.ctp:26;38
+#: View/Teams/teacher_add.ctp:31
+#: View/Teams/teacher_edit.ctp:32
+#: View/Teams/teacher_index.ctp:28;40
+msgid "ds_team"
+msgstr "Descrição da equipe"
+
+#: View/Activities/view.ctp:138
+#: View/Rewards/view.ctp:52
+#: View/Rooms/view.ctp:123
+#: View/Students/view.ctp:44
+#: View/Teams/view.ctp:124
+msgid "Related Matriculations"
+msgstr "Matriculas relacionadas"
+
+#: View/Activities/view.ctp:149
+#: View/Matriculations/add.ctp:25;26
+#: View/Matriculations/edit.ctp:27;28
+#: View/Matriculations/index.ctp:27;36
+#: View/Matriculations/teacher_add.ctp:25;26
+#: View/Matriculations/teacher_edit.ctp:27;28
+#: View/Matriculations/teacher_index.ctp:27;35
+#: View/Rewards/view.ctp:62
+#: View/Rooms/view.ctp:134
+#: View/Teams/view.ctp:135
+msgid "student_id"
+msgstr "Alunos"
+
+#: View/Elements/navbar-left.ctp:17
+#: View/Elements/student/navbar-left.ctp:17
+#: View/Elements/teacher/navbar-left.ctp:17
+msgid "Hello "
+msgstr ""
+
+#: View/Elements/navbar-left.ctp:23
+#: View/Elements/student/navbar-left.ctp:23
+#: View/Elements/teacher/navbar-left.ctp:23
+msgid "MAIN NAVIGATION"
+msgstr "MENU PRINCIPAL"
+
+#: View/Elements/navbar-left.ctp:31
+#: View/Elements/student/navbar-left.ctp:32
+#: View/Elements/teacher/navbar-left.ctp:31
+#: View/Pages/home.ctp:6;12
+#: View/Pages/student_home.ctp:6;12
+#: Plugin/admin/Controller/DashboardController.php:20
+msgid "Dashboard"
+msgstr ""
+
+#: View/Elements/navbar-left.ctp:43
+#: View/Elements/student/navbar-left.ctp:45
+#: View/Elements/teacher/navbar-left.ctp:43
+#: View/Students/add.ctp:3;8
+#: View/Students/edit.ctp:3;8
+#: View/Students/index.ctp:3;8
+#: View/Students/teacher_index.ctp:3;8
+#: View/Students/view.ctp:3;7
+#: View/Users/view.ctp:28
+msgid "Students"
+msgstr "Alunos"
+
+#: View/Elements/navbar-left.ctp:53
+#: View/Elements/student/navbar-left.ctp:55
+#: View/Elements/teacher/navbar-left.ctp:53
+#: View/Teachers/add.ctp:3;8
+#: View/Teachers/edit.ctp:3;8
+#: View/Teachers/index.ctp:3;8
+#: View/Teachers/view.ctp:3;7
+#: View/Users/view.ctp:29
+msgid "Teachers"
+msgstr "Professores"
+
+#: View/Elements/navbar-left.ctp:63
+#: View/Elements/student/navbar-left.ctp:65
+#: View/Elements/teacher/navbar-left.ctp:63
+#: View/Subjects/add.ctp:3;7
+#: View/Subjects/edit.ctp:3;7
+#: View/Subjects/index.ctp:3;7
+#: View/Subjects/view.ctp:3;7
+msgid "Subjects"
+msgstr "Disciplinas"
+
+#: View/Elements/navbar-left.ctp:73
+#: View/Elements/student/navbar-left.ctp:75
+#: View/Elements/teacher/navbar-left.ctp:73
+#: View/Rooms/add.ctp:3;8
+#: View/Rooms/edit.ctp:3;7
+#: View/Rooms/index.ctp:3;8
+#: View/Rooms/view.ctp:3;7
+#: View/Subjects/view.ctp:27
+#: View/Teachers/view.ctp:27
+msgid "Rooms"
+msgstr "Turmas"
+
+#: View/Elements/navbar-left.ctp:94
+#: View/Elements/teacher/navbar-left.ctp:126
+#: View/Matriculations/view.ctp:28
+#: View/Points/add.ctp:3;7
+#: View/Points/edit.ctp:3;7
+#: View/Points/index.ctp:3;7
+#: View/Points/student_extract_points.ctp:3;8
+#: View/Points/teacher_add.ctp:3;8
+#: View/Points/teacher_edit.ctp:3;8
+#: View/Points/teacher_index.ctp:3;8
+#: View/Points/view.ctp:3;7
+msgid "Points"
+msgstr "Pontos"
+
+#: View/Elements/navbar-left.ctp:114
+msgid "Invitations"
+msgstr ""
+
+#: View/Elements/navbar-left.ctp:120
+msgid "Configs"
+msgstr "Configurações"
+
+#: View/Elements/navbar-left.ctp:124
+#: View/Errors/missing_controller.ctp:8
+#: View/Groups/view.ctp:27
+#: View/Users/add.ctp:3;7
+#: View/Users/edit.ctp:16;21
+#: View/Users/index.ctp:3;7
+#: View/Users/session_edit.ctp:16;21
+#: View/Users/view.ctp:3;7
+#: Plugin/admin/Controller/UsersController.php:28
+msgid "Users"
+msgstr "Usuários"
+
+#: View/Elements/navbar-left.ctp:125
+#: View/Groups/add.ctp:3;7
+#: View/Groups/edit.ctp:3;7
+#: View/Groups/index.ctp:3;7
+#: View/Groups/view.ctp:3;7
+#: Plugin/admin/Controller/GroupsController.php:21
+#: Plugin/admin/View/Users/admin_index.ctp:24
+msgid "Groups"
+msgstr ""
+
+#: View/Elements/navbar-left.ctp:126
+msgid "Access Control"
+msgstr ""
+
+#: View/Elements/navbar-left.ctp:127
+#: View/Users/view.ctp:27
+msgid "Logs"
+msgstr ""
+
+#: View/Elements/navbar-top.ctp:38
+#: View/Elements/student/navbar-top.ctp:88
+#: View/Elements/teacher/navbar-top.ctp:56
+msgid "Member since"
+msgstr "Membro desde"
+
+#: View/Elements/navbar-top.ctp:50
+#: View/Elements/student/navbar-top.ctp:101
+#: View/Elements/teacher/navbar-top.ctp:69
+msgid "Profile"
+msgstr "Perfil"
+
+#: View/Elements/navbar-top.ctp:59
+#: View/Elements/student/navbar-top.ctp:110
+#: View/Elements/teacher/navbar-top.ctp:78
+msgid "Sign out"
+msgstr "Sair"
+
+#: View/Elements/student/navbar-left.ctp:96
+#: View/Matriculations/student_ranking.ctp:4;8
+msgid "Ranking"
+msgstr ""
+
+#: View/Elements/student/navbar-left.ctp:129
+msgid "Extract Points"
+msgstr "Extrato de pontos"
+
+#: View/Elements/student/navbar-left.ctp:139
+#: View/Elements/teacher/navbar-left.ctp:136
+msgid "To award"
+msgstr ""
+
+#: View/Elements/student/navbar-left.ctp:150
+#: View/Elements/teacher/navbar-left.ctp:147
+#: View/Matriculations/view.ctp:30
+#: View/Rewards/add.ctp:5;9
+#: View/Rewards/edit.ctp:5;9
+#: View/Rewards/index.ctp:3;7
+#: View/Rewards/teacher_add.ctp:6;11
+#: View/Rewards/teacher_edit.ctp:6;11
+#: View/Rewards/teacher_index.ctp:3;8
+#: View/Rewards/view.ctp:3;7
+#: View/Rooms/view.ctp:29
+msgid "Rewards"
+msgstr "Recompensas"
+
+#: View/Errors/missing_controller.ctp:3
+msgid "Você não tem acesso a esta página !"
+msgstr ""
+
+#: View/Errors/missing_controller.ctp:4
+msgid "Negado"
+msgstr ""
+
+#: View/Errors/missing_controller.ctp:9
+#: View/Users/edit.ctp:17;22
+#: View/Users/session_edit.ctp:17;22
+msgid "Edit User"
+msgstr ""
+
+#: View/Groups/add.ctp:4
+#: View/Groups/edit.ctp:4
+#: View/Groups/view.ctp:4;26
+#: View/Users/view.ctp:44
+#: Plugin/admin/View/Users/admin_add.ctp:3
+#: Plugin/admin/View/Users/admin_edit.ctp:20
+#: Plugin/admin/View/Users/admin_index.ctp:33
+msgid "Group"
+msgstr ""
+
+#: View/Groups/add.ctp:8
+msgid "Add Group"
+msgstr ""
+
+#: View/Groups/add.ctp:23
+#: View/Groups/edit.ctp:24
+#: View/Groups/index.ctp:24;34
+#: View/Groups/view.ctp:69
+#: View/Students/add.ctp:28
+#: View/Students/edit.ctp:31
+#: View/Teachers/add.ctp:28
+#: View/Teachers/edit.ctp:30
+#: View/Users/add.ctp:30
+#: View/Users/index.ctp:28;41
+msgid "name"
+msgstr ""
+
+#: View/Groups/add.ctp:24
+#: View/Groups/edit.ctp:25
+#: View/Groups/index.ctp:25;35
+msgid "alias"
+msgstr ""
+
+#: View/Groups/edit.ctp:8
+msgid "Edit Group"
+msgstr ""
+
+#: View/Groups/view.ctp:8
+msgid "View Group"
+msgstr ""
+
+#: View/Groups/view.ctp:34
+#: View/Users/view.ctp:60
+#: Plugin/admin/View/Groups/admin_index.ctp:12
+#: Plugin/admin/View/Users/admin_add.ctp:15
+#: Plugin/admin/View/Users/admin_edit.ctp:32
+#: Plugin/admin/View/Users/admin_index.ctp:32
+msgid "Name"
+msgstr ""
+
+#: View/Groups/view.ctp:38
+msgid "Alias"
+msgstr ""
+
+#: View/Groups/view.ctp:56
+msgid "Related Users"
+msgstr ""
+
+#: View/Groups/view.ctp:66
+#: View/Users/add.ctp:23
+#: View/Users/index.ctp:24;37
+#: Plugin/admin/View/Users/admin_login.ctp:12
+msgid "username"
+msgstr ""
+
+#: View/Groups/view.ctp:67
+#: View/Users/add.ctp:24
+#: View/Users/index.ctp:25;38
+#: Plugin/admin/View/Users/admin_login.ctp:18
+msgid "password"
+msgstr ""
+
+#: View/Groups/view.ctp:68
+#: View/Users/add.ctp:29
+#: View/Users/index.ctp:27;40
+#: Plugin/admin/View/Users/admin_add.ctp:67
+#: Plugin/admin/View/Users/admin_edit.ctp:71
+msgid "status"
+msgstr ""
+
+#: View/Groups/view.ctp:70
+#: View/Users/add.ctp:31
+#: View/Users/index.ctp:29;42
+msgid "email"
+msgstr ""
+
+#: View/Matriculations/add.ctp:4
+#: View/Matriculations/edit.ctp:4
+#: View/Matriculations/teacher_add.ctp:4
+#: View/Matriculations/teacher_edit.ctp:4
+#: View/Matriculations/view.ctp:4;27
+#: View/MatriculationsRewards/view.ctp:33
+#: View/Points/view.ctp:37
+msgid "Matriculation"
+msgstr "Matrícula"
+
+#: View/Matriculations/add.ctp:9
+#: View/Matriculations/teacher_add.ctp:9
+msgid "Add Matriculation"
+msgstr "Add Matrícula"
+
+#: View/Matriculations/edit.ctp:9
+#: View/Matriculations/teacher_edit.ctp:9
+msgid "Edit Matriculation"
+msgstr "Editar Matrícula"
+
+#: View/Matriculations/student_ranking.ctp:18
+msgid "Ranking for Points"
+msgstr "Ranking por pontos"
+
+#: View/Matriculations/student_ranking.ctp:28
+msgid "Punctuation"
+msgstr "Pontuação"
+
+#: View/Matriculations/view.ctp:8
+msgid "View Matriculation"
+msgstr "Visualizar matrícula"
+
+#: View/Matriculations/view.ctp:38
+#: View/Students/add.ctp:4
+#: View/Students/edit.ctp:4
+#: View/Students/view.ctp:4;26
+msgid "Student"
+msgstr "Aluno"
+
+#: View/Matriculations/view.ctp:52
+msgid "Related Points"
+msgstr "Pontos relacionados"
+
+#: View/Matriculations/view.ctp:62
+#: View/Points/add.ctp:23
+#: View/Points/edit.ctp:24
+#: View/Points/index.ctp:24;33
+#: View/Points/student_extract_points.ctp:26
+#: View/Points/teacher_add.ctp:25
+#: View/Points/teacher_edit.ctp:26
+#: View/Points/teacher_index.ctp:26
+msgid "vl_point"
+msgstr "Valor do ponto"
+
+#: View/Matriculations/view.ctp:103
+#: View/Rooms/view.ctp:62
+#: View/Teams/view.ctp:61
+msgid "Related Activities"
+msgstr ""
+
+#: View/Matriculations/view.ctp:114
+#: View/Rooms/view.ctp:75
+#: View/Teams/view.ctp:74
+msgid "vl_activity"
+msgstr "Valor da atividade"
+
+#: View/Matriculations/view.ctp:158
+#: View/Rooms/view.ctp:180
+msgid "Related Rewards"
+msgstr "Recompensas relacionadas"
+
+#: View/Matriculations/view.ctp:168
+#: View/Rewards/add.ctp:25
+#: View/Rewards/edit.ctp:26
+#: View/Rewards/index.ctp:24;34
+#: View/Rewards/teacher_add.ctp:29
+#: View/Rewards/teacher_edit.ctp:30
+#: View/Rewards/teacher_index.ctp:27;38
+#: View/Rooms/view.ctp:192
+msgid "ds_brinde"
+msgstr "Descrição do brinde"
+
+#: View/Matriculations/view.ctp:169
+#: View/Rewards/add.ctp:26
+#: View/Rewards/edit.ctp:27
+#: View/Rewards/index.ctp:25;35
+#: View/Rewards/teacher_add.ctp:30
+#: View/Rewards/teacher_edit.ctp:31
+#: View/Rewards/teacher_index.ctp:28;39
+#: View/Rooms/view.ctp:193
+msgid "vl_pontos_brinde"
+msgstr ""
+
+#: View/MatriculationsRewards/add.ctp:3;7
+#: View/MatriculationsRewards/edit.ctp:3;7
+#: View/MatriculationsRewards/index.ctp:3;7
+#: View/MatriculationsRewards/teacher_add.ctp:3;8
+#: View/MatriculationsRewards/teacher_edit.ctp:3;8
+#: View/MatriculationsRewards/teacher_index.ctp:3;8
+#: View/MatriculationsRewards/view.ctp:3;7
+msgid "Matriculations Rewards"
+msgstr ""
+
+#: View/MatriculationsRewards/add.ctp:4
+#: View/MatriculationsRewards/edit.ctp:4
+#: View/MatriculationsRewards/teacher_add.ctp:4
+#: View/MatriculationsRewards/teacher_edit.ctp:4
+#: View/MatriculationsRewards/view.ctp:4;26
+msgid "Matriculations Reward"
+msgstr ""
+
+#: View/MatriculationsRewards/add.ctp:8
+#: View/MatriculationsRewards/teacher_add.ctp:9
+msgid "Add Matriculations Reward"
+msgstr ""
+
+#: View/MatriculationsRewards/add.ctp:26;27
+#: View/MatriculationsRewards/edit.ctp:27;28
+#: View/MatriculationsRewards/index.ctp:25;37
+#: View/MatriculationsRewards/teacher_add.ctp:29;30
+#: View/MatriculationsRewards/teacher_edit.ctp:29;30
+#: View/MatriculationsRewards/teacher_index.ctp:27;39
+#: View/Points/add.ctp:24;25
+#: View/Points/edit.ctp:25;26
+#: View/Points/index.ctp:25;34
+#: View/Points/teacher_add.ctp:26;27
+#: View/Points/teacher_edit.ctp:27;28
+#: View/Points/teacher_index.ctp:28;39
+msgid "matriculation_id"
+msgstr ""
+
+#: View/MatriculationsRewards/add.ctp:32;33
+#: View/MatriculationsRewards/edit.ctp:33;34
+#: View/MatriculationsRewards/index.ctp:27;39
+#: View/MatriculationsRewards/teacher_add.ctp:34
+#: View/MatriculationsRewards/teacher_edit.ctp:34;35
+#: View/MatriculationsRewards/teacher_index.ctp:29;41
+#: View/Points/student_extract_points.ctp:28;37
+#: View/Points/teacher_index.ctp:29;40
+msgid "activity_id"
+msgstr ""
+
+#: View/MatriculationsRewards/edit.ctp:8
+#: View/MatriculationsRewards/teacher_edit.ctp:9
+msgid "Edit Matriculations Reward"
+msgstr ""
+
+#: View/MatriculationsRewards/view.ctp:8
+msgid "View Matriculations Reward"
+msgstr ""
+
+#: View/Pages/student_home.ctp:30
+msgid ""
+msgstr ""
+
+#: View/Pages/student_home.ctp:44
+msgid "Ranking of the classe"
+msgstr ""
+
+#: View/Pages/student_home.ctp:80
+msgid "Activity For Team"
+msgstr ""
+
+#: View/Pages/student_home.ctp:89
+msgid "Challenge For Team"
+msgstr ""
+
+#: View/Pages/student_home.ctp:109
+msgid "TOTAL ACTIVITIES"
+msgstr ""
+
+#: View/Pages/student_home.ctp:117
+msgid "TOTAL CHALLENGE"
+msgstr ""
+
+#: View/Pages/student_home.ctp:127
+msgid "TOTAL ACTIVITIES FOT TEAM"
+msgstr ""
+
+#: View/Pages/student_home.ctp:136
+msgid "TOTAL CHALLENGE FOR TEAM"
+msgstr ""
+
+#: View/Points/add.ctp:4
+#: View/Points/edit.ctp:4
+#: View/Points/teacher_add.ctp:4
+#: View/Points/teacher_edit.ctp:4
+#: View/Points/view.ctp:4;26
+msgid "Point"
+msgstr ""
+
+#: View/Points/add.ctp:8
+#: View/Points/teacher_add.ctp:9
+msgid "Add Point"
+msgstr ""
+
+#: View/Points/edit.ctp:8
+#: View/Points/teacher_edit.ctp:9
+msgid "Edit Point"
+msgstr ""
+
+#: View/Points/student_extract_points.ctp:4
+msgid "Extract"
+msgstr ""
+
+#: View/Points/view.ctp:8
+msgid "View Point"
+msgstr ""
+
+#: View/Points/view.ctp:33
+msgid "Vl Point"
+msgstr ""
+
+#: View/Rewards/add.ctp:10
+#: View/Rewards/teacher_add.ctp:12
+msgid "Add Reward"
+msgstr ""
+
+#: View/Rewards/edit.ctp:10
+#: View/Rewards/teacher_edit.ctp:12
+msgid "Edit Reward"
+msgstr ""
+
+#: View/Rewards/teacher_add.ctp:28
+#: View/Rewards/teacher_edit.ctp:29
+#: View/Rewards/teacher_index.ctp:26;37
+#: View/Rooms/view.ctp:191
+msgid "nm_brinde"
+msgstr ""
+
+#: View/Rewards/teacher_add.ctp:31
+#: View/Rewards/teacher_edit.ctp:32
+msgid "nm_icon"
+msgstr ""
+
+#: View/Rewards/teacher_index.ctp:29
+msgid "Icon"
+msgstr ""
+
+#: View/Rewards/view.ctp:8
+msgid "View Reward"
+msgstr ""
+
+#: View/Rewards/view.ctp:34
+msgid "Ds Brinde"
+msgstr ""
+
+#: View/Rewards/view.ctp:38
+msgid "Vl Pontos Brinde"
+msgstr ""
+
+#: View/Rooms/add.ctp:9
+msgid "Add Room"
+msgstr ""
+
+#: View/Rooms/add.ctp:28;29
+#: View/Rooms/edit.ctp:27;28
+#: View/Rooms/index.ctp:27;39
+#: View/Teachers/view.ctp:54
+msgid "subject_id"
+msgstr ""
+
+#: View/Rooms/add.ctp:30;31
+#: View/Rooms/edit.ctp:30;31
+#: View/Rooms/index.ctp:28;40
+#: View/Subjects/view.ctp:54
+msgid "teacher_id"
+msgstr ""
+
+#: View/Rooms/add.ctp:33
+#: View/Rooms/edit.ctp:33
+#: View/Rooms/index.ctp:29;41
+msgid "ds_room"
+msgstr ""
+
+#: View/Rooms/edit.ctp:8
+msgid "Edit Room"
+msgstr ""
+
+#: View/Rooms/view.ctp:8
+msgid "View Room"
+msgstr ""
+
+#: View/Rooms/view.ctp:44
+#: View/Subjects/add.ctp:4
+#: View/Subjects/edit.ctp:4
+#: View/Subjects/view.ctp:4;26
+msgid "Subject"
+msgstr ""
+
+#: View/Rooms/view.ctp:48
+#: View/Teachers/add.ctp:4
+#: View/Teachers/edit.ctp:4
+#: View/Teachers/view.ctp:4;26
+msgid "Teacher"
+msgstr ""
+
+#: View/Rooms/view.ctp:52
+msgid "Ds Room"
+msgstr ""
+
+#: View/Students/add.ctp:9
+msgid "Add Student"
+msgstr ""
+
+#: View/Students/edit.ctp:9
+msgid "Edit Student"
+msgstr ""
+
+#: View/Students/view.ctp:8
+msgid "View Student"
+msgstr ""
+
+#: View/Students/view.ctp:34
+msgid "Nm Student"
+msgstr ""
+
+#: View/Subjects/add.ctp:8
+msgid "Add Subject"
+msgstr ""
+
+#: View/Subjects/add.ctp:23
+#: View/Subjects/edit.ctp:24
+#: View/Subjects/index.ctp:24;32
+msgid "nm_subject"
+msgstr ""
+
+#: View/Subjects/edit.ctp:8
+msgid "Edit Subject"
+msgstr ""
+
+#: View/Subjects/view.ctp:8
+msgid "View Subject"
+msgstr ""
+
+#: View/Subjects/view.ctp:34
+msgid "Nm Subject"
+msgstr ""
+
+#: View/Subjects/view.ctp:44
+#: View/Teachers/view.ctp:44
+msgid "Related Rooms"
+msgstr ""
+
+#: View/Teachers/add.ctp:9
+msgid "Add Teacher"
+msgstr ""
+
+#: View/Teachers/add.ctp:26
+#: View/Teachers/index.ctp:27;35
+#: View/Users/view.ctp:199
+msgid "nm_teacher"
+msgstr ""
+
+#: View/Teachers/edit.ctp:9
+msgid "Edit Teacher"
+msgstr ""
+
+#: View/Teachers/view.ctp:8
+msgid "View Teacher"
+msgstr ""
+
+#: View/Teachers/view.ctp:34
+msgid "Nm Teacher"
+msgstr ""
+
+#: View/Teams/add.ctp:4
+#: View/Teams/edit.ctp:4
+#: View/Teams/teacher_add.ctp:4
+#: View/Teams/teacher_edit.ctp:4
+#: View/Teams/view.ctp:4;26
+msgid "Team"
+msgstr ""
+
+#: View/Teams/add.ctp:8
+#: View/Teams/teacher_add.ctp:9
+msgid "Add Team"
+msgstr ""
+
+#: View/Teams/edit.ctp:8
+#: View/Teams/teacher_edit.ctp:9
+msgid "Edit Team"
+msgstr ""
+
+#: View/Teams/view.ctp:8
+msgid "View Team"
+msgstr ""
+
+#: View/Teams/view.ctp:43
+msgid "Nm Team"
+msgstr ""
+
+#: View/Teams/view.ctp:47
+msgid "Ds Team"
+msgstr ""
+
+#: View/Users/add.ctp:4
+#: View/Users/view.ctp:4;26
+msgid "User"
+msgstr ""
+
+#: View/Users/add.ctp:8
+msgid "Add User"
+msgstr ""
+
+#: View/Users/add.ctp:25;26
+#: View/Users/index.ctp:26;39
+msgid "group_id"
+msgstr ""
+
+#: View/Users/edit.ctp:49
+#: View/Users/session_edit.ctp:49
+msgid "nickname"
+msgstr ""
+
+#: View/Users/edit.ctp:66
+#: View/Users/session_edit.ctp:66
+msgid "Cancelar"
+msgstr ""
+
+#: View/Users/view.ctp:8
+msgid "View User"
+msgstr ""
+
+#: View/Users/view.ctp:36
+#: Plugin/admin/View/Users/admin_add.ctp:41
+#: Plugin/admin/View/Users/admin_edit.ctp:58
+#: Plugin/admin/View/Users/admin_index.ctp:35
+#: Plugin/admin/View/Users/admin_login.ctp:15
+msgid "Username"
+msgstr ""
+
+#: View/Users/view.ctp:40
+#: Plugin/admin/View/Users/admin_add.ctp:54
+#: Plugin/admin/View/Users/admin_login.ctp:21
+msgid "Password"
+msgstr ""
+
+#: View/Users/view.ctp:64
+msgid "Email"
+msgstr ""
+
+#: View/Users/view.ctp:74
+msgid "Related Logs"
+msgstr ""
+
+#: View/Users/view.ctp:84
+msgid "model"
+msgstr ""
+
+#: View/Users/view.ctp:85
+msgid "action"
+msgstr ""
+
+#: View/Users/view.ctp:86
+msgid "old_data"
+msgstr ""
+
+#: View/Users/view.ctp:87
+msgid "new_data"
+msgstr ""
+
+#: View/Users/view.ctp:131
+msgid "Related Students"
+msgstr ""
+
+#: View/Users/view.ctp:188
+msgid "Related Teachers"
+msgstr ""
+
+#: Model/Activity.php:validation for field ds_activity
+#: Model/Group.php:validation for field name;validation for field active;validation for field removed
+#: Model/MatriculationsReward.php:validation for field active;validation for field removed
+#: Model/Reward.php:validation for field ds_brinde
+#: Model/Student.php:validation for field nm_student
+#: Model/Subject.php:validation for field nm_subject
+#: Model/Teacher.php:validation for field nm_teacher
+#: Model/Team.php:validation for field active;validation for field removed;validation for field nm_team
+msgid "notBlank"
+msgstr ""
+
+#: Model/Activity.php:validation for field vl_activity_sucess;validation for field vl_activity_attempt;validation for field vl_activity_failed
+#: Model/Point.php:validation for field vl_point
+#: Model/Reward.php:validation for field vl_pontos_brinde
+msgid "decimal"
+msgstr ""
+
+#: Model/Activity.php:validation for field room_id
+#: Model/Matriculation.php:validation for field student_id;validation for field room_id
+#: Model/MatriculationsReward.php:validation for field matriculation_id;validation for field reward_id
+#: Model/Point.php:validation for field matriculation_id
+#: Model/Reward.php:validation for field room_id
+#: Model/Room.php:validation for field subject_id;validation for field teacher_id
+#: Model/Team.php:validation for field room_id
+msgid "numeric"
+msgstr ""
+
+#: Model/User.php:validation for field email
+msgid "This email already exists."
+msgstr ""
+
+#: Model/User.php:validation for field email
+msgid "Invalid E-mail."
+msgstr ""
+
+#: Model/User.php:validation for field username
+msgid "This username already exists."
+msgstr ""
+
+#: Model/User.php:validation for field password
+msgid "Password must be have 6 characters at minimum."
+msgstr ""
+
+#: Model/User.php:validation for field password_again
+msgid "The passwords no match."
+msgstr ""
+
+#: Model/User.php:validation for field name
+msgid "Name fields is required."
+msgstr ""
+
+#: Model/User.php:validation for field image
+msgid "Something went wrong with the file upload"
+msgstr ""
+
+#: Model/User.php:validation for field image
+msgid "Invalid file, only images allowed"
+msgstr ""
+
+#: Model/User.php:validation for field image
+msgid "Something went wrong processing your file"
+msgstr ""
+
+#: Plugin/Upload/Model/Behavior/UploadBehavior.php:280
+msgid "File was not downloaded."
+msgstr ""
+
+#: Plugin/admin/Controller/GroupsController.php:45
+msgid "Group created."
+msgstr ""
+
+#: Plugin/admin/Controller/GroupsController.php:61
+#: Plugin/admin/Controller/UsersController.php:66;193
+msgid "Invalid ID"
+msgstr ""
+
+#: Plugin/admin/Controller/GroupsController.php:68
+msgid "The Group was saved."
+msgstr ""
+
+#: Plugin/admin/Controller/GroupsController.php:86
+msgid "Invalid ID."
+msgstr ""
+
+#: Plugin/admin/Controller/GroupsController.php:91
+msgid "The user was deleted."
+msgstr ""
+
+#: Plugin/admin/Controller/PermissionsController.php:40
+#: Plugin/admin/View/Users/admin_index.ctp:15
+msgid "Permissions"
+msgstr ""
+
+#: Plugin/admin/Controller/PermissionsController.php:167
+msgid "All Controllers was sincronized."
+msgstr ""
+
+#: Plugin/admin/Controller/UsersController.php:50
+msgid "User saved."
+msgstr ""
+
+#: Plugin/admin/Controller/UsersController.php:71
+msgid "User was saved."
+msgstr ""
+
+#: Plugin/admin/Controller/UsersController.php:198
+msgid "password was saved."
+msgstr ""
+
+#: Plugin/admin/Controller/UsersController.php:212
+msgid "Invalid ID!"
+msgstr ""
+
+#: Plugin/admin/Controller/UsersController.php:216
+msgid "User was deleted."
+msgstr ""
+
+#: Plugin/admin/Controller/Component/AclPermissionsComponent.php:96
+msgid "You have no authority to access this router."
+msgstr ""
+
+#: Plugin/admin/View/Groups/admin_add.ctp:3
+#: Plugin/admin/View/Groups/admin_edit.ctp:6
+msgid "Name:"
+msgstr ""
+
+#: Plugin/admin/View/Groups/admin_add.ctp:17
+#: Plugin/admin/View/Groups/admin_edit.ctp:20
+#: Plugin/admin/View/Users/admin_add.ctp:85
+#: Plugin/admin/View/Users/admin_edit.ctp:89
+#: Plugin/admin/View/Users/admin_reset_password.ctp:32
+msgid "Save"
+msgstr ""
+
+#: Plugin/admin/View/Permissions/admin_index.ctp:25
+msgid "Section"
+msgstr ""
+
+#: Plugin/admin/View/Permissions/admin_index.ctp:71
+msgid "alowed"
+msgstr ""
+
+#: Plugin/admin/View/Permissions/admin_index.ctp:79
+msgid "denied"
+msgstr ""
+
+#: Plugin/admin/View/Permissions/admin_index.ctp:88
+msgid "allowed"
+msgstr ""
+
+#: Plugin/admin/View/Users/admin_add.ctp:77
+#: Plugin/admin/View/Users/admin_edit.ctp:81
+msgid "Unactive"
+msgstr ""
+
+#: Plugin/admin/View/Users/admin_edit.ctp:4
+msgid "Reset password"
+msgstr ""
+
+#: Plugin/admin/View/Users/admin_login.ctp:25
+msgid "Login"
+msgstr ""
+
+#: Plugin/admin/View/Users/admin_reset_password.ctp:7
+msgid "Password:"
+msgstr ""
+
+#: Plugin/admin/View/Users/admin_reset_password.ctp:19
+msgid "Password again:"
+msgstr ""
+
+#: Plugin/admin/View/Layouts/admin.ctp:19
+#: View/Layouts/default.ctp:17
+#: View/Layouts/error.ctp:17
+#: View/Layouts/student.ctp:17
+#: View/Layouts/teacher.ctp:17
+msgid "CakePHP: the rapid development php framework"
+msgstr ""
+
+#: Plugin/admin/View/Layouts/admin.ctp:20
+#: View/Layouts/default.ctp:18
+#: View/Layouts/student.ctp:18
+#: View/Layouts/teacher.ctp:18
+msgid "CakePHP %s"
+msgstr ""
+
+#: webroot/test.php:100
+msgid "Debug setting does not allow access to this URL."
+msgstr ""
+
+#: View/Errors/error400.ctp:19
+#: View/Errors/error500.ctp:19
+msgid "Error"
+msgstr ""
+
+#: View/Errors/error400.ctp:21
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: View/Errors/error500.ctp:20
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
