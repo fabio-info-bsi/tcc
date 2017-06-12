@@ -646,10 +646,11 @@ class ActivitiesController extends AppController {
 
     public function student_time_line() {
         
-        $timeLine = $this->Activity->Matriculation->find('first',array(
+        $timeLineX = $this->Activity->Matriculation->find('first',array(
             'conditions' => array(
                 'Activity.removed' => 'N',
                 //'Activity.activite' => 'S',
+                //'Activity.type_activity' => 'AT',
                 'Matriculation.id' => $this->Session->read('Auth.User.SelectMatriculation.id')
             ),
             'joins' => array(
@@ -658,17 +659,90 @@ class ActivitiesController extends AppController {
                     'alias' => 'MatriculationsActivity',
                     'type' => 'INNER',
                     'conditions' => 'MatriculationsActivity.matriculation_id = Matriculation.id'),
+                
+//                //Matriculation in Tieams
+//                array(
+//                    'table' => 'matriculations_teams',
+//                    'alias' => 'MatriculationsTeam',
+//                    'type' => 'LEFT',
+//                    'conditions' => 'MatriculationsTeam.matriculation_id = Matriculation.id'),
+//                
+//                //Team
+//                array(
+//                    'table' => 'teams',
+//                    'alias' => 'Team',
+//                    'type' => 'LEFT',
+//                    'conditions' => 'MatriculationsTeam.team_id = Team.id'),
+//                //Team in activity
+//                array(
+//                    'table' => 'activities_teams',
+//                    'alias' => 'ActivitiesTeam',
+//                    'type' => 'INNER',
+//                    'conditions' => 'ActivitiesTeam.team_id = Team.id'),//ActivitiesTeam.activity_id = Activity.id and 
+                
                 array(
                     'table' => 'activities',
                     'alias' => 'Activity',
                     'type' => 'INNER',
-                    'conditions' => 'MatriculationsActivity.activity_id = Activity.id'),
+                    'conditions' => 'MatriculationsActivity.activity_id = Activity.id'),//--or ActivitiesTeam.activity_id = Activity.id
+                
             )
                 )
         );
+        $this->Activity->unbindModel(array('hasMany' => array('Point'), 'hasAndBelongsToMany'=>array('Matriculation', 'Team')));
+        $timeLine = $this->Activity->find('all',array(
+            'conditions' => array(
+                'Activity.removed' => 'N',
+                //'Activity.activite' => 'S',
+                //'Activity.type_activity' => 'AT',
+                //'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')
+                //'MatriculationsTeam.matriculation_id'=> $this->Session->read('Auth.User.SelectMatriculation.id')
+                'OR'=> array(
+                    'MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id'),
+                    'MatriculationsTeam.matriculation_id'=> $this->Session->read('Auth.User.SelectMatriculation.id')
+                    //array('MatriculationsActivity.matriculation_id' => $this->Session->read('Auth.User.SelectMatriculation.id')),
+                    //array('MatriculationsTeam.matriculation_id'=> $this->Session->read('Auth.User.SelectMatriculation.id'))
+                )
+            ),
+            'joins' => array(
+                
+                array(
+                    'table' => 'matriculations_activities',
+                    'alias' => 'MatriculationsActivity',
+                    'type' => 'LEFT',
+                    'conditions' => 'MatriculationsActivity.activity_id = Activity.id and MatriculationsActivity.matriculation_id = '.$this->Session->read('Auth.User.SelectMatriculation.id')),
+                
+                //Team in activity
+                array(
+                    'table' => 'activities_teams',
+                    'alias' => 'ActivitiesTeam',
+                    'type' => 'LEFT',
+                    'conditions' => 'ActivitiesTeam.activity_id = Activity.id'),//ActivitiesTeam.activity_id = Activity.id and 
+                
+                //Matriculation in Tieams
+                array(
+                    'table' => 'matriculations_teams',
+                    'alias' => 'MatriculationsTeam',
+                    'type' => 'LEFT',
+                    'conditions' => 'MatriculationsTeam.team_id = ActivitiesTeam.team_id'),
+                
+            ),
+            'fields' => array(
+                'Activity.*',
+                'MatriculationsActivity.*',
+                'MatriculationsTeam.*'
+            ),
+            'order' => 'Activity.created DESC'
+                )
+        );
+        
+        //debug($timeLineX);
+        
         //debug($timeLine)or die;
+        
+        
 
-        $this->set(compact('timeLine'));
+        $this->set(compact('timeLine','timeLineGroups'));
     }
 
 }

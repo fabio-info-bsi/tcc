@@ -278,7 +278,7 @@ Configure::write('Config.language', 'por');
  * then the value of `Config.timezone` will be used. This feature allows you to set users' timezone just
  * once instead of passing it each time in function calls.
  */
-	//Configure::write('Config.timezone', 'Europe/Paris');
+	Configure::write('Config.timezone', 'America/Sao_Paulo');
 
 /**
  * Cache Engine Configuration
@@ -387,3 +387,4 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+

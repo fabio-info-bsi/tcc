@@ -23,7 +23,7 @@ echo $this->Html->script('/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.
                     <a href="<?php echo $this->Html->url(); ?>" ><button class="btn btn-primary" title='<?= __('Refresh') ?>' data-original-title='<?= __('Refresh') ?>' data-toggle="tooltip" type="button"><i class="fa fa-refresh fa-fw"></i></button></a>
                 </div>
                 <div class="row">
-                    <div class="col-sm-12 col-md-7 col-xs-12">
+                    <div class="col-sm-12 col-md-12 col-xs-12">
                         <div style="margin: 20px">
                             <?php
                             echo $this->Html->div('row', $this->Form->input('nm_activity', array('div' => 'col-xs-12', 'data-toggle' => 'tooltip', 'data-original-title' => __('nm_activity'), 'title' => __('nm_activity'), 'class' => 'form-control input-sm')), array('escape' => false));

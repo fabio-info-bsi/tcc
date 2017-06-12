@@ -92,7 +92,7 @@ class MatriculationsController extends AppController {
         $options = array('Matriculation.removed' => 'N', "Matriculation.room_id" => $this->Session->read('Auth.User.SelectRoom.id'));
         $this->set('matriculations', $this->Paginator->paginate($options));
 
-        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'), 'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.nm_student'));
+        $students = $this->Matriculation->Student->find('list', array('fields' => array('Student.id', 'Student.nm_student'), 'conditions' => array('Student.removed' => 'N', 'Student.active' => 'S'), 'order' => 'Student.created'));
         //$rooms = $this->Matriculation->Room->find('list', array('conditions' => array('Room.removed' => 'N', 'Room.active' => 'S'), 'order' => 'Room.ds_room'));
         //$activities = $this->Matriculation->Activity->find('list', array('conditions' => array('Activity.removed' => 'N', 'Activity.active' => 'S'), 'order' => 'Activity.nm_activity'));
         //$rewards = $this->Matriculation->Reward->find('list', array('conditions' => array('Reward.removed' => 'N', 'Reward.active' => 'S'), 'order' => 'Reward.nm_brinde'));
