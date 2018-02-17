@@ -311,9 +311,10 @@ class MatriculationsController extends AppController {
             'group' => array(
 				'Student.nm_student' //segunda tentativa
                 ,'Matriculation.id'
+				,'User.image'
             ),
             'fields' => array(
-                //'User.*',
+                'User.image',
                 'Student.nm_student',
                 'sum(Point.vl_point) as total_points',
                 'sum(Point.vl_point_redeemable) as total_points_redeemable'
