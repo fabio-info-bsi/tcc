@@ -728,9 +728,15 @@ class ActivitiesController extends AppController {
                 
             ),
             'fields' => array(
-                'Activity.*',
-                'MatriculationsActivity.*',
-                'MatriculationsTeam.*'
+                'Activity.created',
+				'Activity.type_activity',
+				'Activity.nm_activity',
+				'Activity.ds_activity', 
+				'Activity.vl_activity_sucess', 
+				'Activity.vl_activity_attempt', 
+				'Activity.vl_activity_failed',
+                'MatriculationsActivity.sts_activity'
+				//, 'MatriculationsTeam.*'
             ),
             'order' => 'Activity.created DESC'
                 )
