@@ -309,7 +309,7 @@ class MatriculationsController extends AppController {
                 'Matriculation.room_id' => $this->Session->read('Auth.User.SelectMatriculation.room_id'),
             ),
             'group' => array(
-				'Student.nm_student'
+				'Student.nm_student' //add
                 ,'Matriculation.id'
             ),
             'fields' => array(
