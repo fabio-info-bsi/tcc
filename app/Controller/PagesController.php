@@ -348,7 +348,8 @@ class PagesController extends AppController {
                 'Matriculation.room_id' => $this->Session->read('Auth.User.SelectMatriculation.room_id'),
             ),
             'group' => array(
-                'Matriculation.id'
+                'Matriculation.id',
+				'Student.nm_student'
             ),
             'fields' => array(
                 'Student.nm_student',
