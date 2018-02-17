@@ -89,8 +89,8 @@ class PagesController extends AppController {
             //'Activity.type_activity' => 'A'
             ),
             'group' => array(
-                //'Matriculation.id'
-                'Activity.type_activity'
+                'Matriculation.id'
+                ,'Activity.type_activity'
             ),
             'fields' => array(
                 //'Student.nm_student',
