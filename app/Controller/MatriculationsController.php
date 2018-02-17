@@ -309,10 +309,11 @@ class MatriculationsController extends AppController {
                 'Matriculation.room_id' => $this->Session->read('Auth.User.SelectMatriculation.room_id'),
             ),
             'group' => array(
-                'Matriculation.id'
+				'Student.nm_student'
+                ,'Matriculation.id'
             ),
             'fields' => array(
-                'User.*',
+                //'User.*',
                 'Student.nm_student',
                 'sum(Point.vl_point) as total_points',
                 'sum(Point.vl_point_redeemable) as total_points_redeemable'
