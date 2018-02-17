@@ -312,7 +312,7 @@ class MatriculationsController extends AppController {
                 'Matriculation.id'
             ),
             'fields' => array(
-                'User.*',
+                //'User.*',
                 'Student.nm_student',
                 'sum(Point.vl_point) as total_points',
                 'sum(Point.vl_point_redeemable) as total_points_redeemable'
