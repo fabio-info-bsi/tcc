@@ -67,7 +67,9 @@
  * A key/value array of driver specific connection options.
  */
 class DATABASE_CONFIG {
-
+	public $default = array();
+	public $test = array();
+/*
 	public $default = array(
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
@@ -89,12 +91,13 @@ class DATABASE_CONFIG {
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
+	*/
 	function __construct() {
  
         $url = parse_url(getenv('DATABASE_URL'));
  
         $this->default = array(
-            'datasource' => 'Database/Mysql',
+            'datasource' => 'Database/Postgres',
             'persistent' => false,
             'host' => $url['host'],
             'login' => $url['user'],
@@ -105,7 +108,7 @@ class DATABASE_CONFIG {
         );
  
         $this->test = array(
-            'datasource' => 'Database/Mysql',
+            'datasource' => 'Database/Postgres',
             'persistent' => false,
             'host' => 'localhost',
             'login' => 'user',
